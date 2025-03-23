@@ -1,0 +1,30 @@
+i.password-toggler
+{
+    right: unset;
+    left: 7px;
+}
+#profile-card .image-holder i
+{
+  right: unset;
+  left: 7px;
+}
+#profile-card #social-media li i
+{
+  left: unset;
+  right: 7px;
+}
+#profile-card #social-media li input
+{
+  padding-left: 0;
+  padding-right: 30px;
+}
+
+.lang-menu
+{
+  right: unset;
+  left: 0;
+}
+.lang-menu:after {
+  right: unset;
+  left: 20px;
+}
