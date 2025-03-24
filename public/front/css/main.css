@@ -189,12 +189,12 @@ i.password-toggler
   font-weight: bold;
 }
 
-.navbar .lang-menu
+.lang-menu
 {
   display: none
 }
 
-.navbar .lang-menu.show
+.lang-menu.show
 {
   display: block;
 }
