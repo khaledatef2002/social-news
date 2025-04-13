@@ -32,10 +32,13 @@
                             <i class="fas fa-eye password-toggler" role="button"></i>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-dark px-4 w-100" value="إنشاء الحساب">
+                    <button type="submit" class="btn btn-dark px-4 w-100 loader-btn">
+                        <p>إنشاء الحساب</p>
+                        <span class="loader"></span>
+                    </button>
                     <p class="my-2">
                         <span>لديك حساب بالفعل؟</span>
-                        <a href="{{ route('front.login') }}" class="text-dark">سجل الدخول الان</a>
+                        <a href="{{ route('login') }}" class="text-dark">سجل الدخول الان</a>
                     </p>
                 </form>
             </div>

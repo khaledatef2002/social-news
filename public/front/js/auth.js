@@ -21,11 +21,32 @@ class AuthManager {
 
             this.iti = this.setup_iti()
         }
+
+        
+        this.forgot_password_form = document.querySelector("form#forgot-password-form")
+        if(this.forgot_password_form)
+        {
+            this.forgot_password_form.addEventListener("submit", this.forgot_password.bind(this))
+            this.forgot_password_button = this.forgot_password_form.querySelector("[type='submit']")
+
+            this.iti = this.setup_iti()
+        }
+
+        
+        this.reset_password_form = document.querySelector("form#password-reset-form")
+        if(this.reset_password_form)
+        {
+            this.reset_password_form.addEventListener("submit", this.reset_password.bind(this))
+            this.reset_password_button = this.reset_password_form.querySelector("[type='submit']")
+
+            this.iti = this.setup_iti()
+        }
     }
     async login(e) {
         e.preventDefault()
         this.login_button.setAttribute("disabled", "disabled")
-        const response = await request('/login', 'POST')
+        const formData = new FormData(this.login_form)
+        const response = await request('/login', 'POST', formData)
         if(response.success) {
             window.location.reload()
         } else {
@@ -38,24 +59,58 @@ class AuthManager {
         e.preventDefault()
         this.register_button.setAttribute("disabled", "disabled")
 
-        const first_name = this.register_form.querySelector("input[name='first_name']").value
-        const last_name = this.register_form.querySelector("input[name='last_name']").value
-        const email = this.register_form.querySelector("input[name='email']").value
-        const password = this.register_form.querySelector("input[name='password']").value
         const phone = this.iti.getNumber()
         const country_code = this.iti.getSelectedCountryData().iso2.toUpperCase()
+        
+        const formData = new FormData(this.register_form)
+        formData.append("phone", phone)
+        formData.append("country_code", country_code)
 
-        const response = await request('/register', 'POST', {first_name, last_name, email, password, phone, country_code})
+        const response = await request('/register', 'POST', formData)
         if(response.success) {
-            window.location.reload()
+            window.location.href = ""
         } else {
             this.show_error(response.message)
         }
         this.register_button.removeAttribute("disabled")
     }
 
-    show_success() {
-        window.location.reload()
+    async forgot_password(e) {
+        e.preventDefault()
+        this.forgot_password_button.setAttribute("disabled", "disabled")
+        const formData = new FormData(this.forgot_password_form)
+        const response = await request('/forgot-password', 'POST', formData)
+        if(response.success) {
+            this.forgot_password_form.querySelector("input[type='email']").value = ""
+            this.show_success(response.data.message)
+        } else {
+            this.show_error(response.message)
+        }
+        this.forgot_password_button.removeAttribute("disabled")
+    }
+
+    async reset_password(e) {
+        e.preventDefault()
+        this.reset_password_button.setAttribute("disabled", "disabled")
+        const formData = new FormData(this.reset_password_form)
+        const response = await request('/reset-password', 'POST', formData)
+        if(response.success) {
+            this.reset_password_form.querySelector("input[type='email']").value = ""
+            this.reset_password_form.querySelectorAll("input[type='password]']").forEach(input => input.value = "")
+            this.show_success(response.data.message)
+            location.href = "/login"
+        } else {
+            this.show_error(response.message)
+        }
+        this.reset_password_button.removeAttribute("disabled")
+    }
+
+    show_success(message) {
+        Swal.fire({
+            title: "تم بنجاح",
+            text: message,
+            icon: "success"
+        });         
     }
 
     show_error(message) {
@@ -67,6 +122,8 @@ class AuthManager {
     }
 
     setup_iti(){
+        if(!this.register_form) return null
+
         return window.intlTelInput(this.register_form.querySelector("input.country-selector"), {
             i18n: lang,
             initialCountry: "auto",

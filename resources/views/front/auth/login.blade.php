@@ -19,11 +19,14 @@
                             <i class="fas fa-eye password-toggler" role="button"></i>
                         </div>
                     </div>
-                    <a href="{{ route('front.password.request') }}" class="text-dark d-inline-block my-2">هل نسيت كلمة المرور؟</a>
-                    <input type="submit" class="btn btn-dark px-4 w-100" value="تسجيل الدخول الان">
+                    <a href="{{ route('password.request') }}" class="text-dark d-inline-block my-2">هل نسيت كلمة المرور؟</a>
+                    <button type="submit" class="btn btn-dark px-4 w-100 loader-btn">
+                        <p>تسجيل الدخول الان</p>
+                        <span class="loader"></span>
+                    </button>
                     <p class="my-2">
                         <span>جديد في مكتبة الاخبار؟</span>
-                        <a href="{{ route('front.register') }}" class="text-dark">انشئ حسابك الان</a>
+                        <a href="{{ route('register') }}" class="text-dark">انشئ حسابك الان</a>
                     </p>
                 </form>
             </div>

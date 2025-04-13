@@ -21,12 +21,12 @@
                 <span class="date">{{ Carbon::now()->translatedFormat('d M, Y') }}</span>
             </div>
         </div>
-        <div class="header-end d-flex align-items-center gap-3">
+        <div class="header-end d-flex align-items-center gap-3 py-2">
             <div class="dropdown ms-1">
-                <button id="lang_open" type="button" class="btn btn-icon btn-topbar rounded-circle">
+                <div type="button" class="btn-topbar rounded-circle" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     <img id="header-lang-img" src="{{ asset('front/images/' . LaravelLocalization::getCurrentLocale() . '.svg') }}" alt="Header Language" height="20" class="rounded">
-                </button>
-                <div class="lang-menu">
+                </div>
+                <div class="dropdown-menu">
                     @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         @if ($localeCode != LaravelLocalization::getCurrentLocale())
                             <a href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}" class="dropdown-item notify-item language py-2" data-lang="{{ $localeCode }}" title="{{ $properties['native'] }}">
@@ -37,7 +37,7 @@
                     @endforeach
                 </div>
             </div>
-            <i class="far fa-moon fs-4 ms-2" role="button"></i>
+            <i id="dark_mood_button" class="far fa-moon fs-4 ms-2" role="button"></i>
         </div>
     </div>
 

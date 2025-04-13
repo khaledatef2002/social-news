@@ -21,7 +21,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
-            $table->smallInteger('country_code');
             $table->string('phone');
             $table->enum('education', [
                 EducationType::PRIMARY->value,
@@ -30,20 +29,20 @@ return new class extends Migration
                 EducationType::MASTERS->value,
                 EducationType::DOCTORATE->value,
             ]);
-            $table->string('position');
-            $table->string('x_link');
-            $table->string('facebook_link');
-            $table->string('instagram_link');
-            $table->string('linkedin_link');
-            $table->boolean('phone_public');
-            $table->boolean('country_public');
-            $table->boolean('education_public');
-            $table->boolean('position_public');
-            $table->boolean('x_link_public');
-            $table->boolean('facebook_link_public');
-            $table->boolean('instagram_link_public');
-            $table->boolean('linkedin_link_public');
-            $table->boolean('admin');
+            $table->string('position')->nullable();
+            $table->string('x_link')->nullable();
+            $table->string('facebook_link')->nullable();
+            $table->string('instagram_link')->nullable();
+            $table->string('linkedin_link')->nullable();
+            $table->boolean('phone_public')->default(false);
+            $table->boolean('country_public')->default(false);
+            $table->boolean('education_public')->default(false);
+            $table->boolean('position_public')->default(false);
+            $table->boolean('x_link_public')->default(false);
+            $table->boolean('facebook_link_public')->default(false);
+            $table->boolean('instagram_link_public')->default(false);
+            $table->boolean('linkedin_link_public')->default(false);
+            $table->boolean('admin')->default(false);
             $table->enum('type', [UserType::USER->value, UserType::WRITER->value]);
             $table->rememberToken();
             $table->timestamps();

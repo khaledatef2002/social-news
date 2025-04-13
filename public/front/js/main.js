@@ -72,54 +72,6 @@ const navbar_intersect = function ()
     observer.observe(document.querySelector(".weather_date"))
 }
 
-const fix_navbar_collapsing = function ()
-{
-    document.querySelector(".navbar-nav").addEventListener("click", (e) => {
-        if(e.target.classList.contains("dropdown-toggle")) {
-            e.preventDefault()
-            e.target.parentElement.querySelector(".dropdown-menu").classList.toggle("show")
-        }
-        e.currentTarget.querySelectorAll(".dropdown-menu.show").forEach(menu => {
-            if (menu !== e.target.parentElement.querySelector(".dropdown-menu")) {
-                menu.classList.remove("show")
-            }
-        })
-    })
-
-    document.addEventListener("click", (e) => {
-        if (!e.target.closest(".navbar-nav")) {
-            document.querySelectorAll(".dropdown-menu.show").forEach(menu => {
-                menu.classList.remove("show")
-            })
-        }
-    })
-    window.addEventListener("scroll", () => {
-        document.querySelectorAll(".dropdown-menu.show").forEach(menu => {
-            menu.classList.remove("show")
-        })
-    })
-}
-
-const language_menu = function ()
-{
-    document.querySelector("#lang_open").addEventListener("click", (e) => {
-        e.preventDefault()
-        e.currentTarget.parentElement.querySelector(".lang-menu").classList.toggle("show")
-    })
-
-    document.addEventListener("click", (e) => {
-        if (!e.target.closest("#lang_open") && !e.target.closest(".lang-menu")) {
-            document.querySelector(".lang-menu").classList.remove("show")
-        }
-    })
-
-    document.addEventListener("scroll", (e) => {
-        if (!e.target.closest("#lang_open") && !e.target.closest(".lang-menu")) {
-            document.querySelector(".lang-menu").classList.remove("show")
-        }
-    })
-}
-
 const password_toggler = function()
 {
     const input = this.parentElement.querySelector("input")
@@ -156,6 +108,30 @@ const enable_input_image_selection = function()
     });
 }
 
+const dark_mode_init = function()
+{
+    dark_mode_toggler(localStorage.getItem("dark_mode") == "true" ? "false" : "true")
+
+    document.querySelector("#dark_mood_button").addEventListener("click", () => dark_mode_toggler(localStorage.getItem("dark_mode")))
+}
+
+const dark_mode_toggler = function(dark_mode)
+{
+    if (dark_mode == "true")
+    {
+        document.querySelector("body").classList.remove("dark-mode")
+        localStorage.setItem("dark_mode", "false")
+        document.querySelector("#dark_mood_button").classList.remove("fa-moon")
+        document.querySelector("#dark_mood_button").classList.add("fa-sun")
+    } else {
+        document.querySelector("body").classList.add("dark-mode")
+        localStorage.setItem("dark_mode", "true")
+        document.querySelector("#dark_mood_button").classList.remove("fa-sun")
+        document.querySelector("#dark_mood_button").classList.add("fa-moon")
+    }
+}
+
+
 function init()
 {
     loadSwiper()
@@ -163,8 +139,7 @@ function init()
     document.querySelector("#click-for-location-permission").addEventListener("click", get_geo_locations)
     document.querySelectorAll(".password-toggler").forEach(e => e.addEventListener("click", password_toggler))
     navbar_intersect()
-    fix_navbar_collapsing()
-    language_menu()
+    dark_mode_init()
     document.querySelectorAll("div.image-upload").forEach(e => enable_input_image_selection.bind(e)())
 }
 
