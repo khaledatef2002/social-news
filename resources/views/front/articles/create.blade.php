@@ -2,77 +2,100 @@
 
 @section('content')
 
-<div class="d-flex align-items-start flex-wrap">
-    <div class="my-5 col-4 px-2">
-        <div class="container">
-            <div class="card mx-auto border-0 shadow mb-3">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">Choose Cover</h5>
-                    <p class="text-muted mb-0">Scale Ratio: (1: 0.45) (W:H)</p>
+<form id="create-article-form">
+    <div class="d-flex align-items-start flex-wrap">
+
+        <div class="mt-5 mb-3 col-4 px-2">
+            <div class="container">
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Choose Cover</h5>
+                        <p class="text-muted mb-0">Scale Ratio: (1: 0.45) (W:H)</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="auto-image-show">
+                            <input id="cover" name="cover" type="file" class="profile-img-file-input" accept="image/*" hidden>
+                            <label for="cover" role="button" class="profile-photo-edit d-flex justify-content-center align-items-center" style="width: 100%;aspect-ratio: 1 / 0.45;overflow:hidden">
+                                <img src="{{ asset('front/images/no-image.jpeg') }}" style="min-width:100%;min-height:100%;" alt="article-cover">
+                            </label>
+                        </div>                               
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="auto-image-show">
-                        <input id="cover" name="cover" type="file" class="profile-img-file-input" accept="image/*" hidden>
-                        <label for="cover" role="button" class="profile-photo-edit d-flex justify-content-center align-items-center" style="width: 100%;aspect-ratio: 1 / 0.45;overflow:hidden">
-                            <img src="{{ asset('front/images/no-image.jpeg') }}" style="min-width:100%;min-height:100%;" alt="user-profile-image">
-                        </label>
-                    </div>                               
+            </div>
+        </div>
+    
+        <div class="mt-5 mb-3 col-4 px-2">
+            <div class="container">
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <input class="form-control" name="title" type="text" placeholder="عنوان المقالة">
+                    </div>
+                </div>
+    
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <textarea class="form-control" name="short" placeholder="ملخص المقالة" rows="3" style="resize: none;"></textarea>
+                    </div>
+                </div>
+    
+                <div class="card mx-auto border-0 shadow">
+                    <div class="card-body">
+                        <textarea id="content" name="content" class="form-control" placeholder="المقالة" height="500"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="mt-5 mb-3 col-4 px-2">
+            <div class="container">
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <input class="form-control" name="keywords" type="text" placeholder="الكلمات المفتاحية">
+                    </div>
+                </div>
+    
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <select class="form-select" name="category_id">
+                            <option selected>--اختر التصنيف--</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <input class="form-control" name="source" type="text" placeholder="المصدر (اختياري)">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="my-5 col-4 px-2">
-        <div class="container">
-            <div class="card mx-auto border-0 shadow mb-3">
-                <div class="card-body">
-                    <input class="form-control" type="text" placeholder="عنوان المقالة">
-                </div>
-            </div>
-
-            <div class="card mx-auto border-0 shadow mb-3">
-                <div class="card-body">
-                    <textarea class="form-control" placeholder="ملخص المقالة" rows="3" style="resize: none;"></textarea>
-                </div>
-            </div>
-
-            <div class="card mx-auto border-0 shadow">
-                <div class="card-body">
-                    <textarea id="content" class="form-control" placeholder="المقالة" height="500"></textarea>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex justify-content-center align-items-center flex-wrap mb-3 mt-1">
+        <button type="submit" class="btn btn-outline-dark px-5 loader-btn">
+            <p>نشر المقالة</p>
+            <span class="loader"></span>
+        </button>
     </div>
-
-    <div class="my-5 col-4 px-2">
-        <div class="container">
-            <div class="card mx-auto border-0 shadow mb-3">
-                <div class="card-body">
-                    <input class="form-control" type="text" placeholder="الكلمات المفتاحية">
-                </div>
-            </div>
-
-            <div class="card mx-auto border-0 shadow mb-3">
-                <div class="card-body">
-                    <select class="form-select" name="category_id">
-                        <option selected>--اختر التصنيف--</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="card mx-auto border-0 shadow mb-3">
-                <div class="card-body">
-                    <input class="form-control" type="text" placeholder="المصدر (اختياري)">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</form>
 @endsection
 
 @section('js-after')
-
 <script>
+    // get bage direction from html tag
+    const direction = document.querySelector('html').getAttribute('dir')
+
+    const input = document.querySelector('input[name=keywords]');
+    const choices = new Choices(input, {
+        removeItems: true,
+        removeItemButton: true,
+        removeItemButtonAlignLeft: direction,
+        loadingText: 'تحمل...',
+        noResultsText: 'لا توجد نتائج',
+        noChoicesText: 'لا توجد خيارات',
+        itemSelectText: 'اضغط للتاكيد',
+        uniqueItemText: 'هذا العنصر موجود مسبقًا',
+        placeholderValue: 'اكتب الكلمات المفتاحية',
+    });
 
     $('select[name="category_id"]').select2({
         placeholder: "@lang('dashboard.select.choose-option')",
@@ -136,7 +159,7 @@
                             const formData = new FormData();
                             formData.append('upload', file);
 
-                            fetch('/dashboard/ckEditorUploadImage', {
+                            fetch('/ckEditorUploadImage', {
                                 method: 'POST',
                                 headers: {
                                     'X-CSRF-TOKEN': "{{ csrf_token() }}"
@@ -145,7 +168,10 @@
                             })
                             .then(response => response.json())
                             .then(data => {
-                                images.push(data.url)
+                                images.push({
+                                    url: data.url,
+                                    id: data.id
+                                })
                                 resolve({ default: data.url })
                             })
                             .catch(error => reject(error));
@@ -154,41 +180,18 @@
             };
         };
         editor.model.document.on('change:data', () => {
-            // Get current editor data (HTML content)
-            const editorData = editor.getData();
-            
-            $("textarea#content").val(editor.getData())
-
-            // Check each URL in the images array to see if it still exists in the editor content
-            images = images.filter(imageUrl => {
-                if (!editorData.includes(imageUrl)) {
-                    // If imageUrl is not found in the editor, send delete request to Laravel
-                    fetch('/dashboard/ckEditorRemoveImage', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                        },
-                        body: JSON.stringify({ url: imageUrl })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            console.log(`Image ${imageUrl} deleted from server`);
-                        }
-                    })
-                    .catch(error => console.error('Error deleting image:', error));
-                    
-                    // Remove from images array
-                    return false;
-                }
-                return true;
-            });
+            const currentImagesUrl = getImageSources(editor.getData());
+            images = images.filter(img => currentImagesUrl.includes(img.url));
         });
     })
     .catch(error => {
         console.error(error);
     });
+
+    function getImageSources(html) {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        return Array.from(doc.querySelectorAll('img')).map(img => img.getAttribute('src'));
+    }
 </script>
 
 @endsection

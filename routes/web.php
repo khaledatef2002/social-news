@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticlesImageController;
 use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -11,6 +12,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
     Route::name('front.')->group(function () {
         Route::get('/', [HomeController::class, 'home'])->name('home');
         Route::resource('articles', ArticlesController::class);
+        Route::post('ckEditorUploadImage', [ArticlesImageController::class, 'uploadImage']);
     });
     require __DIR__.'/auth.php';
 });
@@ -28,4 +30,3 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-

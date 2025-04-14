@@ -383,3 +383,62 @@ section.articles-section .card-body
 {
   display: none;
 }
+
+.select2-container--default .select2-results__option--highlighted[aria-selected]
+{
+  background-color: #212529;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  padding: 7px 7px;
+}
+
+.select2-container .select2-selection--single
+{
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.select2-container--default .select2-selection--single
+{
+  border: 1px solid #dcdee1;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 35px;
+}
+
+.select2-container--default .select2-results>.select2-results__options
+{
+  padding: 0 4px;
+  margin-bottom: 4px;
+}
+.select2-results__option
+{
+  border-radius: 3px;
+}
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable)
+{
+  border-color: #999999 !important;
+}
+
+.ck.ck-button.ck-on, a.ck.ck-button.ck-on
+{
+  border-color: #000 !important;
+  background-color: #00000051 !important;
+  color: #000 !important;
+}
+
+.ck.ck-button:active, .ck.ck-button:focus, a.ck.ck-button:active, a.ck.ck-button:focus
+{
+  border-color: #000 !important;
+}
+
+.ck.ck-dropdown .ck-button.ck-dropdown__button.ck-off:active:focus, .ck.ck-dropdown .ck-button.ck-dropdown__button.ck-on:active:focus
+{
+  box-shadow: 0 0 0 3px #cae1fc !important;
+}
+.ck.ck-dropdown .ck-button.ck-dropdown__button.ck-off:active:focus, .ck.ck-dropdown .ck-button.ck-dropdown__button.ck-on:active:focus, .ck.ck-button:active, .ck.ck-button:focus, a.ck.ck-button:active, a.ck.ck-button:focus {
+  box-shadow: 0 0 0 3px #a0a0a0 !important;
+}

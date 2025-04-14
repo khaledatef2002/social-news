@@ -2,6 +2,7 @@
 
 import { WEATHER_API_KEY, WEATHER_API_URL } from './config.js'
 import AuthController from './auth.js'
+import ArticlesController from './articles.js'
 
 const loadSwiper = function(){
     const swiper1 = new Swiper(".mySwiper", {
@@ -131,9 +132,29 @@ const dark_mode_toggler = function(dark_mode)
     }
 }
 
+const allow_image_input_file_display = function()
+{
+    document.querySelectorAll(".auto-image-show").forEach(e => {
+        const fileInput = e.querySelector("input[type='file']");
+        const preview = e.querySelector("img")
+    
+        fileInput.addEventListener('change', function() {
+          const file = this.files[0];
+          if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          } else {
+          }
+        });
+    })
+}
 
 function init()
 {
+    allow_image_input_file_display()
     loadSwiper()
     get_geo_locations()
     document.querySelector("#click-for-location-permission").addEventListener("click", get_geo_locations)
