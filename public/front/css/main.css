@@ -69,129 +69,9 @@ i.password-toggler
   font-size: 0.8rem !important;
 }
 
-.swiper
-{
-  aspect-ratio: 1.5 / 1;
-}
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper {
-  box-sizing: border-box;
-  padding: 10px 0;
-}
-
-.mySwiper .swiper-slide
-{
-  position: relative;
-}
-
-.mySwiper .swiper-slide:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 999;
-}
-
-.mySwiper .swiper-slide-thumb-active:after {
-  display: none
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper-slide
-{
-  position: relative;
-  overflow: hidden;
-  border-radius: 7px;
-}
-
-.swiper-slide .swiper-content
-{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.7);
-  box-shadow: 0 -10px 40px 30px rgba(0, 0, 0, 0.7);
-}
-
-.mySwiper .swiper-slide
-{
-  overflow: hidden;
-  border-radius: 7px;
-}
-
-
-.swiper-section
-{
-  aspect-ratio: 4 / 1;
-}
-.swiper-button-next, .swiper-button-prev
-{
-  color: white;
-}
-
 .article-category .card-header
 {
   border-color: #9494942d;
-}
-
-.opinion-article .card-body .item .image-container
-{
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 7px;
-  aspect-ratio: 2 / 1;
-}
-
-.opinion-article .card-body .item .image-container img
-{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.opinion-article .card-body .item .imager-holder
-{
-  width: 25px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.opinion-article .card-body .item .imager-holder img
-{
-  max-width: 100%;
-  max-height: 100%;
 }
 
 #terms-condition
@@ -236,6 +116,10 @@ i.password-toggler
 {
   transform: translate(5px, 9px) !important;
 }
+.dropdown-menu-end2
+{
+  transform: translate(-147px, 43px) !important;
+}
 
 .dropdown-menu:after {
   content: "";
@@ -252,28 +136,6 @@ i.password-toggler
   background-color: #cbcbcb;
   color: black;
   border-radius: 5px;
-}
-
-section.articles-section .image-holder
-{
-  overflow: hidden;
-  aspect-ratio: 1.5;
-}
-section.articles-section .image-holder image
-{
-  max-width: 100%;
-  max-height: 100%;
-}
-section.articles-section .card-body
-{
-  overflow: hidden;
-
-}
-
-.main-article-header img
-{
-  aspect-ratio: 1.5;
-  max-height: 70vh;
 }
 
 #profile-card .image-holder
@@ -441,4 +303,77 @@ section.articles-section .card-body
 }
 .ck.ck-dropdown .ck-button.ck-dropdown__button.ck-off:active:focus, .ck.ck-dropdown .ck-button.ck-dropdown__button.ck-on:active:focus, .ck.ck-button:active, .ck.ck-button:focus, a.ck.ck-button:active, a.ck.ck-button:focus {
   box-shadow: 0 0 0 3px #a0a0a0 !important;
+}
+
+article
+{
+  position: relative;
+}
+
+article .image-holder
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 1/0.45;
+  overflow: hidden;
+}
+
+article .meta-data
+{
+  line-height: 1.4;
+}
+
+article .image-holder img
+{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+article .user-image-holder
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article .user-image-holder img
+{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+article .article_action_list button
+{
+  background-color: #FFF;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  border: 0;
+}
+
+.heart_action_button
+{
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #9c9c9c;
+  padding: 10px 0;
+}
+
+.heart_action_button.reacted
+{
+  color: #FF3D00;
+}
+
+.getingArticlesLoader
+{
+  display: none;
 }

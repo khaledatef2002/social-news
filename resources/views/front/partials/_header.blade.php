@@ -40,6 +40,5 @@
             <i id="dark_mood_button" class="far fa-moon fs-4 ms-2" role="button"></i>
         </div>
     </div>
-
-    @include('front.partials._nav')
 </div>
+@include('front.partials._nav')

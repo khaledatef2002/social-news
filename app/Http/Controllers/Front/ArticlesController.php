@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\ArticleHashtags;
 use App\Models\ArticleImage;
+use App\Services\ArticleService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -41,7 +43,7 @@ class ArticlesController extends Controller implements HasMiddleware
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ArticleService $article_service)
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
@@ -73,7 +75,17 @@ class ArticlesController extends Controller implements HasMiddleware
 
         $data['user_id'] = auth()->id();
 
+        $hashtags = $article_service->extractHashtags($data['content']);
+
         $article = Article::create($data);
+
+        foreach ($hashtags as $hashtag)
+        {
+            ArticleHashtags::firstOrCreate([
+                'article_id' => $article->id,
+                'hashtag' => $hashtag
+            ]);
+        }
 
         foreach ($request->images as $image) {
             $imageModel = ArticleImage::find($image);
@@ -118,8 +130,45 @@ class ArticlesController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Article $article)
     {
-        //
+        foreach($article->images as $image)
+        {
+            if(Storage::disk('public')->exists($image->path))
+            {
+                Storage::dish('public')->delete($image->path);
+            }
+        }
+
+        if(Storage::disk('public')->exists($article->cover))
+        {
+            Storage::disk('public')->delete($article->path);
+        }
+
+        $article->delete();
+
+        return response()->json([
+            'message' => __('create.message.success'),
+        ]);
+    }
+
+    public function getMoreArticles(Int $offset, Int $limit, ArticleService $article_service)
+    {
+        $articles = $article_service->get_articles($offset, $limit);
+
+        if($articles->count() > 0)
+        {
+            return response()->json([
+                'message' => __('create.message.success'),
+                'content' => view('components.article-list', compact('articles'))->render(),
+                'length' => $articles->count() >= 10 ? 10 : $articles->count()
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'errors' => ['data' => ['لا يوجد نتائج']]
+            ], 404);
+        }
     }
 }

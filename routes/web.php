@@ -13,6 +13,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::get('/', [HomeController::class, 'home'])->name('home');
         Route::resource('articles', ArticlesController::class);
         Route::post('ckEditorUploadImage', [ArticlesImageController::class, 'uploadImage']);
+        Route::get('articles/{offset}/{limit}', [ArticlesController::class, 'getMoreArticles'])->name('articles.get');
     });
     require __DIR__.'/auth.php';
 });

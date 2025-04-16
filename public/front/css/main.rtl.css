@@ -32,6 +32,10 @@ i.password-toggler
 {
   transform: translate(-3px, 9px) !important;
 }
+.dropdown-menu-end2
+{
+  transform: translate(148px, 43px) !important;
+}
 
 .dropdown-menu:after {
   right: unset;

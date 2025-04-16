@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-2 d-block active" aria-current="page" href="#">
+                    <a class="nav-link px-2 d-block {{ Route::is('front.home') ? 'active' : '' }}" aria-current="page" href="{{ route('front.home') }}">
                         <i class="fas fa-newspaper fs-2"></i>
                     </a>
                 </li>

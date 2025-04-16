@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Services\ArticleService;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function home(ArticleService $article_service)
     {
-        return view('front.home');
+        $first_articles = $article_service->get_articles();
+        return view('front.home', compact('first_articles'));
     }
 }
