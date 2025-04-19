@@ -152,6 +152,12 @@ const allow_image_input_file_display = function()
     })
 }
 
+const enable_tool_top = function()
+{
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+}
+
 function init()
 {
     allow_image_input_file_display()
@@ -162,6 +168,7 @@ function init()
     navbar_intersect()
     dark_mode_init()
     document.querySelectorAll("div.image-upload").forEach(e => enable_input_image_selection.bind(e)())
+    enable_tool_top()
 }
 
 init()

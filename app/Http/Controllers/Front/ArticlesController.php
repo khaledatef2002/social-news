@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\ArticleHashtags;
 use App\Models\ArticleImage;
+use App\Models\UserSavedArticle;
 use App\Services\ArticleService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\AutoEncoder;
@@ -21,7 +23,7 @@ class ArticlesController extends Controller implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('auth', only: ['create', 'store']),
+            new Middleware('auth', only: ['create', 'store', 'edit', 'update', 'destroy', 'bookmark']),
         ];
     }
     /**
@@ -73,7 +75,7 @@ class ArticlesController extends Controller implements HasMiddleware
 
         $data['slug'] = Str::of($data['title'] . '-' . $date)->trim()->lower()->replace(' ', '-');
 
-        $data['user_id'] = auth()->id();
+        $data['user_id'] = Auth::id();
 
         $hashtags = $article_service->extractHashtags($data['content']);
 
@@ -152,9 +154,9 @@ class ArticlesController extends Controller implements HasMiddleware
         ]);
     }
 
-    public function getMoreArticles(Int $offset, Int $limit, ArticleService $article_service)
+    public function getMoreArticles(Int $last_article_id, Int $limit, ArticleService $article_service)
     {
-        $articles = $article_service->get_articles($offset, $limit);
+        $articles = $article_service->get_articles($last_article_id, $limit);
 
         if($articles->count() > 0)
         {
@@ -170,5 +172,48 @@ class ArticlesController extends Controller implements HasMiddleware
                 'errors' => ['data' => ['لا يوجد نتائج']]
             ], 404);
         }
+    }
+    public function getMoreArticlesSummary(Int $last_article_id, Int $limit, ArticleService $article_service)
+    {
+        $articles = $article_service->get_articles($last_article_id, $limit);
+
+        if($articles->count() > 0)
+        {
+            return response()->json([
+                'message' => __('create.message.success'),
+                'content' => view('components.article-summary-list', compact('articles'))->render(),
+                'length' => $articles->count() >= 10 ? 10 : $articles->count()
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'errors' => ['data' => ['لا يوجد نتائج']]
+            ], 404);
+        }
+    }
+
+    public function bookmark(Article $article)
+    {
+        $bookmarked = false;
+        $article_saved = UserSavedArticle::where('article_id', $article->id)->where('user_id', Auth::id());
+        if($article_saved->count() > 0)
+        {
+            $article_saved->first()->delete();
+        }
+        else
+        {
+            UserSavedArticle::create([
+                'article_id' => $article->id,
+                'user_id' => Auth::id()
+            ]);
+
+            $bookmarked = true;
+        }
+
+        return response()->json([
+            'message' => __('create.message.success'),
+            'bookmarked' => $bookmarked,
+        ]);
     }
 }

@@ -368,12 +368,22 @@ article .article_action_list button
   padding: 10px 0;
 }
 
-.heart_action_button.reacted
+.heart_action_button.reacted, .user_save_article_action.saved
 {
   color: #FF3D00;
+}
+
+.user_save_article_action.saved
+{
+  font-weight: bold;
 }
 
 .getingArticlesLoader
 {
   display: none;
+}
+
+main.articles[data-article-type='summary'] .reacts_count 
+{
+  border-top: 1px solid #9c9c9c;
 }

@@ -48,6 +48,16 @@ class User extends Authenticatable
         ];
     }
 
+    public function saved_articles()
+    {
+        return $this->hasMany(UserSavedArticle::class);
+    }
+
+    public function saved_article($article_id)
+    {
+        return $this->saved_articles()->where('article_id', $article_id)->count() > 0;
+    }
+
     public function getDisplayImageAttribute(): string
     {
         return $this->image && file_exists('storage/' . $this->image) ? asset('storage/' . $this->image) : asset('front/images/no-profile-image.webp');

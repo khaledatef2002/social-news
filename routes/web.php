@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ArticlesImageController;
 use App\Http\Controllers\Front\ArticlesController;
+use App\Http\Controllers\Front\ArticlesReactsController;
+use App\Http\Controllers\Front\ArticlesSummaryController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\select2;
@@ -12,8 +14,12 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
     Route::name('front.')->group(function () {
         Route::get('/', [HomeController::class, 'home'])->name('home');
         Route::resource('articles', ArticlesController::class);
+        Route::resource('articles-summary', ArticlesSummaryController::class)->only('index');
         Route::post('ckEditorUploadImage', [ArticlesImageController::class, 'uploadImage']);
-        Route::get('articles/{offset}/{limit}', [ArticlesController::class, 'getMoreArticles'])->name('articles.get');
+        Route::get('articles/{last_article_id}/{limit}', [ArticlesController::class, 'getMoreArticles'])->name('articles.get');
+        Route::get('articles_summary/{last_article_id}/{limit}', [ArticlesController::class, 'getMoreArticlesSummary'])->name('articles.get');
+        Route::post('articles/{article}/react', [ArticlesReactsController::class, 'react']);
+        Route::post('articles/{article}/bookmark', [ArticlesController::class, 'bookmark']);
     });
     require __DIR__.'/auth.php';
 });

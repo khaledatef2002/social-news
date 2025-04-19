@@ -30,10 +30,8 @@
         </div>
         <h3 class="fs-5 fw-bold pt-2"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
     </div>
-    <div class="image-holder overflow-hidden">
-        <a href="{{ route('front.articles.show', $article) }}">
-            <img src="{{ $article->cover }}" />
-        </a>
+    <div class="summary">
+        <p class="px-2">{{ $article->short }}</p>
     </div>
     <div class="reacts-container">
         <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">

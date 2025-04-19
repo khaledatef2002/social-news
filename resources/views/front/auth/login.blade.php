@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="my-5">
+<div class="my-5 flex-fill d-flex align-items-center">
     <div class="container">
         <div class="card mx-auto border-0 shadow col-xl-5 col-lg-5 col-md-8 col-11">
             <div class="card-body">

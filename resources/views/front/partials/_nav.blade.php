@@ -12,23 +12,37 @@
             <ul class="navbar-nav gap-5">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link px-2 d-block {{ Route::is('front.articles.create') ? 'active' : '' }}" aria-current="page" href="{{ route('front.articles.create') }}">
+                        <a class="nav-link px-2 d-block {{ Route::is('front.articles.create') ? 'active' : '' }}" 
+                            aria-current="page" 
+                            href="{{ route('front.articles.create') }}"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-title="اضافة مقالة">
                             <i class="fas fa-plus-square fs-2"></i>
                         </a>
                     </li>
                 @endauth
                 <li class="nav-item">
-                    <a class="nav-link px-2 d-block" aria-current="page" href="#">
+                    <a class="nav-link px-2 d-block {{ Route::is('front.articles-summary.index') ? 'active' : '' }}" 
+                        aria-current="page" 
+                        href="{{ route('front.articles-summary.index') }}"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-title="مختصر المقالات">
                         <i class="fas fa-cut fs-2"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-2 d-block {{ Route::is('front.home') ? 'active' : '' }}" aria-current="page" href="{{ route('front.home') }}">
+                    <a class="nav-link px-2 d-block {{ Route::is('front.home') ? 'active' : '' }}" 
+                        aria-current="page" href="{{ route('front.home') }}"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-title="المقالات">
                         <i class="fas fa-newspaper fs-2"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-2 d-block" aria-current="page" href="#">
+                    <a class="nav-link px-2 d-block" aria-current="page" 
+                        href="#"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        data-bs-title="تلفاز الاخبار">
                         <i class="fas fa-tv fs-2"></i>
                     </a>
                 </li>
