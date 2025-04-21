@@ -1,4 +1,4 @@
-@if ($articles->count() == 0)
+@if ($articles->count() > 0)
     @foreach ($articles as $article)
         <x-article-list-item :article="$article" />
     @endforeach
