@@ -8,15 +8,15 @@
 
     <meta property="og:title" content="{{ $article->title }} - {{ config('app.name') }}">
     <meta property="og:description" content="{{ $article->short }}">
-    <meta property="og:image" content="{{ asset('$article->cover') }}">
+    <meta property="og:image" content="{{ asset($article->cover) }}">
     <meta property="og:url" content="{{ route('front.articles.show', $article) }}">    
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ config('app.name') }}">
 
-    <meta name="twitter:card" content="{{ asset('$article->cover') }}">
+    <meta name="twitter:card" content="{{ asset($article->cover) }}">
     <meta name="twitter:title" content="{{ $article->title }} - {{ config('app.name') }}">    
     <meta name="twitter:description" content="{{ $article->short }}">
-    <meta name="twitter:image" content="{{ asset('$article->cover') }}">
+    <meta name="twitter:image" content="{{ asset($article->cover) }}">
     
 @endsection
 
