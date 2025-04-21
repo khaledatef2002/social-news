@@ -49,11 +49,11 @@
                     data-bs-title="مشاركة على فيس بوك">
                     <i class="fab fa-facebook"></i>
                 </a>
-                <a  href="https://twitter.com/intent/tweet?url={{ route('front.articles.show', $article) }}&text=Check%20this%20out!" 
+                <a  href="https://x.com/intent/tweet?url={{ route('front.articles.show', $article) }}&text=Check%20this%20out!" 
                     target="_blank"
                     class="text-decoration-none text-dark"
                     data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-title="مشاركة على تويتر">
+                    data-bs-title="مشاركة على منصة X">
                     <i class="fab fa-x-twitter"></i>
                 </a>
                 <a  href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('front.articles.show', $article) }}&title=Your%20Title" 
@@ -63,7 +63,7 @@
                     data-bs-title="مشاركة على لينكد ان">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a  href="https://api.whatsapp.com/send?text=Check%20this%20out:%20{{ route('front.articles.show', $article) }}" 
+                <a  href="https://api.whatsapp.com/send?text={{ route('front.articles.show', $article) }}" 
                     target="_blank"
                     class="text-decoration-none text-success"
                     data-bs-toggle="tooltip" data-bs-placement="top"
