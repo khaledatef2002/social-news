@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ asset('front/images/logo.png') }}">
-    <title>Document</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('front/libs/bootstrap-5.3.3-dist/css/bootstrap'. (LaravelLocalization::getCurrentLocaleDirection() == 'rtl' ? '.rtl' : '') . '.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.7.2-web/css/all.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -18,4 +18,5 @@
     <link rel="stylesheet" href="{{ asset('front/css/dark.css') }}">
     <script defer src="{{ asset('front/js/main.js') }}" type="module"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('head-additional')
 </head>

@@ -13,6 +13,13 @@ class ArticlesManager {
             this.create_article_button = this.create_article_form.querySelector("[type='submit']")
         }
 
+        this.edit_article_form = document.querySelector("form#edit-article-form")
+        if(this.edit_article_form)
+        {
+            this.edit_article_form.addEventListener("submit", this.edit_article.bind(this))
+            this.edit_article_button = this.edit_article_form.querySelector("[type='submit']")
+        }
+
         this.articles_container = document.querySelector("main.articles")
         if(this.articles_container)
         {
@@ -24,18 +31,18 @@ class ArticlesManager {
         document.querySelector("body").addEventListener('click', async (e) => {
             if(e.target.classList.contains('remove_article'))
             {
-                this.remove_article(e.target.closest('article'), e.target.closest('article').getAttribute('data-article-slug'))
+                this.remove_article(e.target.closest('article'), e.target.closest('article').getAttribute('data-article-id'))
             }
 
             const heartButton = e.target.closest('.heart_action_button');
             const articleElement = e.target.closest('article');
             if (heartButton && articleElement) {
-                this.send_react(heartButton, articleElement.getAttribute('data-article-slug'));
+                this.send_react(heartButton, articleElement.getAttribute('data-article-id'));
             }
 
             if(e.target.closest('.user_save_article_action'))
             {
-                this.bookmark_article(e.target.closest('.user_save_article_action'), e.target.closest('article').getAttribute('data-article-slug'))
+                this.bookmark_article(e.target.closest('.user_save_article_action'), e.target.closest('article').getAttribute('data-article-id'))
             }
         })
     }
@@ -56,6 +63,26 @@ class ArticlesManager {
             this.show_error(response.message)
         }
         this.create_article_button.removeAttribute("disabled")
+    }
+
+    async edit_article(e)
+    {
+        e.preventDefault()
+        const article_id = this.edit_article_form.getAttribute("data-id")
+
+        this.edit_article_button.setAttribute("disabled", "disabled")
+        const formData = new FormData(this.edit_article_form)
+
+        images.forEach(image => {
+            formData.append("images[]", image.id)
+        });
+        const response = await request(`/articles/${article_id}`, 'PUT', formData)
+        if(response.success) {
+            this.show_success(response.data.message)
+        } else {
+            this.show_error(response.message)
+        }
+        this.edit_article_button.removeAttribute("disabled")
     }
 
     show_success(message) {
@@ -103,10 +130,10 @@ class ArticlesManager {
         }
     }
 
-    async send_react(button, article_slug)
+    async send_react(button, article_id)
     {
         button.disabled = true
-        const result = await request(`articles/${article_slug}/react`, "POST")
+        const result = await request(`/articles/${article_id}/react`, "POST")
 
         if(result.success)
         {
@@ -135,9 +162,9 @@ class ArticlesManager {
         button.disabled = false
     }
 
-    async bookmark_article(button, article_slug)
+    async bookmark_article(button, article_id)
     {
-        const result = await request(`articles/${article_slug}/bookmark`, "POST")
+        const result = await request(`/articles/${article_id}/bookmark`, "POST")
 
         if(result.success)
         {
@@ -163,7 +190,7 @@ class ArticlesManager {
         }
     }
 
-    async remove_article(article_element, article_slug)
+    async remove_article(article_element, article_id)
     {
         Swal.fire({
             title: "هل انت متأكد من رغبتك في حزف هذه المقالة؟",
@@ -173,7 +200,7 @@ class ArticlesManager {
             cancelButtonText: `تراجع`,
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const result = await request(`articles/${article_slug}`, "DELETE")
+                const result = await request(`articles/${article_id}`, "DELETE")
                 if(result.success)
                 {
                     article_element.remove()

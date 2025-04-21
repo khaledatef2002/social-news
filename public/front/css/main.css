@@ -328,6 +328,7 @@ article .image-holder img
 {
   min-width: 100%;
   min-height: 100%;
+  object-fit: cover;
 }
 
 article .user-image-holder
@@ -383,7 +384,7 @@ article .article_action_list button
   display: none;
 }
 
-main.articles[data-article-type='summary'] .reacts_count 
+main[data-article-type='summary'] .reacts_count 
 {
   border-top: 1px solid #9c9c9c;
 }

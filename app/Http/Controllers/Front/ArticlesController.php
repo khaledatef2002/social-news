@@ -24,6 +24,7 @@ class ArticlesController extends Controller implements HasMiddleware
     {
         return [
             new Middleware('auth', only: ['create', 'store', 'edit', 'update', 'destroy', 'bookmark']),
+            new Middleware('articeWriter', only: ['create', 'store'])
         ];
     }
     /**
@@ -108,25 +109,81 @@ class ArticlesController extends Controller implements HasMiddleware
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Article $article)
     {
-        //
+        return view('front.articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Article $article)
     {
-        //
+        return view('front.articles.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Article $article, ArticleService $article_service)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'short' => 'required|string|max:255',
+            'content' => 'required|string',
+            'category_id' => 'required|exists:article_categories,id',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'keywords' => 'required|string|max:255',
+            'source' => 'nullable|url|max:255',
+            'images.*' => 'required|exists:article_images,id',
+        ]);
+
+        if($image = $request->file('cover'))
+        {
+            $image = $request->file('cover');
+            $imagePath = 'articles/covers/' . uniqid() . '.webp';
+        
+            $manager = new ImageManager(new Driver());
+            $manager->read($image)
+                ->scale(height: 450)
+                ->encode(new AutoEncoder('webp', quality: 75))
+                ->save('storage/' . $imagePath);
+                
+            $url = Storage::url($imagePath);
+            
+            $data['cover'] = $url;
+        }
+
+        
+        $article->update($data);
+        
+        $hashtags = $article_service->extractHashtags($data['content']);
+
+        $article->tags()->whereNotIn('hashtag', $hashtags)->delete();
+
+        foreach ($hashtags as $hashtag)
+        {
+            $article->tags()->firstOrCreate([
+                'article_id' => $article->id,
+                'hashtag' => $hashtag
+            ]);
+        }
+
+        $article->images()->whereNotIn('id', $request->images)->delete();
+
+        foreach ($request->images as $image) {
+            $imageModel = $article->images()->find($image);
+            if ($imageModel) {
+                $imageModel->update([
+                    'article_id' => $article->id,
+                ]);
+            }
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => __('create.message.success'),
+        ]);
     }
 
     /**

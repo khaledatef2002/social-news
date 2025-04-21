@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enum\UserType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -56,6 +59,11 @@ class User extends Authenticatable
     public function saved_article($article_id)
     {
         return $this->saved_articles()->where('article_id', $article_id)->count() > 0;
+    }
+
+    public function can_write_article()
+    {
+        return in_array(Auth::user()->type, [UserType::WRITER->value]) || Auth::user()->admin;
     }
 
     public function getDisplayImageAttribute(): string

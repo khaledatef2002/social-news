@@ -1,5 +1,10 @@
 export const request = async function(url, method = "GET", data = {}) {
 
+    if (method.toLowerCase() !== 'get' && method.toLowerCase() !== 'post') {
+        data.append("_method", method.toUpperCase())
+        method = "POST"
+    }
+
     const options = {
         method: method,
         headers: {
@@ -17,7 +22,7 @@ export const request = async function(url, method = "GET", data = {}) {
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         options.headers['X-CSRF-TOKEN'] = csrfToken;
     }
-
+    
     try {
         const response = await fetch(url, options);
         const responseData = await response.json();

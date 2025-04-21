@@ -10,7 +10,7 @@
         </div>
         <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
             <ul class="navbar-nav gap-5">
-                @auth
+                @if(Auth::user()?->can_write_article())
                     <li class="nav-item">
                         <a class="nav-link px-2 d-block {{ Route::is('front.articles.create') ? 'active' : '' }}" 
                             aria-current="page" 
@@ -20,7 +20,7 @@
                             <i class="fas fa-plus-square fs-2"></i>
                         </a>
                     </li>
-                @endauth
+                @endif
                 <li class="nav-item">
                     <a class="nav-link px-2 d-block {{ Route::is('front.articles-summary.index') ? 'active' : '' }}" 
                         aria-current="page" 

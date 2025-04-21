@@ -1,4 +1,4 @@
-<article class="card rounded border shadow-sm" data-article-slug="{{ $article->slug }}">
+<article class="card rounded border shadow-sm" data-article-id="{{ $article->id }}">
     <div class="py-2 px-2 text-start">
         <div class="meta-content d-flex flex-column mb-2 fw-bold">
             <div class="d-flex justify-content-between align-items-center">
@@ -19,7 +19,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end2">
-                        <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
+                        <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
                         @if (Auth::id() == $article->user->id)
                             <a href="{{ route('front.articles.edit', $article) }}" class="text-decoration-none"><li class="dropdown-item d-flex gap-2 align-items-center" role="button"><i class="fas fa-pen"></i> تعديل المقالة</li></a>
                             <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة المقالة</li>
@@ -30,20 +30,47 @@
         </div>
         <h3 class="fs-5 fw-bold pt-2"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
     </div>
-    <div class="image-holder overflow-hidden">
-        <a href="{{ route('front.articles.show', $article) }}">
+    <a href="{{ route('front.articles.show', $article) }}">
+        <div class="image-holder">
             <img src="{{ $article->cover }}" />
-        </a>
-    </div>
+        </div>
+    </a>
     <div class="reacts-container">
         <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-1">
                 <i class="fas fa-heart text-danger"></i>
                 <span class="count fw-bold">{{ $article->reacts()->count() }}</span>
             </div>
-            @if(!Auth::user())
-                <a href="{{ route('login') }}" class="text-dark text-decoration-none">سجل دخول لتتمكن من التفاعل</a>
-            @endif
+            <ul class="p-0 m-0 d-flex gap-3 pe-1">
+                <a  href="https://www.facebook.com/sharer/sharer.php?u={{ route('front.articles.show', $article) }}" 
+                    target="_blank"
+                    class="text-decoration-none text-primary"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="مشاركة على فيس بوك">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a  href="https://twitter.com/intent/tweet?url={{ route('front.articles.show', $article) }}&text=Check%20this%20out!" 
+                    target="_blank"
+                    class="text-decoration-none text-dark"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="مشاركة على تويتر">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a  href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('front.articles.show', $article) }}&title=Your%20Title" 
+                    target="_blank"
+                    class="text-decoration-none text-primary"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="مشاركة على لينكد ان">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a  href="https://api.whatsapp.com/send?text=Check%20this%20out:%20{{ route('front.articles.show', $article) }}" 
+                    target="_blank"
+                    class="text-decoration-none text-success"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="مشاركة على واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </ul>
         </div>
         @auth
             <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
