@@ -16,7 +16,7 @@
 @section('js-after')
     <script>
         const lang = document.querySelector('html').getAttribute('lang')
-        let LastArticleId = {{ $first_articles->last()->id | null }}
+        let LastArticleId = {{ $first_articles->last()?->id | null }}
         const Type = "article"
     </script>
 @endsection
