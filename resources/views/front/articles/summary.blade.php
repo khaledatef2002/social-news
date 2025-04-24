@@ -3,9 +3,9 @@
 @section('content')
     <div class="home-wraper flex-fill d-flex justify-content-between py-4">
         <aside></aside>
-        <main class="articles col-md-4 d-flex flex-column gap-3" data-article-type="summary">
+        <main class="articles col-12 d-flex flex-wrap justify-content-center" data-article-type="summary">
             <x-article-summary-list :articles="$first_articles" />
-            <div class="getingArticlesLoader justify-content-center">
+            <div class="getingArticlesLoader justify-content-center w-100">
                 <span class="loader"></span>
             </div>
         </main>

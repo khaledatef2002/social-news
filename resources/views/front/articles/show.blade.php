@@ -21,7 +21,7 @@
 @endsection
 
 @section('content')
-<main class="py-3 col-md-5 d-flex flex-column gap-3 mx-auto" data-article-type="summary">
+<main class="py-3 col-12 d-flex flex-column" data-article-type="summary">
     <article class="card rounded border-0 shadow-sm" data-article-id="{{ $article->id }}">
         <div class="py-2 px-2 text-start">
             <div class="meta-content d-flex flex-column mb-2 fw-bold">

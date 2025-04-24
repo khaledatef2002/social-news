@@ -3,6 +3,7 @@
 import { WEATHER_API_KEY, WEATHER_API_URL } from './config.js'
 import AuthController from './auth.js'
 import ArticlesController from './articles.js'
+import TvArticlesController from './tv_articles.js'
 
 const loadSwiper = function(){
     const swiper1 = new Swiper(".mySwiper", {

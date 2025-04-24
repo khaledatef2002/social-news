@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\ArticlesReactsController;
 use App\Http\Controllers\Front\ArticlesSummaryController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\TvArticlesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\select2;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::get('articles_summary/{last_article_id}/{limit}', [ArticlesController::class, 'getMoreArticlesSummary'])->name('articles.get');
         Route::post('articles/{article}/react', [ArticlesReactsController::class, 'react']);
         Route::post('articles/{article}/bookmark', [ArticlesController::class, 'bookmark']);
+        Route::get('tv-articles', [TvArticlesController::class, 'index'])->name('tv-articles.index');
+        Route::get('tv-articles/{article}', [TvArticlesController::class, 'show'])->name('tv-articles.show');
+        Route::get('tv-articles/{last_tv_article_id}/{limit}', [TvArticlesController::class, 'getMoreTvArticles'])->name('tv-articles.get');
     });
     require __DIR__.'/auth.php';
 });

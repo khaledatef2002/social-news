@@ -54,7 +54,7 @@ class ArticlesController extends Controller implements HasMiddleware
             'content' => 'required|string',
             'category_id' => 'required|exists:article_categories,id',
             'cover' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'keywords' => 'required|string|max:255',
+            'keywords' => 'nullable|string|max:255',
             'source' => 'nullable|url|max:255',
             'images.*' => 'required|exists:article_images,id',
         ]);
@@ -220,7 +220,7 @@ class ArticlesController extends Controller implements HasMiddleware
             return response()->json([
                 'message' => __('create.message.success'),
                 'content' => view('components.article-list', compact('articles'))->render(),
-                'length' => $articles->count() >= 10 ? 10 : $articles->count()
+                'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
         }
         else
@@ -239,7 +239,7 @@ class ArticlesController extends Controller implements HasMiddleware
             return response()->json([
                 'message' => __('create.message.success'),
                 'content' => view('components.article-summary-list', compact('articles'))->render(),
-                'length' => $articles->count() >= 10 ? 10 : $articles->count()
+                'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
         }
         else

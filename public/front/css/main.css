@@ -379,7 +379,7 @@ article .article_action_list button
   font-weight: bold;
 }
 
-.getingArticlesLoader
+.getingArticlesLoader, .getingTvArticlesLoader
 {
   display: none;
 }
@@ -387,4 +387,10 @@ article .article_action_list button
 main[data-article-type='summary'] .reacts_count 
 {
   border-top: 1px solid #9c9c9c;
+}
+
+.tv_articles iframe
+{
+  width: 100%;
+  aspect-ratio: 1/0.5635;
 }

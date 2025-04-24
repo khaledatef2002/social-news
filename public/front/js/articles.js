@@ -2,7 +2,7 @@ import { request } from './utils.js';
 
 class ArticlesManager {
     constructor() {
-        this.Limit = 10
+        this.Limit = 20
 
         this.getingArticlesLoader = document.querySelector(".getingArticlesLoader")
 

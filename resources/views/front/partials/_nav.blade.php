@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-        <div>
+    <div class="container-fluid d-flex align-items-center justify-content-between position-relative">
+        <div class="z-1">
             <a class="navbar-brand" href="{{ route('front.home') }}">
                 <img src="{{ asset('front/images/logo.png') }}">
             </a>
@@ -8,47 +8,45 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-            <ul class="navbar-nav gap-5">
-                @if(Auth::user()?->can_write_article())
-                    <li class="nav-item">
-                        <a class="nav-link px-2 d-block {{ Route::is('front.articles.create') ? 'active' : '' }}" 
-                            aria-current="page" 
-                            href="{{ route('front.articles.create') }}"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            data-bs-title="اضافة مقالة">
-                            <i class="fas fa-plus-square fs-2"></i>
-                        </a>
-                    </li>
-                @endif
+        <ul class="navbar-nav gap-5 position-absolute d-flex justify-content-center w-100 start-0">
+            @if(Auth::user()?->can_write_article())
                 <li class="nav-item">
-                    <a class="nav-link px-2 d-block {{ Route::is('front.articles-summary.index') ? 'active' : '' }}" 
+                    <a class="nav-link px-2 d-block {{ Route::is('front.articles.create') ? 'active' : '' }}" 
                         aria-current="page" 
-                        href="{{ route('front.articles-summary.index') }}"
+                        href="{{ route('front.articles.create') }}"
                         data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        data-bs-title="مختصر المقالات">
-                        <i class="fas fa-cut fs-2"></i>
+                        data-bs-title="اضافة مقالة">
+                        <i class="fas fa-plus-square fs-2"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link px-2 d-block {{ Route::is('front.home') ? 'active' : '' }}" 
-                        aria-current="page" href="{{ route('front.home') }}"
-                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        data-bs-title="المقالات">
-                        <i class="fas fa-newspaper fs-2"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link px-2 d-block" aria-current="page" 
-                        href="#"
-                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        data-bs-title="تلفاز الاخبار">
-                        <i class="fas fa-tv fs-2"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+            @endif
+            <li class="nav-item">
+                <a class="nav-link px-2 d-block {{ Route::is('front.articles-summary.index') ? 'active' : '' }}" 
+                    aria-current="page" 
+                    href="{{ route('front.articles-summary.index') }}"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-title="مختصر المقالات">
+                    <i class="fas fa-cut fs-2"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2 d-block {{ Route::is('front.home') ? 'active' : '' }}" 
+                    aria-current="page" href="{{ route('front.home') }}"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-title="المقالات">
+                    <i class="fas fa-newspaper fs-2"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2 d-block {{ Route::is('front.tv-articles.index') ? 'active' : '' }}" aria-current="page" 
+                    href="{{ route('front.tv-articles.index') }}"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-title="تلفاز الاخبار">
+                    <i class="fas fa-tv fs-2"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="collapse navbar-collapse flex-grow-0 z-1" id="navbarSupportedContent">
                 <form class="d-flex align-items-center gap-2" role="search">
                     <i class="fa-solid fa-magnifying-glass me-3"></i>
                 </form>
@@ -58,11 +56,12 @@
                             <img src="{{ Auth::user()->display_image }}" class="profile-image-menu" alt="Profile Image">
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" style="">
-                            <li><a class="dropdown-item" href="#">الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="dropdown-item" href="#">تسجيل الخروج</button>
+                                    <button type="submit" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
                                 </form>
                             </li>
                         </ul>
