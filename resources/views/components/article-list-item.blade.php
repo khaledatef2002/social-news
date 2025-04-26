@@ -1,5 +1,5 @@
 <article class="px-2 col-xl-3 col-md-6 col-12 mb-3" data-article-id="{{ $article->id }}">
-    <div class="card rounded border-0 shadow-sm">
+    <div class="card h-100 rounded border-0 shadow-sm">
         <div class="py-2 px-2 text-start">
             <div class="meta-content d-flex flex-column mb-2 fw-bold">
                 <div class="d-flex justify-content-between align-items-center">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            <h3 class="fs-5 fw-bold pt-2"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
+            <h3 class="fs-5 fw-bold pt-2 flex-fill"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
         </div>
         <a href="{{ route('front.articles.show', $article) }}">
             <div class="image-holder">
