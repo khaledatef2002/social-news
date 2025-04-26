@@ -139,6 +139,10 @@ i.password-toggler
 {
   width: 100%;
 }
+main > .row
+{
+  height: fit-content;
+}
 
 .dropdown-menu:after {
   content: "";
