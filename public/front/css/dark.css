@@ -60,6 +60,12 @@
     box-shadow: none;
 }
 
+.dark-mode .heart_action_button
+{
+    background: #212529;
+    color: #e0e0e0;
+}
+
 .dark-mode .modal-content
 {
     background-color: rgb(33,37,41) !important; 
