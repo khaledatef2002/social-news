@@ -70,3 +70,8 @@
 {
     background-color: rgb(33,37,41) !important; 
 }
+
+.dark-mode article .article_action_list button
+{
+    color: #e0e0e0;
+}
