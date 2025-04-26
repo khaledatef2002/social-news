@@ -5,7 +5,7 @@ use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\ArticlesReactsController;
 use App\Http\Controllers\Front\ArticlesSummaryController;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\front\SavedArticlesController;
+use App\Http\Controllers\Front\SavedArticlesController;
 use App\Http\Controllers\Front\TvArticlesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\select2;

@@ -52,9 +52,9 @@
                     </div>
                 </div>
             </div>
-            <h3 class="fs-5 fw-bold pt-2"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
+            <h3 class="fs-5 fw-bold pt-2"><a class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
         </div>
-        <a href="{{ route('front.articles.show', $article) }}">
+        <a>
             <div class="image-holder">
                 <img src="{{ $article->cover }}" />
             </div>

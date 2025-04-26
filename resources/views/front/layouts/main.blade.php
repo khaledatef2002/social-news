@@ -2,7 +2,7 @@
 <html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 @include('front.partials._head')
 <body>
-    @include('front.partials._header')
+    @include('front.partials._nav')
     
     @yield('content')
 

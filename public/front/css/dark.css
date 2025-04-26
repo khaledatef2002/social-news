@@ -6,8 +6,8 @@
 
 .dark-mode .navbar, .dark-mode .card
 {
-    /* background-color: #000 !important; */
     background-color: rgb(33,37,41) !important; 
+    border-color: #5a5a5a;
 }
 
 .dark-mode .nav-link
@@ -18,7 +18,8 @@
 .dark-mode .card a,
 .dark-mode .card span,
 .dark-mode .card p,
-.dark-mode .card label
+.dark-mode .card label,
+.dark-mode .card .card-title
 {
     color: #e0e0e0 !important;
 }
@@ -74,4 +75,33 @@
 .dark-mode article .article_action_list button
 {
     color: #e0e0e0;
+}
+
+.dark-mode .navbar ul.main-icons
+{
+    background-color: #212529 !important;
+    border-color: #5a5a5a;
+}
+
+.dark-mode #top-floating-icons a, .dark-mode #top-floating-icons i
+{
+    background-color: #212529 !important;
+}
+
+.dark-mode .offcanvas-body
+{
+    background-color: #1c1c1d !important;
+    color: #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+.dark-mode .form-control
+{
+    background-color: #dedede;
+}
+.dark-mode .form-control::placeholder, 
+.dark-mode .card .ck *,
+.dark-mode .card .select2 *
+{
+    color: #000 !important;
 }

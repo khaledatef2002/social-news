@@ -34,7 +34,21 @@ body {
   min-height: 100%;
 }
 
-
+#top-floating-icons
+{
+  position: absolute;
+  bottom: -40px;
+}
+#top-floating-icons a, #top-floating-icons i
+{
+  background-color: #fff;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 div.iti:has(input.form-control)
 {
@@ -79,8 +93,20 @@ i.password-toggler
   background-color: #000;
 }
 
+.offcanvas.offcanvas-start
+{
+  width: 47% !important;
+  display: none;
+}
+
+.offcanvas.offcanvas-start.show
+{
+  display: flex !important;
+}
+
 .navbar
 {
+  border-bottom: 1px solid #dbdbdb;
   transition: all 0.3s;
 }
 
@@ -422,4 +448,9 @@ main > div > h3
 {
   font-weight: bold;
   border-bottom: 1px solid black;
+}
+
+article[data-article-id] .image-holder
+{
+  max-width: 1000px;
 }

@@ -1,51 +1,43 @@
-@media screen and (min-width: 992px) {
-    .sign-mobile-button
-    {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 991px) {
-    div:has( > .navbar-brand)
+    .navbar ul.main-icons
     {
-        max-width: 20%;
+        position: fixed !important;
+        bottom: 0;
+        background-color: white;
+        border-top: 1px solid #dbdbdb;
+        left: 0;
+    }
+    body
+    {
+        padding-bottom: 50px;
+    }
+    .navbar-toggler
+    {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .offcanvas ul li:not(:last-child)
+    {
+        border-bottom: 1px solid #dbdbdb;
     }
 }
 
-@media screen and (max-width: 575px)
+@media screen and (max-width: 590px) {
+    .navbar div:has( > .navbar-brand)
+    {
+        max-width: 26%;
+    }
+    .navbar div.navbar-toggler a.btn
+    {
+        padding: 0.3rem 0.8rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media screen and (max-width: 440px)
 {
-    .header-start
-    {
-        font-size: 0.8rem !important;
-    }
-    div:has( > .navbar-brand)
-    {
-        max-width: 24%;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .navbar .btn-outline-dark
-    {
-        padding: 0.3rem 1rem !important;
-    }
-}
-
-@media screen and (max-width: 400px)
-{
-    div:has( > .navbar-brand)
-    {
-        max-width: 20%;
-    }
-    ul.navbar-nav
-    {
-        gap: 0.9rem !important;
-    }
-    .navbar .btn-outline-dark
-    {
-        padding: 0.2rem 0.6rem !important;
-        font-size: 0.8rem !important;
-    }
+    
 }
 
 #navbarSupportedContent ul
