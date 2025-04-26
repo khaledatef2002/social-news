@@ -394,7 +394,7 @@ article .article_action_list button
 
 .heart_action_button.reacted, .user_save_article_action.saved
 {
-  color: #FF3D00;
+  color: #FF3D00 !important;
 }
 
 .user_save_article_action.saved

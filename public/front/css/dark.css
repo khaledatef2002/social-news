@@ -62,7 +62,7 @@
 
 .dark-mode .heart_action_button
 {
-    background: #212529;
+    background: #212529 !important;
     color: #e0e0e0;
 }
 
