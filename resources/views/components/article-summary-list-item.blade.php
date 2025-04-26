@@ -1,4 +1,4 @@
-<article class="px-2 col-md-4 mb-3" data-article-id="{{ $article->id }}">
+<article class="px-2 col-xl-3 col-md-6 col-12 mb-3" data-article-id="{{ $article->id }}">
     <div class="card rounded border-0 shadow-sm">
         <div class="py-2 px-2 text-start">
             <div class="meta-content d-flex flex-column mb-2 fw-bold">

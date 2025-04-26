@@ -1,14 +1,21 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary py-2">
     <div class="container-fluid d-flex align-items-center justify-content-between position-relative">
         <div class="z-1">
             <a class="navbar-brand" href="{{ route('front.home') }}">
                 <img src="{{ asset('front/images/logo.png') }}">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
-        <ul class="navbar-nav gap-5 position-absolute d-flex justify-content-center w-100 start-0">
+        @if (Auth::check())
+        <button class="navbar-toggler z-1" type="button" data-bs-toggle="modal" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="profile-image-menu-container" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <img src="{{ Auth::user()->display_image }}" class="profile-image-menu" alt="Profile Image">
+                </div>
+            </button>
+        @else
+            <a class="btn btn-outline-dark px-4 z-1 sign-mobile-button" href="{{ route('login') }}">تسجيل</a>
+            {{-- <i class="fas fa-bars"></i> --}}
+        @endif
+        <ul class="navbar-nav gap-md-5 gap-4 position-absolute d-flex flex-row justify-content-center w-100 start-0">
             @if(Auth::user()?->can_write_article())
                 <li class="nav-item">
                     <a class="nav-link px-2 d-block {{ Route::is('front.articles.create') ? 'active' : '' }}" 
@@ -46,10 +53,10 @@
                 </a>
             </li>
         </ul>
-        <div class="collapse navbar-collapse flex-grow-0 z-1" id="navbarSupportedContent">
-                <form class="d-flex align-items-center gap-2" role="search">
+        <div class="collapse navbar-collapse flex-grow-0 z-1" >
+                {{-- <form class="d-flex align-items-center gap-2" role="search">
                     <i class="fa-solid fa-magnifying-glass me-3"></i>
-                </form>
+                </form> --}}
                 @auth
                     <div class="dropdown">
                         <div class="profile-image-menu-container" data-bs-toggle="dropdown" aria-expanded="false" role="button">
@@ -57,7 +64,7 @@
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" style="">
                             <li><a class="dropdown-item" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
+                            <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
@@ -70,6 +77,30 @@
                     <a class="btn btn-dark px-4 me-2" href="{{ route('register') }}">اشتراك</a>
                     <a class="btn btn-outline-dark px-4" href="{{ route('login') }}">تسجيل الدخول</a>
                 @endauth
+        </div>
+
+        <div class="modal fade" id="navbarSupportedContent" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content overflow-hidden">
+                    <div class="modal-body">
+                        @auth
+                            <ul class="m-0 p-0 d-flex flex-column">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
+                                <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        @endauth
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

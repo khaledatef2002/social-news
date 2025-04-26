@@ -1,7 +1,7 @@
 <div id="footer-container">
     <footer class="bg-dark py-4">
         <div class="container-fluid px-2">
-            <div class="d-flex">
+            <div class="d-flex flex-wrap">
                 <div class="col-4 d-flex justify-content-center align-items-center">
                     <img src="{{ asset('front/images/logo.png') }}" />
                 </div>

@@ -113,7 +113,20 @@ class ArticlesManager {
     {
         this.get_articles_working = true
         this.getingArticlesLoader.style.display = "flex"
-        const url = Type == "article" ? `articles/${LastArticleId}/${this.Limit}` : `articles_summary/${LastArticleId}/${this.Limit}`
+        let url = ``
+        if(Type == "article")
+        {
+            url = `articles/${LastArticleId}/${this.Limit}`
+        }
+        else if(Type == "saved")
+        {
+            url = `saved-articles/${LastArticleId}/${this.Limit}`
+
+        }
+        else
+        {
+            url = `articles_summary/${LastArticleId}/${this.Limit}`
+        }
         const result = await request(url)
 
         if(result.success)

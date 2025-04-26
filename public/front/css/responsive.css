@@ -1,0 +1,71 @@
+@media screen and (min-width: 992px) {
+    .sign-mobile-button
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    div:has( > .navbar-brand)
+    {
+        max-width: 20%;
+    }
+}
+
+@media screen and (max-width: 575px)
+{
+    .header-start
+    {
+        font-size: 0.8rem !important;
+    }
+    div:has( > .navbar-brand)
+    {
+        max-width: 24%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .navbar .btn-outline-dark
+    {
+        padding: 0.3rem 1rem !important;
+    }
+}
+
+@media screen and (max-width: 400px)
+{
+    div:has( > .navbar-brand)
+    {
+        max-width: 20%;
+    }
+    ul.navbar-nav
+    {
+        gap: 0.9rem !important;
+    }
+    .navbar .btn-outline-dark
+    {
+        padding: 0.2rem 0.6rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+#navbarSupportedContent ul
+{
+    list-style: none;
+}
+
+.dropdown-item
+{
+    padding: 7px 5px;
+}
+
+.modal-footer
+{
+    border: 0 !important;
+    padding: 0 !important;
+}
+.modal-footer button
+{
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+}

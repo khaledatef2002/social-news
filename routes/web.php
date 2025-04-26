@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\ArticlesReactsController;
 use App\Http\Controllers\Front\ArticlesSummaryController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\front\SavedArticlesController;
 use App\Http\Controllers\Front\TvArticlesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\select2;
@@ -24,6 +25,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::get('tv-articles', [TvArticlesController::class, 'index'])->name('tv-articles.index');
         Route::get('tv-articles/{article}', [TvArticlesController::class, 'show'])->name('tv-articles.show');
         Route::get('tv-articles/{last_tv_article_id}/{limit}', [TvArticlesController::class, 'getMoreTvArticles'])->name('tv-articles.get');
+    
+        Route::get('saved-articles', [SavedArticlesController::class, 'index'])->name('saved-articles.index');
+        Route::get('saved-articles/{last_article_id}/{limit}', [SavedArticlesController::class, 'getMoreArticles'])->name('saved-articles.get');
     });
     require __DIR__.'/auth.php';
 });

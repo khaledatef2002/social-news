@@ -3,5 +3,5 @@
         <x-article-summary-list-item :article="$article" />
     @endforeach
 @else
-    <p class="fw-bold mb-0 fs-5 text-center">لا يوجد نتائج اخرى</p>
+    <x-no-result />
 @endif

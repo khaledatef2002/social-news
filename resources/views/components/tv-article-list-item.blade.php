@@ -1,4 +1,4 @@
-<article class="px-2 col-md-4 mb-3">
+<article class="px-2 col-xl-3 col-md-6 col-12 mb-3">
     <div class="card rounded border-0 shadow-sm">
         <iframe
             src="{{ $tvArticle->embed_source }}" 
@@ -14,6 +14,12 @@
                         <div class="meta-data d-flex flex-column w-100">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <h3 class="fs-4 fw-bold"><a href="{{ route('front.tv-articles.show', $tvArticle) }}" class="text-decoration-none text-dark">{{ $tvArticle->title }}</a></h3>
+                            </div>
+                            <div class="meta-date-category d-flex justify-content-between align-items-center gap-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="date fs-7 fw-normal"><i class="far fa-clock fs-"></i> {{ $tvArticle->created_at->locale(app()->getLocale())->diffForHumans() }}</span>
+                                    <span class="category fs-7 fw-normal"><i class="fas fa-list-ul"></i> {{ $tvArticle->category->title }}</span>
+                                </div>
                                 <ul class="p-0 m-0 d-flex gap-3 pe-1">
                                     <a  href="https://www.facebook.com/sharer/sharer.php?u={{ route('front.tv-articles.show', $tvArticle) }}" 
                                         target="_blank"
@@ -44,10 +50,6 @@
                                         <i class="fab fa-whatsapp"></i>
                                     </a>
                                 </ul>
-                            </div>
-                            <div class="meta-date-category d-flex align-items-center gap-3">
-                                <span class="date fs-7 fw-normal"><i class="far fa-clock fs-"></i> {{ $tvArticle->created_at->locale(app()->getLocale())->diffForHumans() }}</span>
-                                <span class="category fs-7 fw-normal"><i class="fas fa-list-ul"></i> {{ $tvArticle->category->title }}</span>
                             </div>
                         </div>
                     </span>

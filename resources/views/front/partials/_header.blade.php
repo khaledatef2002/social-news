@@ -5,7 +5,7 @@
 <div id="header-container">
     <div class="weather_date d-flex justify-content-between px-3 py-1">
         <div class="header-start d-flex align-items-center gap-3">
-            <div class="weather d-flex gap-2">
+            <div class="weather d-flex gap-2 align-items-center">
                 <div class="weather-icon">
                     <i class="fa-solid fa-temperature-three-quarters"></i>
                 </div>

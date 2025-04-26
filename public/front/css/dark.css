@@ -1,0 +1,66 @@
+.dark-mode
+{
+    background-color: #1c1c1d;
+    color: #bfbfbf;
+}
+
+.dark-mode .navbar, .dark-mode .card
+{
+    /* background-color: #000 !important; */
+    background-color: rgb(33,37,41) !important; 
+}
+
+.dark-mode .nav-link
+{
+    color: #959595 !important;
+} 
+
+.dark-mode .card a,
+.dark-mode .card span,
+.dark-mode .card p,
+.dark-mode .card label
+{
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .nav-link.active
+{
+    color: #fff !important;
+}
+
+.dark-mode main > div > h3 {
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.dark-mode .btn.btn-dark
+{
+    background-color: #455a64;
+}
+
+.dark-mode .btn.btn-outline-dark
+{
+    border-color: #455a64;
+    color: #455a64;
+}
+.dark-mode a.btn.btn-outline-dark:hover
+{
+    background-color: #455a64;
+    color: #fff;
+}
+.dark-mode .navbar-toggler 
+{
+    color: #fff;
+}
+.dark-mode .navbar-toggler
+{
+    border-color: #fff;
+}
+.dark-mode .navbar-toggler:focus
+{
+    box-shadow: none;
+}
+
+.dark-mode .modal-content
+{
+    background-color: rgb(33,37,41) !important; 
+}

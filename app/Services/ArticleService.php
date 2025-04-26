@@ -8,7 +8,7 @@ class ArticleService
 {
     public function get_articles($last_article_id = null, $limit = 20)
     {
-        $articles = Article::orderBy('id')->when($last_article_id, function($query) use ($last_article_id) {
+        $articles = Article::orderByDesc('id')->when($last_article_id, function($query) use ($last_article_id) {
             return $query->where('id', '>', $last_article_id);
         })->limit($limit)->get();
 

@@ -84,12 +84,16 @@ i.password-toggler
   transition: all 0.3s;
 }
 
+.navbar-toggler
+{
+  border: 0;
+}
+
 .floating-navbar
 {
   position: sticky;
   top: 0;
   z-index: 9;
-  padding: 0 !important;
 }
 .navbar .nav-item:has(> .nav-link.active)
 {
@@ -112,6 +116,12 @@ i.password-toggler
   margin: 0px;
   transform: translate(14px, 37px) !important;
 }
+
+.modal-dialog
+{
+  transform: translateY(-50%) !important;
+  top: 50%;
+}
 .dropdown-menu-end
 {
   transform: translate(5px, 9px) !important;
@@ -119,6 +129,15 @@ i.password-toggler
 .dropdown-menu-end2
 {
   transform: translate(-147px, 43px) !important;
+}
+
+.navbar-brand
+{
+  margin: 0 !important;
+}
+.navbar-brand img
+{
+  width: 100%;
 }
 
 .dropdown-menu:after {
@@ -393,4 +412,10 @@ main[data-article-type='summary'] .reacts_count
 {
   width: 100%;
   aspect-ratio: 1/0.5635;
+}
+
+main > div > h3
+{
+  font-weight: bold;
+  border-bottom: 1px solid black;
 }
