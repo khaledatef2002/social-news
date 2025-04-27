@@ -34,6 +34,6 @@ i.password-toggler
 }
 
 .dropdown-menu:after {
-  left: unset;
-  right: 14px;
+  right: unset;
+  left: 14px;
 }
