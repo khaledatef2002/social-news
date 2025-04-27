@@ -7,9 +7,11 @@
             <div class="w-100 d-flex justify-content-center mb-3">
                 <h3 class="align-self-start mx-auto d-block"><i class="far fa-bookmark fs-4"></i> المقالات المحفوظة</h3>
             </div>
-            <x-article-summary-list :articles="$first_articles" />
-            <div class="getingArticlesLoader justify-content-center w-100">
-                <span class="loader"></span>
+            <div class="row w-100">
+                <x-article-summary-list :articles="$first_articles" />
+                <div class="getingArticlesLoader justify-content-center w-100">
+                    <span class="loader"></span>
+                </div>
             </div>
         </main>
         <aside></aside>
