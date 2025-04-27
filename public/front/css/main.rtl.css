@@ -26,7 +26,7 @@ i.password-toggler
 }
 .dropdown-menu
 {
-  transform: translate(-3px, 9px) !important;
+  transform: translate(116px, 9px) !important;
 }
 .dropdown-menu-end
 {

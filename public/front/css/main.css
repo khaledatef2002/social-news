@@ -140,7 +140,7 @@ i.password-toggler
   position: absolute;
   inset: 0px auto auto 0px;
   margin: 0px;
-  transform: translate(5px, 9px) !important;
+  transform: translate(-117px, 9px) !important;
 }
 
 .modal-dialog
@@ -444,9 +444,4 @@ main > div > h3
 {
   font-weight: bold;
   border-bottom: 1px solid black;
-}
-
-article[data-article-id] .image-holder
-{
-  max-width: 1000px;
 }
