@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function saved_articles()
     {
-        return $this->hasMany(UserSavedArticle::class);
+        return $this->belongsToMany(Article::class, 'user_saved_articles', 'user_id', 'article_id');
     }
 
     public function saved_article($article_id)
