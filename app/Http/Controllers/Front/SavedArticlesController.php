@@ -21,8 +21,6 @@ class SavedArticlesController extends Controller implements HasMiddleware
     {
         $first_articles = Auth::user()->saved_articles()->limit(20)->orderByDesc('id')->get();
 
-        dd($first_articles);
-
         return view('front.saved-articles.index', compact('first_articles'));
     }
 
