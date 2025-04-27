@@ -64,7 +64,7 @@
                     <div class="profile-image-menu-container" data-bs-toggle="dropdown" aria-expanded="false" role="button">
                         <img src="{{ Auth::user()->display_image }}" class="profile-image-menu" alt="Profile Image">
                     </div>
-                    <ul class="dropdown-menu dropdown-menu-end" style="">
+                    <ul class="dropdown-menu" style="">
                         <li><a class="dropdown-item" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
                         <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
                         <li>

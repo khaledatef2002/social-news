@@ -26,15 +26,11 @@ i.password-toggler
 }
 .dropdown-menu
 {
-  transform: translate(-12px, 37px) !important;
+  transform: translate(-3px, 9px) !important;
 }
 .dropdown-menu-end
 {
-  transform: translate(-3px, 9px) !important;
-}
-.dropdown-menu-end2
-{
-  transform: translate(148px, 43px) !important;
+  transform: translate(-125px, 40px) !important;
 }
 
 .dropdown-menu:after {

@@ -140,7 +140,7 @@ i.password-toggler
   position: absolute;
   inset: 0px auto auto 0px;
   margin: 0px;
-  transform: translate(14px, 37px) !important;
+  transform: translate(5px, 9px) !important;
 }
 
 .modal-dialog
@@ -149,10 +149,6 @@ i.password-toggler
   top: 50%;
 }
 .dropdown-menu-end
-{
-  transform: translate(5px, 9px) !important;
-}
-.dropdown-menu-end2
 {
   transform: translate(-147px, 43px) !important;
 }
