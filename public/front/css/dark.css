@@ -19,7 +19,8 @@
 .dark-mode .card span,
 .dark-mode .card p,
 .dark-mode .card label,
-.dark-mode .card .card-title
+.dark-mode .card .card-title,
+.dark-mode .card h3
 {
     color: #e0e0e0 !important;
 }
