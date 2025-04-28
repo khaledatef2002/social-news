@@ -30,6 +30,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::get('saved-articles/{last_article_id}/{limit}', [SavedArticlesController::class, 'getMoreArticles'])->name('saved-articles.get');
     
         Route::resource('profile', ProfileController::class);
+        Route::get('profile/{user}/{last_article_id}/{limit}', [ProfileController::class, 'getMoreArticles'])->name('profile.get');
     });
 
     require_once __DIR__.'/auth.php';

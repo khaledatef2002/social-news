@@ -30,26 +30,30 @@
                         <h3 class="mb-0 text-center fw-bold fs-5 py-1">البيانات الشخصية</h3>
                     </div>
                     <div class="card-body px-0">
-                        <div class="personal-info px-3">
-                            @if ($user->education && $user->education_public)
-                                <p>
-                                    <i class="fas fa-graduation-cap"></i>
-                                    {{ $user->education }}
-                                </p>
-                            @endif
-                            @if ($user->position && $user->position_public)
-                                <p>
-                                    <i class="fas fa-briefcase"></i>
-                                    {{ $user->position }}
-                                </p>
-                            @endif
-                            @if ($user->phone && $user->phone_public)
-                                <p>
-                                    <i class="fas fa-phone"></i>
-                                    {{ $user->phone }}
-                                </p>
-                            @endif
-                        </div>
+                        @if (($user->education && $user->education_public) ||
+                            ($user->position && $user->position_public) ||
+                            ($user->phone && $user->phone_public))
+                            <div class="personal-info px-3">
+                                @if ($user->education && $user->education_public)
+                                    <p>
+                                        <i class="fas fa-graduation-cap"></i>
+                                        {{ $user->education }}
+                                    </p>
+                                @endif
+                                @if ($user->position && $user->position_public)
+                                    <p>
+                                        <i class="fas fa-briefcase"></i>
+                                        {{ $user->position }}
+                                    </p>
+                                @endif
+                                @if ($user->phone && $user->phone_public)
+                                    <p>
+                                        <i class="fas fa-phone"></i>
+                                        {{ $user->phone }}
+                                    </p>
+                                @endif
+                            </div>
+                        @endif
                         <div class="social-media d-flex justify-content-center align-items-center gap-4 fs-5">
                             @if ($user->x_link && $user->x_link_public)
                                 <a href="{{ $user->x_link }}" target="_blank" class="text-dark"><i class="fab fa-x-twitter"></i></a>
@@ -67,17 +71,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 ps-1">
-                <p class="fw-bold text-center fs-5">لا يوجد اي مقالات</p>
-            </div>
+            <main class="articles col-md-8 ps-2">
+                <div class="row m-0">
+                    <x-profile-article-list :articles="$first_articles" />
+                    <div class="getingArticlesLoader justify-content-center w-100">
+                        <span class="loader"></span>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 @endsection
 
 @section('js-after')
-    {{-- <script>
+    <script>
         const lang = document.querySelector('html').getAttribute('lang')
         let LastArticleId = {{ $first_articles->last()?->id | null }}
-        const Type = "saved"
-    </script> --}}
+        const Type = "profile"
+        const USER_ID = {{ $user->id }}
+    </script>
 @endsection

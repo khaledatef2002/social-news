@@ -123,10 +123,15 @@ class ArticlesManager {
             url = `saved-articles/${LastArticleId}/${this.Limit}`
 
         }
-        else
+        else if (Type == "summary")
         {
             url = `articles_summary/${LastArticleId}/${this.Limit}`
         }
+        else
+        {
+            url = `/profile/${USER_ID}/${LastArticleId}/${this.Limit}`
+        }
+
         const result = await request(url)
 
         if(result.success)
