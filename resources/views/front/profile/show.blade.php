@@ -30,44 +30,59 @@
                         <h3 class="mb-0 text-center fw-bold fs-5 py-1">البيانات الشخصية</h3>
                     </div>
                     <div class="card-body px-0">
-                        @if (($user->education && $user->education_public) ||
-                            ($user->position && $user->position_public) ||
-                            ($user->phone && $user->phone_public))
-                            <div class="personal-info px-3">
-                                @if ($user->education && $user->education_public)
-                                    <p>
-                                        <i class="fas fa-graduation-cap"></i>
-                                        {{ $user->education }}
-                                    </p>
-                                @endif
-                                @if ($user->position && $user->position_public)
-                                    <p>
-                                        <i class="fas fa-briefcase"></i>
-                                        {{ $user->position }}
-                                    </p>
-                                @endif
-                                @if ($user->phone && $user->phone_public)
-                                    <p>
-                                        <i class="fas fa-phone"></i>
-                                        {{ $user->phone }}
-                                    </p>
-                                @endif
-                            </div>
+                        @php
+                            $is_personal_info = ($user->education && $user->education_public) ||
+                                ($user->position && $user->position_public) ||
+                                ($user->phone && $user->phone_public);
+
+                            $is_social_media = ($user->x_link && $user->x_link_public) ||
+                                ($user->facebook_link && $user->facebook_link_public) ||
+                                ($user->instagram_link && $user->instagram_link_public) ||
+                                ($user->linkedin_link && $user->linkedin_link_public) ;
+                        @endphp
+                        @if (!$is_personal_info && !$is_social_media)
+                            
+                            @if ($is_personal_info)
+                                <div class="personal-info px-3">
+                                    @if ($user->education && $user->education_public)
+                                        <p>
+                                            <i class="fas fa-graduation-cap"></i>
+                                            {{ $user->education }}
+                                        </p>
+                                    @endif
+                                    @if ($user->position && $user->position_public)
+                                        <p>
+                                            <i class="fas fa-briefcase"></i>
+                                            {{ $user->position }}
+                                        </p>
+                                    @endif
+                                    @if ($user->phone && $user->phone_public)
+                                        <p>
+                                            <i class="fas fa-phone"></i>
+                                            {{ $user->phone }}
+                                        </p>
+                                    @endif
+                                </div>
+                            @endif
+                            @if ($is_social_media)
+                                <div class="social-media d-flex justify-content-center align-items-center gap-4 fs-5">
+                                    @if ($user->x_link && $user->x_link_public)
+                                        <a href="{{ $user->x_link }}" target="_blank" class="text-dark"><i class="fab fa-x-twitter"></i></a>
+                                    @endif
+                                    @if ($user->facebook_link && $user->facebook_link_public)
+                                        <a href="{{ $user->facebook_link }}" target="_blank" class="text-dark"><i class="fab fa-facebook"></i></a>
+                                    @endif
+                                    @if ($user->instagram_link && $user->instagram_link_public)
+                                        <a href="{{ $user->instagram_link }}" target="_blank" class="text-dark"><i class="fab fa-instagram"></i></a>
+                                    @endif
+                                    @if ($user->linkedin_link && $user->linkedin_link_public)
+                                        <a href="{{ $user->linkedin_link }}" target="_blank" class="text-dark"><i class="fab fa-linkedin"></i></a>
+                                    @endif
+                                </div>
+                            @endif
+                        @else
+                            <p class="text-center fs-5 mb-0">لا يوجد بيانات للعرض</p>
                         @endif
-                        <div class="social-media d-flex justify-content-center align-items-center gap-4 fs-5">
-                            @if ($user->x_link && $user->x_link_public)
-                                <a href="{{ $user->x_link }}" target="_blank" class="text-dark"><i class="fab fa-x-twitter"></i></a>
-                            @endif
-                            @if ($user->facebook_link && $user->facebook_link_public)
-                                <a href="{{ $user->facebook_link }}" target="_blank" class="text-dark"><i class="fab fa-facebook"></i></a>
-                            @endif
-                            @if ($user->instagram_link && $user->instagram_link_public)
-                                <a href="{{ $user->instagram_link }}" target="_blank" class="text-dark"><i class="fab fa-instagram"></i></a>
-                            @endif
-                            @if ($user->linkedin_link && $user->linkedin_link_public)
-                                <a href="{{ $user->linkedin_link }}" target="_blank" class="text-dark"><i class="fab fa-linkedin"></i></a>
-                            @endif
-                        </div>
                     </div>
                 </div>
             </div>
