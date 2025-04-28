@@ -40,8 +40,7 @@
                                 ($user->instagram_link && $user->instagram_link_public) ||
                                 ($user->linkedin_link && $user->linkedin_link_public) ;
                         @endphp
-                        @if (!$is_personal_info && !$is_social_media)
-                            
+                        @if ($is_personal_info || $is_social_media)
                             @if ($is_personal_info)
                                 <div class="personal-info px-3">
                                     @if ($user->education && $user->education_public)
