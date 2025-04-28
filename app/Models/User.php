@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -69,5 +70,10 @@ class User extends Authenticatable
     public function getDisplayImageAttribute(): string
     {
         return $this->image && file_exists('storage/' . $this->image) ? asset('storage/' . $this->image) : asset('front/images/no-profile-image.webp');
+    }
+
+    public function getFullNameAttribute() : string
+    {
+        return $this->first_name . " " . $this->last_name;
     }
 }

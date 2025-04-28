@@ -90,12 +90,15 @@ class ArticlesController extends Controller implements HasMiddleware
             ]);
         }
 
-        foreach ($request->images as $image) {
-            $imageModel = ArticleImage::find($image);
-            if ($imageModel) {
-                $imageModel->update([
-                    'article_id' => $article->id,
-                ]);
+        if($request->images)
+        {
+            foreach ($request->images as $image) {
+                $imageModel = ArticleImage::find($image);
+                if ($imageModel) {
+                    $imageModel->update([
+                        'article_id' => $article->id,
+                    ]);
+                }
             }
         }
 

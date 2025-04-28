@@ -4,29 +4,33 @@
             <div class="meta-content d-flex flex-column mb-2 fw-bold">
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="d-flex align-items-center gap-2">
-                        <div class="user-image-holder">
-                            <img src="{{ $article->user->display_image }}">
-                        </div>
+                        <a href="{{ route('front.profile.show', $article->user) }}">
+                            <div class="user-image-holder">
+                                <img src="{{ $article->user->display_image }}">
+                            </div>
+                        </a>
                         <div class="meta-data d-flex flex-column">
-                            <span class="user fs-4">{{ $article->user->first_name }}</span>
+                            <span class="user fs-4">
+                                <a href="{{ route('front.profile.show', $article->user) }}" class="text-dark text-decoration-none">{{ $article->user->full_name }}</a>
+                            </span>
                             <div class="meta-date-category d-flex align-items-center gap-3">
                                 <span class="date fs-7 fw-normal"><i class="far fa-clock fs-"></i> {{ $article->created_at->locale(app()->getLocale())->diffForHumans() }}</span>
                                 <span class="category fs-7 fw-normal"><i class="fas fa-list-ul"></i> {{ $article->category->title }}</span>
                             </div>
                         </div>
                     </span>
-                    <div class="dropdown article_action_list">
-                        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
-                            @if (Auth::id() == $article->user->id)
-                                <a href="{{ route('front.articles.edit', $article) }}" class="text-decoration-none"><li class="dropdown-item d-flex gap-2 align-items-center" role="button"><i class="fas fa-pen"></i> تعديل المقالة</li></a>
+                    @if (Auth::id() == $article->user->id)
+                        <div class="dropdown article_action_list">
+                            <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
+                                    <a href="{{ route('front.articles.edit', $article) }}" class="text-decoration-none"><li class="dropdown-item d-flex gap-2 align-items-center" role="button"><i class="fas fa-pen"></i> تعديل المقالة</li></a>
                                 <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة المقالة</li>
-                            @endif
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
             <h3 class="fs-5 fw-bold pt-2 flex-fill d-flex align-items-center"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>

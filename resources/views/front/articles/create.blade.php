@@ -5,7 +5,7 @@
 <form id="create-article-form">
     <div class="d-flex align-items-start flex-wrap">
 
-        <div class="mt-5 mb-3 col-4 px-2">
+        <div class="mt-5 mb-3 col-md-4 px-2">
             <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-header">
@@ -24,7 +24,7 @@
             </div>
         </div>
     
-        <div class="mt-5 mb-3 col-4 px-2">
+        <div class="mt-5 mb-3 col-md-4 px-2">
             <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
@@ -46,7 +46,7 @@
             </div>
         </div>
     
-        <div class="mt-5 mb-3 col-4 px-2">
+        <div class="mt-5 mb-3 col-md-4 px-2">
             <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+
     <div class="d-flex justify-content-center align-items-center flex-wrap mb-3 mt-1">
         <button type="submit" class="btn btn-outline-dark px-5 loader-btn">
             <p>نشر المقالة</p>

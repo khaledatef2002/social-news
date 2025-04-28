@@ -65,7 +65,10 @@
                         <img src="{{ Auth::user()->display_image }}" class="profile-image-menu" alt="Profile Image">
                     </div>
                     <ul class="dropdown-menu" style="">
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
+                        @if (Auth::user()->admin)
+                            <li><a class="dropdown-item" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                        @endif
+                        <li><a class="dropdown-item" href="{{ route('front.profile.show', Auth::user()) }}"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
                         <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
@@ -81,23 +84,28 @@
             @endauth
         </div>
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-body p-0">
-                <ul class="m-0 p-0 d-flex flex-column">
-                    <li><a class="dropdown-item py-2 px-2" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
-                    <li><a class="dropdown-item py-2 px-2" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
-                    <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="dropdown-item py-2 px-2" href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
-                        </form>
-                    </li>
-                </ul>
+        @auth
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-body p-0">
+                    <ul class="m-0 p-0 d-flex flex-column">
+                        @if (Auth::user()->admin)
+                            <li><a class="dropdown-item" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                        @endif
+                        <li><a class="dropdown-item py-2 px-2" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
+                        <li><a class="dropdown-item py-2 px-2" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item py-2 px-2" href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="offcanvas-footer">
+                    <button class="w-100 btn btn-dark rounded-0" type="button" data-bs-dismiss="offcanvas" >إغلاق</button>
+                </div>
             </div>
-            <div class="offcanvas-footer">
-                <button class="w-100 btn btn-dark rounded-0" type="button" data-bs-dismiss="offcanvas" >إغلاق</button>
-            </div>
-        </div>
+        @endauth
     </div>
     <div id="top-floating-icons" class="me-2 end-0 d-flex align-items-center gap-2">
         @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

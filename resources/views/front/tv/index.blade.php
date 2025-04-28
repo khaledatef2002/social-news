@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="home-wraper flex-fill d-flex justify-content-between py-4">
-        <aside></aside>
         <main class="tv_articles col-12 d-flex flex-wrap justify-content-center" data-article-type="tv">
             <div class="w-100 d-flex justify-content-center mb-3">
                 <h3 class="align-self-start mx-auto d-block"><i class="fas fa-tv fs-4"></i> تلفاز الاخبار</h3>
@@ -12,7 +11,6 @@
                 <span class="loader"></span>
             </div>
         </main>
-        <aside></aside>
     </div>
 @endsection
 

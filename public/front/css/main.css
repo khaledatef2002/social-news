@@ -376,7 +376,7 @@ article .image-holder img
   object-fit: cover;
 }
 
-article .user-image-holder
+.user-image-holder
 {
   width: 50px;
   height: 50px;
@@ -386,7 +386,7 @@ article .user-image-holder
   justify-content: center;
   align-items: center;
 }
-article .user-image-holder img
+.user-image-holder img
 {
   min-width: 100%;
   min-height: 100%;
@@ -444,4 +444,10 @@ main > div > h3
 {
   font-weight: bold;
   border-bottom: 1px solid black;
+}
+
+.profile-wraper .personal-info-card .card-body > div:nth-of-type(2)
+{
+  border-top: 1px solid #d1d1d1;
+  padding-top: 10px;
 }
