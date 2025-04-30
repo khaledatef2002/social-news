@@ -8,6 +8,17 @@
         <div class="mt-5 mb-3 col-4 px-2">
             <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <input class="form-control" name="title" type="text" placeholder="عنوان الخبر" value="{{ $article->title }}">
+                    </div>
+                </div>
+    
+                <div class="card mx-auto border-0 shadow mb-3">
+                    <div class="card-body">
+                        <textarea class="form-control" name="short" placeholder="ملخص الخبر" rows="3" style="resize: none;">{{ $article->short }}</textarea>
+                    </div>
+                </div>
+                <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-header">
                         <h5 class="card-title mb-0">Choose Cover</h5>
                         <p class="text-muted mb-0">Scale Ratio: (1: 0.45) (W:H)</p>
@@ -21,33 +32,6 @@
                         </div>                               
                     </div>
                 </div>
-            </div>
-        </div>
-    
-        <div class="mt-5 mb-3 col-4 px-2">
-            <div class="container">
-                <div class="card mx-auto border-0 shadow mb-3">
-                    <div class="card-body">
-                        <input class="form-control" name="title" type="text" placeholder="عنوان المقالة" value="{{ $article->title }}">
-                    </div>
-                </div>
-    
-                <div class="card mx-auto border-0 shadow mb-3">
-                    <div class="card-body">
-                        <textarea class="form-control" name="short" placeholder="ملخص المقالة" rows="3" style="resize: none;">{{ $article->short }}</textarea>
-                    </div>
-                </div>
-    
-                <div class="card mx-auto border-0 shadow">
-                    <div class="card-body">
-                        <textarea id="content" name="content" class="form-control" placeholder="المقالة" height="500">{{ $article->content }}</textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="mt-5 mb-3 col-4 px-2">
-            <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
                         <input class="form-control" name="keywords" type="text" placeholder="الكلمات المفتاحية" value="{{ $article->keywords }}">
@@ -70,9 +54,22 @@
                 </div>
             </div>
         </div>
+    
+        <div class="mt-5 mb-3 col-8 px-2">
+            <div class="container">
+                <div class="card mx-auto border-0 shadow">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">محتوى الخبر</h5>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="content" name="content" class="form-control" placeholder="المقالة" height="500">{{ $article->content }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center flex-wrap mb-3 mt-1">
-        <button type="submit" class="btn btn-outline-dark px-5 loader-btn">
+    <div class="d-flex justify-content-center align-items-center flex-wrap mb-3 mt-1 col-12 px-4">
+        <button type="submit" class="btn btn-outline-dark px-5 loader-btn w-100">
             <p>حفظ التعديلات</p>
             <span class="loader"></span>
         </button>

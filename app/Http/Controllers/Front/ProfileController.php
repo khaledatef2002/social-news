@@ -172,7 +172,7 @@ class ProfileController extends Controller implements HasMiddleware
 
         if($image = $request->file('image'))
         {
-            $image = $request->file('cover');
+            $image = $request->file('image');
             $imagePath = 'users/profile-images/' . uniqid() . '.webp';
         
             $manager = new ImageManager(new Driver());

@@ -1,7 +1,7 @@
 @extends('front.layouts.main')
 
 @section('content')
-    <div class="profile-wraper flex-fill col-md-8 mx-auto d-flex flex-wrap flex-column gap-4 py-4">
+    <div class="profile-wraper flex-fill col-12 mx-auto d-flex flex-wrap flex-column gap-4 py-5 px-3">
         <div class="card border-0 shadow-sm col-12 align-self-start">
             <div class="card-body d-flex align-items-center justify-content-between">
                 <div class="d-flex gap-2 align-items-center">
@@ -85,8 +85,8 @@
                     </div>
                 </div>
             </div>
-            <main class="articles col-md-8 ps-2">
-                <div class="row m-0">
+            <main class="articles col-md-8 ps-2 d-flex justify-content-between">
+                <div class="row m-0 w-100">
                     <x-profile-article-list :articles="$first_articles" />
                     <div class="getingArticlesLoader justify-content-center w-100">
                         <span class="loader"></span>

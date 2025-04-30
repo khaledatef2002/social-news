@@ -18,12 +18,10 @@
                         <div class="flex-fill">
                             <label for="first_name">الاسم الاول</label>
                             <input id="first_name" type="text" class="form-control ps-4" value="{{ $user->first_name }}" name="first_name">
-                            <i class="fa-solid fa-1 ms-2"></i>
                         </div>
                         <div class="flex-fill">
                             <label for="last_name">الاسم الاخير</label>
                             <input id="last_name" type="text" class="form-control ps-4" value="{{ $user->last_name }}" name="last_name">
-                            <i class="fa-solid fa-2 ms-2"></i>
                         </div>
                     </div>
                     <div class="mb-3">

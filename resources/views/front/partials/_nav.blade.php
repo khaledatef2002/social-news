@@ -24,7 +24,7 @@
                         aria-current="page" 
                         href="{{ route('front.articles.create') }}"
                         data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        data-bs-title="اضافة مقالة">
+                        data-bs-title="اضافة خبر">
                         <i class="fas fa-plus-square fs-2"></i>
                     </a>
                 </li>
@@ -34,7 +34,7 @@
                     aria-current="page" 
                     href="{{ route('front.articles-summary.index') }}"
                     data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    data-bs-title="مختصر المقالات">
+                    data-bs-title="مختصر الاخبار">
                     <i class="fas fa-cut fs-2"></i>
                 </a>
             </li>
@@ -42,7 +42,7 @@
                 <a class="nav-link px-2 d-block {{ Route::is('front.home') ? 'active' : '' }}" 
                     aria-current="page" href="{{ route('front.home') }}"
                     data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    data-bs-title="المقالات">
+                    data-bs-title="الاخبار">
                     <i class="fas fa-newspaper fs-2"></i>
                 </a>
             </li>
