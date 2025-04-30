@@ -41,7 +41,7 @@
                     <hr>
                     <div class="mb-3">
                         <label for="nid">الرقم القومي <span class="text-muted">(اختياري)</span></label>
-                        <input id="nid" type="text" class="form-control ps-4" value="{{ $user->nid }}" name="nid">
+                        <input id="nid" type="number" class="form-control ps-4" value="{{ $user->nid }}" name="nid">
                         <i class="fa-solid fa-address-card ms-1"></i>
                     </div>
                     <div class="d-flex align-items-end gap-2 w-100 mb-3">
