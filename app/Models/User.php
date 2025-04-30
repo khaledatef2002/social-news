@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function getDisplayImageAttribute(): string
     {
-        return $this->image && file_exists($this->image) ? asset($this->image) : asset('front/images/no-profile-image.webp');
+        return $this->image ? asset($this->image) : asset('front/images/no-profile-image.webp');
     }
 
     public function getFullNameAttribute() : string
