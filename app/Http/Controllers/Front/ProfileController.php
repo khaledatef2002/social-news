@@ -106,7 +106,7 @@ class ProfileController extends Controller implements HasMiddleware
             'country_code' => ['required', 'string', 'size:2'],
             'phone' => ['required', 'phone:' . $request->input('country_code'), 'unique:'.User::class.',id,'.$profile->id],
             'password' => ['nullable', Rules\Password::defaults()],
-            'nid' => ['nullable', 'numeric'],
+            'nid' => ['nullable'],
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
 
             'phone_public' => ['required', 'boolean'],
