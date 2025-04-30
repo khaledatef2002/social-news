@@ -22,7 +22,7 @@ class ProfileController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('auth', only: ['show', 'edit', 'update']),
+            new Middleware('auth', only: ['edit', 'update']),
         ];
     }
     /**
