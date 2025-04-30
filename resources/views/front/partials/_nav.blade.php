@@ -69,7 +69,7 @@
                             <li><a class="dropdown-item" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
                         @endif
                         <li><a class="dropdown-item" href="{{ route('front.profile.show', Auth::user()) }}"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
-                        <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
+                        <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> الاخبار المحفوظة</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -92,7 +92,7 @@
                             <li><a class="dropdown-item" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
                         @endif
                         <li><a class="dropdown-item py-2 px-2" href="#"><i class="fas fa-user-alt"></i> الملف الشخصي</a></li>
-                        <li><a class="dropdown-item py-2 px-2" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> المقالات المحفوظة</a></li>
+                        <li><a class="dropdown-item py-2 px-2" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> الاخبار المحفوظة</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf

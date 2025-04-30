@@ -62,7 +62,7 @@
                         <h5 class="card-title mb-0">محتوى الخبر</h5>
                     </div>
                     <div class="card-body">
-                        <textarea id="content" name="content" class="form-control" placeholder="المقالة" height="500">{{ $article->content }}</textarea>
+                        <textarea id="content" name="content" class="form-control" placeholder="الخبر" height="500">{{ $article->content }}</textarea>
                     </div>
                 </div>
             </div>

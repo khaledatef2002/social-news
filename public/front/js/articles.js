@@ -211,7 +211,7 @@ class ArticlesManager {
     async remove_article(article_element, article_id)
     {
         Swal.fire({
-            title: "هل انت متأكد من رغبتك في حزف هذه المقالة؟",
+            title: "هل انت متأكد من رغبتك في حزف هذه الخبر؟",
             text: "لن تسطيع استعادتها مرة اخرى",
             showCancelButton: true,
             confirmButtonText: "حزف",
