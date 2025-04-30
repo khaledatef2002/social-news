@@ -1,4 +1,4 @@
-<article class="col-12 col-xl-4 col-md-6 col-12 mb-3 px-2" data-article-id="{{ $article->id }}">
+<article class="col-12 col-xl-4 col-md-6 col-12 mb-3 px-md-2 px-1" data-article-id="{{ $article->id }}">
     <div class="card h-100 rounded border-0 shadow-sm">
         <div class="py-2 px-2 text-start flex-fill d-flex flex-column">
             <div class="meta-content d-flex flex-column mb-2 fw-bold">
@@ -10,7 +10,7 @@
                             </div>
                         </a>
                         <div class="meta-data d-flex flex-column">
-                            <span class="user fs-4">
+                            <span class="user fs-5">
                                 <a href="{{ route('front.profile.show', $article->user) }}" class="text-dark text-decoration-none">{{ $article->user->full_name }}</a>
                             </span>
                             <div class="meta-date-category d-flex align-items-center gap-3">
