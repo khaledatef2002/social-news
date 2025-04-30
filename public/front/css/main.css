@@ -451,3 +451,30 @@ main > div > h3
   border-top: 1px solid #d1d1d1;
   padding-top: 10px;
 }
+
+form#edit-profile div:has(> input)
+{
+  position: relative;
+}
+form#edit-profile div:has(> input) i
+{
+  position: absolute;
+  bottom: 10px;
+}
+
+.auto-image-show i
+{
+  bottom: 0 !important;
+  background-color: #575757;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form#edit-profile .user-image-holder
+{
+  border: 5px solid #575757;
+}

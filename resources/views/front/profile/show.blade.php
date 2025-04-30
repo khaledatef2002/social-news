@@ -15,7 +15,7 @@
                 </div>
                 @if (Auth::check() && Auth::id() == $user->id)
                     <div class="flex-shrink-0">
-                        <a href="pages-profile-settings.html" class="btn btn-outline-success">
+                        <a href="{{ route('front.profile.edit', $user) }}" class="btn btn-outline-success">
                             <i class="fas fa-edit"></i>
                             تعديل الملف الشخصي
                         </a>
