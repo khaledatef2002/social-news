@@ -1,4 +1,5 @@
 export const request = async function(url, method = "GET", data = {}) {
+    const lang = document.querySelector('html').getAttribute('lang')
 
     if (method.toLowerCase() !== 'get' && method.toLowerCase() !== 'post') {
         data.append("_method", method.toUpperCase())
@@ -24,7 +25,7 @@ export const request = async function(url, method = "GET", data = {}) {
     }
     
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(`/${lang}${url}`, options);
         const responseData = await response.json();
 
         if (!response.ok) {

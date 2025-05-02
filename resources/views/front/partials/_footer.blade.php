@@ -29,6 +29,6 @@
         </div>
     </footer>
     <div id="terms-condition" class="text-center py-2">
-        <p class="mb-0 text-white">All Right Reserved</p>
+        <p class="mb-0 text-white">@lang('front.copyright')</p>
     </div>
 </div>

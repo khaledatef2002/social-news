@@ -25,7 +25,7 @@ class TvArticlesController extends Controller
         if($articles->count() > 0)
         {
             return response()->json([
-                'message' => __('create.message.success'),
+                'message' => __('response.get-more-articles-success'),
                 'content' => view('components.tv-article-list', compact('articles'))->render(),
                 'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
@@ -33,7 +33,7 @@ class TvArticlesController extends Controller
         else
         {
             return response()->json([
-                'errors' => ['data' => ['لا يوجد نتائج']]
+                'errors' => ['data' => [__('response.no-articles')]]
             ], 404);
         }
     }

@@ -64,7 +64,7 @@ class ProfileController extends Controller implements HasMiddleware
         if($articles->count() > 0)
         {
             return response()->json([
-                'message' => __('create.message.success'),
+                'message' => __('response.get-more-articles-success'),
                 'content' => view('components.profile-article-list', compact('articles'))->render(),
                 'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
@@ -72,7 +72,7 @@ class ProfileController extends Controller implements HasMiddleware
         else
         {
             return response()->json([
-                'errors' => ['data' => ['لا يوجد نتائج']]
+                'errors' => ['data' => [__('response.no-articles')]]
             ], 404);
         }
     }
@@ -197,7 +197,7 @@ class ProfileController extends Controller implements HasMiddleware
 
         $profile->update($data);
         return response()->json([
-            'message' => __('create.message.success'),
+            'message' => __('response.profile-updated'),
         ]);
     }
 

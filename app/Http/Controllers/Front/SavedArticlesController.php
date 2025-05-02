@@ -31,7 +31,7 @@ class SavedArticlesController extends Controller implements HasMiddleware
         if($articles->count() > 0)
         {
             return response()->json([
-                'message' => __('create.message.success'),
+                'message' => __('response.get-more-articles-success'),
                 'content' => view('components.article-list', compact('articles'))->render(),
                 'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
@@ -39,7 +39,7 @@ class SavedArticlesController extends Controller implements HasMiddleware
         else
         {
             return response()->json([
-                'errors' => ['data' => ['لا يوجد نتائج']]
+                'errors' => ['data' => [__('response.no-articles')]]
             ], 404);
         }
     }

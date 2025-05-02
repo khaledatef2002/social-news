@@ -44,9 +44,9 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end2">
-                            <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
+                            <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? __('front.remove-from-saved') : __('front.save-to-saved') }}</li>
                                 <a href="{{ route('front.articles.edit', $article) }}" class="text-decoration-none"><li class="dropdown-item d-flex gap-2 align-items-center" role="button"><i class="fas fa-pen"></i> تعديل الخبر</li></a>
-                            <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة الخبر</li>
+                            <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> @lang('front.remove')</li>
                         </ul>
                     </div>
                     @endif
@@ -73,28 +73,28 @@
                         target="_blank"
                         class="text-decoration-none text-primary"
                         data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-title="مشاركة على فيس بوك">
+                        data-bs-title="@lang('front.share') @lang('front.facebook')">
                         <i class="fab fa-facebook"></i>
                     </a>
                     <a  href="https://twitter.com/intent/tweet?url={{ route('front.articles.show', $article) }}&text=Check%20this%20out!" 
                         target="_blank"
                         class="text-decoration-none text-dark"
                         data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-title="مشاركة على تويتر">
+                        data-bs-title="@lang('front.share') @lang('front.x')">
                         <i class="fab fa-x-twitter"></i>
                     </a>
                     <a  href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('front.articles.show', $article) }}&title=Your%20Title" 
                         target="_blank"
                         class="text-decoration-none text-primary"
                         data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-title="مشاركة على لينكد ان">
+                        data-bs-title="@lang('front.share') @lang('front.linkedin')">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a  href="https://api.whatsapp.com/send?text=Check%20this%20out:%20{{ route('front.articles.show', $article) }}" 
                         target="_blank"
                         class="text-decoration-none text-success"
                         data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-title="مشاركة على واتساب">
+                        data-bs-title="@lang('front.share') @lang('front.whatsapp')">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </ul>
@@ -103,7 +103,7 @@
                 <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
                     <p>
                         <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
-                        أحببته
+                        @lang('front.reacted')
                     </p>
                     <span class="loader"></span>
                 </button>

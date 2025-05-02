@@ -5,7 +5,7 @@
         <aside></aside>
         <main class="articles col-12 d-flex flex-wrap justify-content-center">
             <div class="w-100 d-flex justify-content-center mb-3">
-                <h3 class="align-self-start mx-auto d-block"><i class="far fa-newspaper fs-4"></i> الاخبار</h3>
+                <h3 class="align-self-start mx-auto d-block"><i class="far fa-newspaper fs-4"></i> @lang('front.news')</h3>
             </div>
             <div class="row w-100">
                 <x-article-list :articles="$first_articles" />

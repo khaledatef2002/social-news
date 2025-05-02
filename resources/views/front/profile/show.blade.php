@@ -17,7 +17,7 @@
                     <div class="flex-shrink-0">
                         <a href="{{ route('front.profile.edit', $user) }}" class="btn btn-outline-success">
                             <i class="fas fa-edit"></i>
-                            تعديل الملف الشخصي
+                            @lang('front.edit-profile')
                         </a>
                     </div>
                 @endif
@@ -27,7 +27,7 @@
             <div class="col-md-4 pe-1 position-sticky top-0">
                 <div class="card border-0 shadow-sm personal-info-card">
                     <div class="card-header bg-transparent">
-                        <h3 class="mb-0 text-center fw-bold fs-5 py-1">البيانات الشخصية</h3>
+                        <h3 class="mb-0 text-center fw-bold fs-5 py-1">@lang('front.personal-info')</h3>
                     </div>
                     <div class="card-body px-0">
                         @php
@@ -80,7 +80,7 @@
                                 </div>
                             @endif
                         @else
-                            <p class="text-center fs-5 mb-0">لا يوجد بيانات للعرض</p>
+                            <p class="text-center fs-5 mb-0">@lang('front.no-personal-info')</p>
                         @endif
                     </div>
                 </div>

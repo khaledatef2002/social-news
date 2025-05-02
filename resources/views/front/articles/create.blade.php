@@ -9,18 +9,18 @@
             <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
-                        <input class="form-control" name="title" type="text" placeholder="عنوان الخبر">
+                        <input class="form-control" name="title" type="text" placeholder="@lang('front.news-title')">
                     </div>
                 </div>
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
-                        <textarea class="form-control" name="short" placeholder="ملخص الخبر" rows="3" style="resize: none;"></textarea>
+                        <textarea class="form-control" name="short" placeholder="@lang('front.news-summary')" rows="3" style="resize: none;"></textarea>
                     </div>
                 </div>
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Choose Cover</h5>
-                        <p class="text-muted mb-0">Scale Ratio: (1: 0.45) (W:H)</p>
+                        <h5 class="card-title mb-0">@lang('front.news-cover')</h5>
+                        <p class="text-muted mb-0">@lang('front.scale-ratio') (1: 0.45) (W:H)</p>
                     </div>
                     <div class="card-body">
                         <div class="auto-image-show">
@@ -33,21 +33,21 @@
                 </div>
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
-                        <input class="form-control" name="keywords" type="text" placeholder="الكلمات المفتاحية">
+                        <input class="form-control" name="keywords" type="text" placeholder="@lang('front.keywords')">
                     </div>
                 </div>
     
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
                         <select class="form-select" name="category_id">
-                            <option selected>--اختر التصنيف--</option>
+                            <option selected>--@lang('front.select-category')--</option>
                         </select>
                     </div>
                 </div>
     
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
-                        <input class="form-control" name="source" type="text" placeholder="المصدر (اختياري)">
+                        <input class="form-control" name="source" type="text" placeholder="@lang('front.source') (@lang('front.optional'))">
                     </div>
                 </div>
             </div>
@@ -57,10 +57,10 @@
             <div class="container">
                 <div class="card mx-auto border-0 shadow">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">محتوى الخبر</h5>
+                        <h5 class="card-title mb-0">@lang('front.news-content')</h5>
                     </div>
                     <div class="card-body">
-                        <textarea id="content" name="content" class="form-control" placeholder="الخبر" height="500"></textarea>
+                        <textarea id="content" name="content" class="form-control" placeholder="@lang('news.content')" height="500"></textarea>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
 
     <div class="d-flex justify-content-center align-items-center flex-wrap mb-3 mt-1 col-12 px-4">
         <button type="submit" class="btn btn-outline-dark px-5 loader-btn w-100">
-            <p>نشر الخبر</p>
+            <p>@lang('front.publish')</p>
             <span class="loader"></span>
         </button>
     </div>
@@ -86,12 +86,12 @@
         removeItems: true,
         removeItemButton: true,
         removeItemButtonAlignLeft: direction,
-        loadingText: 'تحمل...',
-        noResultsText: 'لا توجد نتائج',
-        noChoicesText: 'لا توجد خيارات',
-        itemSelectText: 'اضغط للتاكيد',
-        uniqueItemText: 'هذا العنصر موجود مسبقًا',
-        placeholderValue: 'اكتب الكلمات المفتاحية',
+        loadingText: '@lang("front.loading")...',
+        noResultsText: '@lang("front.no-results")',
+        noChoicesText: '@lang("front.no-choices")',
+        itemSelectText: '@lang("front.item-select")',
+        uniqueItemText: '@lang("front.unique-item")',
+        placeholderValue: '@lang("front.placeholder-value")',
     });
 
     $('select[name="category_id"]').select2({

@@ -29,7 +29,7 @@ class ArticlesReactsController extends Controller
         }
 
         return response()->json([
-            'message' => __('create.message.success'),
+            'message' => __('response.react-article-success'),
             'reacted' => $reacted,
             'count' => $article->reacts->count()
         ]);

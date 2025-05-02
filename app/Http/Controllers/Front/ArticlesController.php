@@ -104,7 +104,7 @@ class ArticlesController extends Controller implements HasMiddleware
 
         return response()->json([
             'status' => 'success',
-            'message' => __('create.message.success'),
+            'message' => __('response.create-article-success'),
             'url' => route('front.articles.show', $article->slug),
         ]);
     }
@@ -185,7 +185,7 @@ class ArticlesController extends Controller implements HasMiddleware
 
         return response()->json([
             'status' => 'success',
-            'message' => __('create.message.success'),
+            'message' => __('response.update-article-success'),
         ]);
     }
 
@@ -210,7 +210,7 @@ class ArticlesController extends Controller implements HasMiddleware
         $article->delete();
 
         return response()->json([
-            'message' => __('create.message.success'),
+            'message' => __('response.delete-article-success'),
         ]);
     }
 
@@ -221,7 +221,7 @@ class ArticlesController extends Controller implements HasMiddleware
         if($articles->count() > 0)
         {
             return response()->json([
-                'message' => __('create.message.success'),
+                'message' => __('response.get-more-articles-success'),
                 'content' => view('components.article-list', compact('articles'))->render(),
                 'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
@@ -229,7 +229,7 @@ class ArticlesController extends Controller implements HasMiddleware
         else
         {
             return response()->json([
-                'errors' => ['data' => ['لا يوجد نتائج']]
+                'errors' => ['data' => [__('response.no-articles')]]
             ], 404);
         }
     }
@@ -240,7 +240,7 @@ class ArticlesController extends Controller implements HasMiddleware
         if($articles->count() > 0)
         {
             return response()->json([
-                'message' => __('create.message.success'),
+                'message' => __('response.get-more-articles-success'),
                 'content' => view('components.article-summary-list', compact('articles'))->render(),
                 'length' => $articles->count() >= $limit ? $limit : $articles->count()
             ]);
@@ -248,7 +248,7 @@ class ArticlesController extends Controller implements HasMiddleware
         else
         {
             return response()->json([
-                'errors' => ['data' => ['لا يوجد نتائج']]
+                'errors' => ['data' => [__('response.no-articles')]]
             ], 404);
         }
     }
@@ -272,7 +272,7 @@ class ArticlesController extends Controller implements HasMiddleware
         }
 
         return response()->json([
-            'message' => __('create.message.success'),
+            'message' => __('response.bookmark-article-success'),
             'bookmarked' => $bookmarked,
         ]);
     }
