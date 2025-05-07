@@ -63,7 +63,7 @@
             {!! $article->content !!}
         </div>
         @if ($article->source)
-            <div class="article-source mb-1">
+            <div class="article-source mb-1 d-flex gap-1 px-2">
                 <p class="fw-bold mb-0">المصدر: </p> <a href="{{ $article->source }}" class="text-dark">{{ $article->source }}</a>
             </div>
         @endif
