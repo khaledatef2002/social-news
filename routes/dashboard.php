@@ -2,12 +2,12 @@
 
 use App\Http\Controllers\Dashboard\ArticlesCategoriesController;
 use App\Http\Controllers\Dashboard\ArticlesController;
-use App\Http\Controllers\dashboard\HomeController;
-use App\Http\Controllers\dashboard\RolesController;
+use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\TvArticlesCategoriesController;
 use App\Http\Controllers\Dashboard\TvArticlesController;
-use App\Http\Controllers\dashboard\UsersController;
-use App\Http\Controllers\dashboard\WebsiteSettingsController;
+use App\Http\Controllers\Dashboard\UsersController;
+use App\Http\Controllers\Dashboard\WebsiteSettingsController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
