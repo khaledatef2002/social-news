@@ -137,21 +137,9 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_edit->value }}" value="{{ \App\Enum\PermissionsType::articles_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_edit->value) ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_edit->value }}">
-                                            @lang('dashboard.edit')
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
                                         <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_delete->value }}" value="{{ \App\Enum\PermissionsType::articles_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_delete->value }}">
                                             @lang('dashboard.delete')
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_create->value }}" value="{{ \App\Enum\PermissionsType::articles_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_create->value) ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_create->value }}">
-                                            @lang('dashboard.create')
                                         </label>
                                     </div>
                                 </td>
