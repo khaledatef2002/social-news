@@ -105,7 +105,7 @@ class ArticlesController extends Controller implements HasMiddleware
         return response()->json([
             'status' => 'success',
             'message' => __('response.create-article-success'),
-            'url' => route('front.articles.show', $article->slug),
+            'url' => route('front.articles.show', $article),
         ]);
     }
 

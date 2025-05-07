@@ -37,8 +37,11 @@ class RegisteredUserController extends Controller
             'country_code' => ['required', 'string', 'size:2'],
             'phone' => ['required', 'phone:' . $request->input('country_code'), 'unique:'.User::class],
             'password' => ['required', Rules\Password::defaults()],
+            'terms' => ['required']
         ]);
 
+        unset($data['terms']);
+        
         $user = User::create($data);
 
         event(new Registered($user));

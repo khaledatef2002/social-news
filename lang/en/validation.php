@@ -216,6 +216,7 @@ return [
         'current_password' => 'current password',
         'new_password' => 'new password',
         'token' => 'token',
+        'terms' => 'Acceptance for terms & conditions'
     ],
 
 ];

@@ -32,6 +32,12 @@
                             <i class="fas fa-eye password-toggler" role="button"></i>
                         </div>
                     </div>
+                    <div class="mb-3 d-flex gap-2 align-items-center">
+                        <input id="terms" class="form-check" type="checkbox" name="terms" placeholder="@lang('front.email')">
+                        <label for="terms" class="mb-1">
+                            @lang('front.terms.agreement_text', ['link' => '<a href="'.route('front.terms').'" class="text-dark" target="_blank">'.__('front.terms.title').'</a>'])
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-dark px-4 w-100 loader-btn">
                         <p>@lang('front.register')</p>
                         <span class="loader"></span>
