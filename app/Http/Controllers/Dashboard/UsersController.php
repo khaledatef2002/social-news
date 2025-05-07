@@ -174,6 +174,8 @@ class UsersController extends Controller implements HasMiddleware
                 }
             }],
 
+            'type' => ['required', Rule::in(UserType::USER->value, UserType::WRITER->value)],
+
             'admin' => ['required', 'boolean'],
             'role' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
                 if ($request->admin == '1') {
@@ -301,6 +303,16 @@ class UsersController extends Controller implements HasMiddleware
                 }
             }],
 
+            'type' => ['required', Rule::in(UserType::USER->value, UserType::WRITER->value)],
+
+            'admin' => ['required', 'boolean'],
+            'role' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
+                if ($request->admin == '1') {
+                    if (!$value) {
+                        $fail(__('You must enter the user role to make him as admin.'));
+                    }
+                }
+            }],
         ]);
 
         if($image = $request->file('image'))
