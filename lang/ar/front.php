@@ -199,5 +199,10 @@ return [
             'closing' => 'في همم – مكتبة الأخبار، نبني إعلامًا ذكيًا... لأناس استثنائيين.'
         ]
     ],
-
+    'apply-for-writer' => 'تقديم لتكون كاتباً',
+    'cancel-writer-request' => 'الغاء طلب الكاتب',
+    'front.writer-request-sent' => 'تم تقديم طلبك',
+    'front.writer-request-canceled' => 'تم الغاء طلبك',
+    'front.already-writer' => 'انت بالفعل كاتباً',
+    'front.empty-nid' => 'يرجى ادخال رقمك القومي'
 ];

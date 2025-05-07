@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+    
+    public function writer_request()
+    {
+        return $this->hasMany(WriterRequest::class);
+    }
 }

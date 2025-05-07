@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
                             <label class="form-check-label mb-1" for="education_public">@lang('front.show')</label>
-                            <input class="form-check-input m-0" value="0" type="hidden">
+                            <input class="form-check-input m-0" value="0" type="hidden" name="education_public">
                             <input class="form-check-input m-0" value="1" type="checkbox" role="switch" id="education_public" name="education_public" {{ $user->education_public ? 'checked' : '' }}>
                         </div>
                     </div>

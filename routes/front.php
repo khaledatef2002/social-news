@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Front\SavedArticlesController;
 use App\Http\Controllers\Front\TvArticlesController;
+use App\Http\Controllers\Front\WriterRequestsController;
 use App\Http\Controllers\select2;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -34,6 +35,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
     
         Route::view('/terms&conditions', 'front.terms-and-condition')->name('terms');
         Route::view('/about-us', 'front.about-us')->name('about');
+
+        Route::middleware('auth')->post('request-writer', [WriterRequestsController::class, 'request'])->name('request.writer');
     });
 
     require_once __DIR__.'/auth.php';

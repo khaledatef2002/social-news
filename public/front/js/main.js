@@ -1,5 +1,6 @@
 "use strict";
 
+import { request } from './utils.js';
 import AuthController from './auth.js'
 import ArticlesController from './articles.js'
 import TvArticlesController from './tv_articles.js'
@@ -91,6 +92,50 @@ const enable_tool_top = function()
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 }
 
+const enable_writer_requests = function()
+{
+  document.querySelectorAll(".writer_request").forEach(button => {
+    button.addEventListener('click', async function(){
+      const response = await request('/request-writer', 'POST')
+      if(response.success) {
+        show_success(response.data.message)
+        if(response.data.new_status == 'new')
+        {
+          document.querySelectorAll(".writer_request").forEach(button_to_edit => {
+            button_to_edit.innerHTML = `<i class="fas fa-pencil-alt"></i> ${response.data.title}`
+            button_to_edit.classList.add("text-danger")
+          })
+        }
+        else
+        {
+          document.querySelectorAll(".writer_request").forEach(button_to_edit => {
+            button_to_edit.innerHTML = `<i class="fas fa-pencil-alt"></i> ${response.data.title}`
+            button_to_edit.classList.remove("text-danger")
+          })
+        }
+      } else {
+        show_error(response.message)
+      }
+    })
+  })
+}
+
+function  show_success(message) {
+  Swal.fire({
+      title: "تم بنجاح",
+      text: message,
+      icon: "success"
+  });         
+}
+
+function show_error(message) {
+  Swal.fire({
+      title: "حدث خطاْ",
+      html: message,
+      icon: "error"
+  });         
+}
+
 function init()
 {
     allow_image_input_file_display()
@@ -99,6 +144,7 @@ function init()
     dark_mode_init()
     document.querySelectorAll("div.image-upload").forEach(e => enable_input_image_selection.bind(e)())
     enable_tool_top()
+    enable_writer_requests()
 }
 
 init()

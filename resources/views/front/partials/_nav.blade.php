@@ -70,6 +70,11 @@
                         @endif
                         <li><a class="dropdown-item" href="{{ route('front.profile.show', Auth::user()) }}"><i class="fas fa-user-alt"></i> @lang('front.profile')</a></li>
                         <li><a class="dropdown-item" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> @lang('front.saved-news')</a></li>
+                        @if(Auth::user()->type != \App\Enum\UserType::WRITER->value && Auth::user()->writer_request()->where('status', \App\Enum\WriterRequestStatus::PENDING->value)->count() == 0)
+                            <li><button class="dropdown-item writer_request"><i class="fas fa-pencil-alt"></i> @lang('front.apply-for-writer')</button></li>
+                        @elseif(Auth::user()->type != \App\Enum\UserType::WRITER->value && Auth::user()->writer_request()->where('status', \App\Enum\WriterRequestStatus::PENDING->value)->count() == 1)
+                            <li><button class="dropdown-item text-danger writer_request"><i class="fas fa-pencil-alt"></i> @lang('front.cancel-writer-request')</button></li>
+                        @endif
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -93,6 +98,11 @@
                         @endif
                         <li><a class="dropdown-item py-2 px-2" href="{{ route('front.profile.show', Auth::user()) }}"><i class="fas fa-user-alt"></i> @lang('front.profile')</a></li>
                         <li><a class="dropdown-item py-2 px-2" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> @lang('front.saved-news')</a></li>
+                        @if(Auth::user()->type != \App\Enum\UserType::WRITER->value && Auth::user()->writer_request()->where('status', \App\Enum\WriterRequestStatus::PENDING->value)->count() == 0)
+                            <li><button class="dropdown-item writer_request"><i class="fas fa-pencil-alt"></i> @lang('front.apply-for-writer')</button></li>
+                        @elseif(Auth::user()->type != \App\Enum\UserType::WRITER->value && Auth::user()->writer_request()->where('status', \App\Enum\WriterRequestStatus::PENDING->value)->count() == 1)
+                            <li><button class="dropdown-item text-danger writer_request"><i class="fas fa-pencil-alt"></i> @lang('front.cancel-writer-request')</button></li>
+                        @endif
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf

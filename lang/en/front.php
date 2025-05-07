@@ -196,5 +196,11 @@ return [
             ],
             'closing' => 'At Hemam - News Library, we build smart media... for exceptional people.'
         ]
-    ]
+    ],
+    'apply-for-writer' => 'Apply to be a writer',
+    'cancel-writer-request' => 'Cancel writer request', 
+    'front.writer-request-sent' => 'Your request has been submitted',
+    'front.writer-request-canceled' => 'Your request has been canceled',
+    'front.already-writer' => 'You are already a writer',
+    'front.empty-nid' => 'Please enter your national ID'
 ];
