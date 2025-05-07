@@ -161,7 +161,7 @@
                         <input type="checkbox" class="form-check-input" id="admin" name="admin" value="1" {{ $user->admin ? 'checked' : '' }}>
                         <label class="form-check-label" for="admin">Is Admin</label>
                     </div>
-                    <div class="mb-3" style="display: none">
+                    <div class="mb-3" style="{{ !$user->admin ? 'display: none' : '' }}">
                         <label class="form-label" for="role">Role:</label>
                         <select class="form-control" id="role" name="role">
                             <option>@lang('dashboard.select.choose-option')</option>
