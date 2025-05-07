@@ -218,7 +218,7 @@ class ArticlesManager {
             cancelButtonText: `تراجع`,
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const result = await request(`articles/${article_id}`, "DELETE")
+                const result = await request(`/articles/${article_id}`, "DELETE")
                 if(result.success)
                 {
                     article_element.remove()
