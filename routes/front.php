@@ -33,6 +33,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::get('profile/{user}/{last_article_id}/{limit}', [ProfileController::class, 'getMoreArticles'])->name('profile.get');
     
         Route::view('/terms&conditions', 'front.terms-and-condition')->name('terms');
+        Route::view('/about-us', 'front.about-us')->name('about');
     });
 
     require_once __DIR__.'/auth.php';
