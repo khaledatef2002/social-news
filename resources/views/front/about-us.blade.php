@@ -3,43 +3,36 @@
 @section('content')
 <main class="py-3 col-12 d-flex flex-column">
     <div class="w-100 d-flex justify-content-center mb-3">
-        <h3 class="align-self-start mx-auto d-block">من نحن</h3>
+        <h3 class="align-self-start mx-auto d-block">@lang('front.about.title')</h3>
     </div>
     <div class="card border-0 shadow-sm p-3 col-md-8 mx-auto">
-        <p class="fw-bold mb-0">مرحبًا بكم في همم – مكتبة الأخبار</p>
-        <p class="mb-0">منصة إعلامية ذكية ومبتكرة، تهدف إلى تمكين أصحاب الهمم من الوصول إلى الأخبار والمعلومات بسهولة، ودعم قضاياهم، والتعريف بإنجازاتهم، من خلال محتوى احترافي، شامل، ومتجدد.</p>
-        <p class="mb-2">نحن نؤمن أن الإعلام يجب أن يكون متاحًا للجميع، وأن التكنولوجيا يمكن أن تكون وسيلة للدمج والتمكين. لذلك، صُمم موقع همم ليقدم تجربة استخدام ميسّرة وسلسة، مدعومة بأحدث تقنيات الذكاء الاصطناعي، لتوفير محتوى سريع، دقيق، وشخصي، يلائم احتياجات المستخدمين بمختلف قدراتهم.</p>
-        <p class="fw-bold mb-0">رسالتنا</p>
-        <p class="mb-2">أن نكون صوتًا داعمًا لأصحاب الهمم، ومنصة تجمع بين الشمولية والتقنية، تقدم الأخبار بأسلوب عصري، وتُسهم في بناء وعي إعلامي شامل ومسؤول.</p>
-        <p class="fw-bold mb-0">رؤيتنا</p>
-        <p class="mb-2">أن نصبح المرجع الإخباري الأهم لأصحاب الهمم، وجسرًا يربطهم بالعالم من خلال أخبار موثوقة، سهلة الوصول، ومدعومة بالتحليل الذكي والتقنيات الحديثة.</p>
-        <p class="fw-bold mb-0">من نحن فعلاً؟</p>
-        <p class="mb-0">همم – مكتبة الأخبار هو مشروع إعلامي رقمي تابع لشركة سهيل للحلول الذكية، الشركة المتخصصة في تصميم الحلول التقنية الموجهة لخدمة المجتمعات، ودعم الفئات المستهدفة بأدوات مبتكرة.</p>
-        <p class="mb-0">نضم فريقًا إعلاميًا وتقنيًا يعمل بتناغم، لنقدم محتوىً يلائم احتياجات أصحاب الهمم، ويدعم تمكينهم، ويواكب تطورات الإعلام الرقمي والذكاء الاصطناعي.</p>
-        <p class="fw-bold mb-0">قيمنا</p>
+        <p class="fw-bold mb-0">@lang('front.about.content.welcome.title')</p>
+        @foreach(__('front.about.content.welcome.paragraphs') as $paragraph)
+            <p class="mb-2">{{ $paragraph }}</p>
+        @endforeach
+        
+        <p class="fw-bold mb-0">@lang('front.about.content.mission.title')</p>
+        <p class="mb-2">@lang('front.about.content.mission.text')</p>
+        
+        <p class="fw-bold mb-0">@lang('front.about.content.vision.title')</p>
+        <p class="mb-2">@lang('front.about.content.vision.text')</p>
+        
+        <p class="fw-bold mb-0">@lang('front.about.content.who_we_are.title')</p>
+        @foreach(__('front.about.content.who_we_are.paragraphs') as $paragraph)
+            <p class="mb-0">{{ $paragraph }}</p>
+        @endforeach
+        
+        <p class="fw-bold mb-0">@lang('front.about.content.values.title')</p>
         <ul>
+            @foreach(__('front.about.content.values.items') as $item)
             <li class="d-flex gap-2">
-                <p class="fw-bold mb-0">التمكين:</p>
-                <p class="mb-0">نمنح صوتًا لمن يستحق أن يُسمع.</p>
+                <p class="fw-bold mb-0">{{ $item['title'] }}</p>
+                <p class="mb-0">{{ $item['text'] }}</p>
             </li>
-            <li class="d-flex gap-2">
-                <p class="fw-bold mb-0">الشمولية:</p>
-                <p class="mb-0">نُصمم محتوى للجميع، دون استثناء.</p>
-            </li>
-            <li class="d-flex gap-2">
-                <p class="fw-bold mb-0">الابتكار:</p>
-                <p class="mb-0">نستخدم الذكاء الاصطناعي لتحسين التجربة الإخبارية.</p>
-            </li>
-            <li class="d-flex gap-2">
-                <p class="fw-bold mb-0">المصداقية:</p>
-                <p class="mb-0">ننقل المعلومة بدقة وحياد.</p>
-            </li>
-            <li class="d-flex gap-2">
-                <p class="fw-bold mb-0">الوصول السهل:</p>
-                <p class="mb-0">نبني منصة تُراعي احتياجات جميع المستخدمين، خاصة أصحاب الهمم.</p>
-            </li>
+            @endforeach
         </ul>
-        <p>في همم – مكتبة الأخبار، نبني إعلامًا ذكيًا... لأناس استثنائيين.</p>
+        
+        <p>@lang('front.about.content.closing')</p>
     </div>
 </main>
 @endsection

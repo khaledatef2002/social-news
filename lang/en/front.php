@@ -143,5 +143,58 @@ return [
             ],
             'conclusion' => 'By using the "News Library" website, you acknowledge that you have read, understood, and agreed to these terms and conditions.'
         ]
+    ],
+    'about' => [
+        'title' => 'About Us',
+        'content' => [
+            'welcome' => [
+                'title' => 'Welcome to Hemam - News Library',
+                'paragraphs' => [
+                    'An innovative smart media platform aimed at empowering people of determination by providing easy access to news and information, supporting their causes, and highlighting their achievements through professional, comprehensive, and up-to-date content.',
+                    'We believe media should be accessible to everyone, and that technology can be a tool for inclusion and empowerment. Therefore, Hemam was designed to provide a smooth and facilitated user experience, powered by the latest AI technologies, to deliver fast, accurate, and personalized content that meets the needs of users with different abilities.'
+                ]
+            ],
+            'mission' => [
+                'title' => 'Our Mission',
+                'text' => 'To be a supportive voice for people of determination, and a platform that combines inclusivity with technology, delivering news in a modern style, and contributing to building comprehensive and responsible media awareness.'
+            ],
+            'vision' => [
+                'title' => 'Our Vision',
+                'text' => 'To become the most important news reference for people of determination, and a bridge connecting them to the world through reliable news, easy access, and smart analysis supported by modern technologies.'
+            ],
+            'who_we_are' => [
+                'title' => 'Who We Really Are',
+                'paragraphs' => [
+                    'Hemam - News Library is a digital media project affiliated with Suhail Smart Solutions, a company specialized in designing technical solutions aimed at serving communities and supporting target groups with innovative tools.',
+                    'We bring together a harmonious media and technical team to provide content that meets the needs of people of determination, supports their empowerment, and keeps pace with developments in digital media and artificial intelligence.'
+                ]
+            ],
+            'values' => [
+                'title' => 'Our Values',
+                'items' => [
+                    'empowerment' => [
+                        'title' => 'Empowerment:',
+                        'text' => 'We give voice to those who deserve to be heard.'
+                    ],
+                    'inclusivity' => [
+                        'title' => 'Inclusivity:',
+                        'text' => 'We design content for everyone, without exception.'
+                    ],
+                    'innovation' => [
+                        'title' => 'Innovation:',
+                        'text' => 'We use artificial intelligence to enhance the news experience.'
+                    ],
+                    'credibility' => [
+                        'title' => 'Credibility:',
+                        'text' => 'We deliver information accurately and neutrally.'
+                    ],
+                    'accessibility' => [
+                        'title' => 'Easy Access:',
+                        'text' => 'We build a platform that considers the needs of all users, especially people of determination.'
+                    ]
+                ]
+            ],
+            'closing' => 'At Hemam - News Library, we build smart media... for exceptional people.'
+        ]
     ]
 ];
