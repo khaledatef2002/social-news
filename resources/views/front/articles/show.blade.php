@@ -62,6 +62,9 @@
         <div class="article-content mt-3 px-2">
             {!! $article->content !!}
         </div>
+        @if ($article->source)
+            <p class="fw-bold">المصدر: </p> <a href="{{ $article->source }}" class="text-dark">{{ $article->source }}</a>
+        @endif
         <div class="reacts-container">
             <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-1">
