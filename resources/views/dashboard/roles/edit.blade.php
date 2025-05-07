@@ -44,25 +44,25 @@
                                 <td>@lang('dashboard.tv_articles_categories')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_show->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_categories_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_show->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_categories_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_categories_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_edit->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_categories_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_edit->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_categories_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_categories_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_delete->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_delete->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_categories_delete->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_delete->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_categories_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_categories_delete->value }}">
                                             @lang('dashboard.delete')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_create->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_create->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_categories_create->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_categories_create->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_categories_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_categories_create->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_categories_create->value }}">
                                             @lang('dashboard.create')
                                         </label>
@@ -73,25 +73,25 @@
                                 <td>@lang('dashboard.tv_articles')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_show->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_show->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_edit->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_edit->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_delete->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_delete->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_delete->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_delete->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_delete->value }}">
                                             @lang('dashboard.delete')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_create->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_create->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::tv_articles_create->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::tv_articles_create->value }}" value="{{ \App\Enum\PermissionsType::tv_articles_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::tv_articles_create->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::tv_articles_create->value }}">
                                             @lang('dashboard.create')
                                         </label>
@@ -102,25 +102,25 @@
                                 <td>@lang('dashboard.articles_categories')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_show->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_categories_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_show->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_categories_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_categories_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_edit->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_categories_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_edit->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_categories_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_categories_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_delete->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_delete->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_categories_delete->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_delete->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_categories_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_categories_delete->value }}">
                                             @lang('dashboard.delete')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_create->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_create->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_categories_create->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_categories_create->value }}" value="{{ \App\Enum\PermissionsType::articles_categories_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_categories_create->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_categories_create->value }}">
                                             @lang('dashboard.create')
                                         </label>
@@ -131,25 +131,25 @@
                                 <td>@lang('dashboard.articles')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_show->value }}" value="{{ \App\Enum\PermissionsType::articles_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_show->value }}" value="{{ \App\Enum\PermissionsType::articles_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_edit->value }}" value="{{ \App\Enum\PermissionsType::articles_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_edit->value }}" value="{{ \App\Enum\PermissionsType::articles_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_delete->value }}" value="{{ \App\Enum\PermissionsType::articles_delete->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_delete->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_delete->value }}" value="{{ \App\Enum\PermissionsType::articles_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_delete->value }}">
                                             @lang('dashboard.delete')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_create->value }}" value="{{ \App\Enum\PermissionsType::articles_create->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::articles_create->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::articles_create->value }}" value="{{ \App\Enum\PermissionsType::articles_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::articles_create->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::articles_create->value }}">
                                             @lang('dashboard.create')
                                         </label>
@@ -160,25 +160,25 @@
                                 <td>@lang('dashboard.users')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_show->value }}" value="{{ \App\Enum\PermissionsType::users_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::users_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_show->value }}" value="{{ \App\Enum\PermissionsType::users_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::users_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::users_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_edit->value }}" value="{{ \App\Enum\PermissionsType::users_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::users_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_edit->value }}" value="{{ \App\Enum\PermissionsType::users_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::users_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::users_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_delete->value }}" value="{{ \App\Enum\PermissionsType::users_delete->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::users_delete->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_delete->value }}" value="{{ \App\Enum\PermissionsType::users_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::users_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::users_delete->value }}">
                                             @lang('dashboard.delete')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_create->value }}" value="{{ \App\Enum\PermissionsType::users_create->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::users_create->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::users_create->value }}" value="{{ \App\Enum\PermissionsType::users_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::users_create->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::users_create->value }}">
                                             @lang('dashboard.create')
                                         </label>
@@ -189,25 +189,25 @@
                                 <td>@lang('dashboard.roles')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_show->value }}" value="{{ \App\Enum\PermissionsType::roles_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::roles_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_show->value }}" value="{{ \App\Enum\PermissionsType::roles_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::roles_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::roles_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_edit->value }}" value="{{ \App\Enum\PermissionsType::roles_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::roles_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_edit->value }}" value="{{ \App\Enum\PermissionsType::roles_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::roles_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::roles_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_delete->value }}" value="{{ \App\Enum\PermissionsType::roles_delete->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::roles_delete->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_delete->value }}" value="{{ \App\Enum\PermissionsType::roles_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::roles_delete->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::roles_delete->value }}">
                                             @lang('dashboard.delete')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_create->value }}" value="{{ \App\Enum\PermissionsType::roles_create->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::roles_create->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::roles_create->value }}" value="{{ \App\Enum\PermissionsType::roles_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::roles_create->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::roles_create->value }}">
                                             @lang('dashboard.create')
                                         </label>
@@ -218,13 +218,13 @@
                                 <td>@lang('dashboard.website-settings')</td>
                                 <td>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::website_settings_show->value }}" value="{{ \App\Enum\PermissionsType::website_settings_show->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::website_settings_show->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::website_settings_show->value }}" value="{{ \App\Enum\PermissionsType::website_settings_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::website_settings_show->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::website_settings_show->value }}">
                                             @lang('dashboard.show')
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::website_settings_edit->value }}" value="{{ \App\Enum\PermissionsType::website_settings_edit->value }}" {{ $role->hasPermissionTo(\App\PermissionsType::website_settings_edit->value) ? 'checked' : '' }}>
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::website_settings_edit->value }}" value="{{ \App\Enum\PermissionsType::website_settings_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::website_settings_edit->value) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="{{ \App\Enum\PermissionsType::website_settings_edit->value }}">
                                             @lang('dashboard.edit')
                                         </label>
