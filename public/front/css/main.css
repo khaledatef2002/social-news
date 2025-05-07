@@ -78,6 +78,16 @@ i.password-toggler
   transform: translateY(-50%);
 }
 
+.whatsapp-contact {
+  position: fixed;
+  z-index: 9999;
+  bottom: 10px;
+}
+
+.whatsapp-contact img {
+  width: 50px;
+}
+
 .fs-7 
 {
   font-size: 0.8rem !important;

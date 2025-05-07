@@ -32,3 +32,6 @@
         <p class="mb-0 text-white">@lang('front.copyright')</p>
     </div>
 </div>
+<div class="whatsapp-contact x-0 ms-2">
+    <a href="https://wa.me/+971562322266" target="_blank"><img src="https://salembookshop.ae/front/imgs/whatsapp.png" alt="Whatsapp"></a>
+</div>
