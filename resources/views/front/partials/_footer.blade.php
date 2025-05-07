@@ -20,10 +20,9 @@
                     </ul>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center align-items-center gap-md-4 gap-5">
-                    <i class="fab fa-facebook text-white fs-4"></i>
-                    <i class="fa-solid fa-x text-white fs-4"></i>
-                    <i class="fa-brands fa-instagram text-white fs-4"></i>
-                    <i class="fa-brands fa-youtube text-white fs-4"></i>
+                    <a href="https://x.com/NewsPortal2025"><i class="fa-solid fa-x text-white fs-4"></i></a>
+                    <a href="https://www.tiktok.com/@newsportal20?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok text-white fs-4"></i></a>
+                    <a href="https://www.youtube.com/@NewsPortal2025"><i class="fa-brands fa-youtube text-white fs-4"></i></a>
                 </div>
             </div>
         </div>
