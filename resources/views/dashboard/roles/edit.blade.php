@@ -237,5 +237,5 @@
 @endsection
 
 @section('custom-js')
-    <script src="{{ asset('back/js/roles.js') }}"></script>
+    <script src="{{ asset('back/js/roles-module.js') }}" type="module"></script>
 @endsection
