@@ -144,6 +144,29 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>@lang('dashboard.writer-requests')</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::writer_requests_show->value }}" value="{{ \App\Enum\PermissionsType::writer_requests_show->value }}">
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::writer_requests_show->value }}">
+                                            @lang('dashboard.show')
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::writer_requests_edit->value }}" value="{{ \App\Enum\PermissionsType::writer_requests_edit->value }}">
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::writer_requests_edit->value }}">
+                                            @lang('dashboard.edit')
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::writer_requests_delete->value }}" value="{{ \App\Enum\PermissionsType::writer_requests_delete->value }}">
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::writer_requests_delete->value }}">
+                                            @lang('dashboard.delete')
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>@lang('dashboard.users')</td>
                                 <td>
                                     <div class="form-check">

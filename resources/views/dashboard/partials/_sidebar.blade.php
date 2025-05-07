@@ -77,6 +77,13 @@
                         </div>
                     </li>
                 @endif
+                @if (Auth::user()->hasPermissionTo('writer_requests_show'))
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::currentRouteName() ==  'dashboard.writer-request.index' ? 'active' : ''}}" href="{{ route('dashboard.writer-request.index') }}" role="button">
+                            <i class="ri-pencil-line"></i> <span>@lang('dashboard.writer-requests')</span>
+                        </a>
+                    </li>
+                @endif
                 @if (Auth::user()->hasPermissionTo('users_show'))
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::currentRouteName() ==  'dashboard.users.index' ? 'active' : ''}}" href="{{ route('dashboard.users.index') }}" role="button">

@@ -30,6 +30,11 @@ enum PermissionsType: string
     case tv_articles_delete = 'tv_articles_delete';
     case tv_articles_create = 'tv_articles_create';
 
+    // Writer requests
+    case writer_requests_show = 'writer_requests_show';
+    case writer_requests_delete = 'writer_requests_delete';
+    case writer_requests_edit = 'writer_requests_edit';
+
     // users
     case users_show = 'users_show';
     case users_edit = 'users_edit';

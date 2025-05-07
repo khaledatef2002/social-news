@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\TvArticlesCategoriesController;
 use App\Http\Controllers\Dashboard\TvArticlesController;
 use App\Http\Controllers\Dashboard\UsersController;
 use App\Http\Controllers\Dashboard\WebsiteSettingsController;
+use App\Http\Controllers\Dashboard\WriterRequestController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -27,6 +28,9 @@ Route::prefix(LaravelLocalization::setLocale())
         Route::resource('tv-articles-categories', TvArticlesCategoriesController::class);
         Route::resource('articles', ArticlesController::class);
         Route::resource('articles-categories', ArticlesCategoriesController::class);
+        Route::resource('writer-request', WriterRequestController::class);
+        Route::put('writer-request/{writer_request}/approve', [WriterRequestController::class, 'approve']);
+        Route::put('writer-request/{writer_request}/reject', [WriterRequestController::class, 'reject']);
     });
 });
 
