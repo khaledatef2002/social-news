@@ -38,4 +38,5 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
 
 Route::prefix('/select2')->controller(select2::class)->name('select2.')->group(function(){
     Route::get('/article_category', 'article_category')->name('article_category');
+    Route::get('/tv_article_category', 'tv_article_category')->name('tv_article_category');
 });

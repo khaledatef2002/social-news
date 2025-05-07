@@ -2,12 +2,12 @@
     <meta charset="utf-8" />
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="{{ $website_settings->description }}" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ asset('storage/'. $website_settings->logo) }}">
+    <link rel="shortcut icon" href="{{ asset($website_settings->logo) }}">
 
     <!-- jsvectormap css -->
     <link href="{{ asset('back') }}/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
@@ -24,12 +24,16 @@
         <link href="{{ asset('back') }}/css/bootstrap-rtl.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('back') }}/css/app-rtl.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back') }}/css/custom-rtl.css" rel="stylesheet" type="text/css" />
     @else
         <!-- Bootstrap Css -->
         <link href="{{ asset('back') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('back') }}/css/app.min.css" rel="stylesheet" type="text/css" />
     @endif
+    <link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.7.2-web/css/all.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('front/libs/intl-tel-input/css/intlTelInput.css') }}">
 
     {{-- Select 2 --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />

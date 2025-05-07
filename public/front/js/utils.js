@@ -2,7 +2,14 @@ export const request = async function(url, method = "GET", data = {}) {
     const lang = document.querySelector('html').getAttribute('lang')
 
     if (method.toLowerCase() !== 'get' && method.toLowerCase() !== 'post') {
-        data.append("_method", method.toUpperCase())
+        if(data instanceof FormData)
+        {
+            data.append("_method", method.toUpperCase())
+        }
+        else
+        {
+            data["_method"] = method.toUpperCase()
+        }
         method = "POST"
     }
 

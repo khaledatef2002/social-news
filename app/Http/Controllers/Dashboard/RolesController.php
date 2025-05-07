@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Enum\PermissionsType;
 use App\Http\Controllers\Controller;
-use App\PermissionsType;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -45,10 +45,10 @@ class RolesController extends Controller implements HasMiddleware
                 .
                 (Auth::user()->hasPermissionTo('roles_delete') ?
                 "
-                    <form id='remove_role' data-id='".$row['id']."' onsubmit='remove_role(event, this)'>
+                    <form data-id='".$row['id']."'>
                         <input type='hidden' name='_method' value='DELETE'>
                         <input type='hidden' name='_token' value='" . csrf_token() . "'>
-                        <button class='remove_button' onclick='remove_button(this)' type='button'><i class='ri-delete-bin-5-line text-danger fs-4'></i></button>
+                        <button class='remove_button remove_button_action' type='button'><i class='ri-delete-bin-5-line text-danger fs-4'></i></button>
                     </form>
                 " : "")
                 .
@@ -86,7 +86,10 @@ class RolesController extends Controller implements HasMiddleware
         $role = Role::create($data);
         $role->syncPermissions($data['permission']);
 
-        return response()->json(['redirectUrl' => route('dashboard.roles.edit', $role)]);
+        return response()->json([
+            'message' => __('response.create-role-success'),
+            'url' => route('dashboard.roles.edit', $role)
+        ]);
     }
 
     /**
@@ -119,6 +122,10 @@ class RolesController extends Controller implements HasMiddleware
 
         $role->update($data);
         $role->syncPermissions($data['permission']);
+
+        return response()->json([
+            'message' => __('response.update-role-success'),
+        ]);
     }
 
     /**
@@ -127,5 +134,9 @@ class RolesController extends Controller implements HasMiddleware
     public function destroy(Role $role)
     {
         $role->delete();
+
+        return response()->json([
+            'message' => __('response.delete-role-success'),
+        ]);
     }
 }

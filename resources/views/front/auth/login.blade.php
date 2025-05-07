@@ -25,7 +25,7 @@
                         <span class="loader"></span>
                     </button>
                     <p class="my-2">
-                        <span>@lang('front.new-to-site')؟</span>
+                        <span>@lang('front.new-to-site')</span>
                         <a href="{{ route('register') }}" class="text-dark">@lang('front.register')</a>
                     </p>
                 </form>

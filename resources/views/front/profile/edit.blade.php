@@ -39,7 +39,7 @@
                     <hr>
                     <div class="mb-3">
                         <label for="nid">@lang('front.nid') <span class="text-muted">(@lang('front.optional'))</span></label>
-                        <input id="nid" type="number" class="form-control ps-4" value="{{ $user->nid }}" name="nid">
+                        <input id="nid" type="text" class="form-control ps-4" value="{{ $user->nid }}" name="nid">
                         <i class="fa-solid fa-address-card ms-1"></i>
                     </div>
                     <div class="d-flex align-items-end gap-2 w-100 mb-3">
@@ -63,7 +63,6 @@
                                     <option value="{{ $education->value }}" {{ $user->education == $education->value ? 'selected' : '' }}>{{ $education->name }}</option>
                                 @endforeach
                             </select>
-                            {{-- <i class="fa-solid fa-graduation-cap ms-1"></i> --}}
                         </div>
                         <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
                             <label class="form-check-label mb-1" for="education_public">@lang('front.show')</label>

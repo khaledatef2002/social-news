@@ -10,5 +10,6 @@ class ArticleCategory extends Model
     use Translatable;
 
     public $translatedAttributes = ['title'];
+    protected $guarded = [];
 
 }

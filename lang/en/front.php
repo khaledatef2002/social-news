@@ -77,4 +77,7 @@ return [
     'no-choices' => 'No choices to choose from',
     'item-select' => 'Press to select',
     'unique-item' => 'Only unique values can be added',
+
+    'user' => 'Member',
+    'writer' => 'Writer',
 ];

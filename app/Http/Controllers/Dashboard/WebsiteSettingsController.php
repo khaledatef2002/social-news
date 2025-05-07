@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\SystemSettings;
 use App\Models\WebsiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
@@ -36,25 +37,30 @@ class WebsiteSettingsController extends Controller implements HasMiddleware
         ]);
 
         $image = $request->file('logo');
-        $imagePath = 'others/' . uniqid() . '.' . $image->getClientOriginalExtension();
+        $imagePath = 'website-settings/logo/' . uniqid() . '.webp';
 
         $manager = new ImageManager(new GdDriver());
-        $optimizedImage = $manager->read($image)
-            ->scale(width: 250)
-            ->encode(new AutoEncoder(quality: 75));
+        $manager->read($image)
+                ->scale(height: 60)
+                ->encode(new AutoEncoder('webp', quality: 75))
+                ->save('storage/' . $imagePath);
 
-        Storage::disk('public')->put($imagePath, (string) $optimizedImage);
+        $url = Storage::url($imagePath);
+        
+        $setting = SystemSettings::find(1);
 
-        $setting = WebsiteSetting::find(1);
-
-        if(Storage::disk('public')->exists($setting->logo))
+        if($setting->logo && Storage::disk('public')->exists($setting->logo))
         {
             Storage::disk('public')->delete($setting->logo);
         }
 
-        $setting->logo = $imagePath;
+        $setting->logo = $url;
 
         $setting->save();
+
+        return response()->json([
+            'message' => __('response.website-logo-updated'),
+        ]);
     }
 
     public function change_banner(Request $request)
@@ -64,25 +70,30 @@ class WebsiteSettingsController extends Controller implements HasMiddleware
         ]);
 
         $image = $request->file('banner');
-        $imagePath = 'others/' . uniqid() . '.' . $image->getClientOriginalExtension();
+        $imagePath = 'website-settings/banner/' . uniqid() . '.webp';
 
         $manager = new ImageManager(new GdDriver());
-        $optimizedImage = $manager->read($image)
-            ->scale(height: 250)
-            ->encode(new AutoEncoder(quality: 75));
+        $manager->read($image)
+                ->scale(width: 450)
+                ->encode(new AutoEncoder('webp', quality: 75))
+                ->save('storage/' . $imagePath);
 
-        Storage::disk('public')->put($imagePath, (string) $optimizedImage);
+        $url = Storage::url($imagePath);
 
-        $setting = WebsiteSetting::find(1);
+        $setting = SystemSettings::find(1);
 
-        if(Storage::disk('public')->exists($setting->banner))
+        if($setting->banner && Storage::disk('public')->exists($setting->banner))
         {
             Storage::disk('public')->delete($setting->banner);
         }
 
-        $setting->banner = $imagePath;
+        $setting->banner = $url;
 
         $setting->save();
+
+        return response()->json([
+            'message' => __('response.website-banner-updated'),
+        ]);
     }
 
     /**
@@ -91,15 +102,16 @@ class WebsiteSettingsController extends Controller implements HasMiddleware
     public function update(Request $request)
     {
         $data = $request->validate([
-            'site_title' => ['required', 'array'],
-            'site_title.*' => ['required', 'min:2'],
-            'author' => ['required', 'string', 'min:2', 'max:15'],
+            'title' => ['required', 'min:2'],
             'keywords' => ['required'],
-            'description' => ['required', 'array'],
             'description' => ['required']
         ]);
 
-        $setting = WebsiteSetting::find(1);
+        $setting = SystemSettings::find(1);
         $setting->update($data);
+
+        return response()->json([
+            'message' => __('response.website-settings-updated'),
+        ]);
     }
 }

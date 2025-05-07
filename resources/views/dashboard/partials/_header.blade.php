@@ -6,19 +6,19 @@
                 <div class="navbar-brand-box horizontal-logo">
                     <a href="index" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('front/'. $website_settings->logo) }}" alt="" height="22">
+                            <img src="{{ asset($website_settings->logo) }}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('front/'. $website_settings->logo) }}" alt="" height="17">
+                            <img src="{{ asset($website_settings->logo) }}" alt="" height="17">
                         </span>
                     </a>
 
                     <a href="index" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('front/'. $website_settings->logo) }}" alt="" height="22">
+                            <img src="{{ asset($website_settings->logo) }}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('front/'. $website_settings->logo) }}" alt="" height="17">
+                            <img src="{{ asset($website_settings->logo) }}" alt="" height="17">
                         </span>
                     </a>
                 </div>
@@ -341,14 +341,10 @@
                         <!-- item-->
                         <h6 class="dropdown-header">Welcome Anna!</h6>
                         <a class="dropdown-item" href="pages-profile"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                        <a class="dropdown-item" href="apps-chat"><i class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
-                        <a class="dropdown-item" href="apps-tasks-kanban"><i class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
-                        <a class="dropdown-item" href="pages-faqs"><i class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Help</span></a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="pages-profile"><i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Balance : <b>$5971.67</b></span></a>
-                        <a class="dropdown-item" href="pages-profile-settings"><span class="badge bg-success-subtle text-success mt-1 float-end">New</span><i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Settings</span></a>
-                        <a class="dropdown-item" href="auth-lockscreen-basic"><i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
-                        <a class="dropdown-item" href="auth-logout-basic"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item" href="#"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></button>
+                        </form>
                     </div>
                 </div>
             </div>

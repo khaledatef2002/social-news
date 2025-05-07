@@ -5,7 +5,7 @@
 <form id="create-article-form">
     <div class="d-flex align-items-start flex-wrap">
 
-        <div class="mt-5 mb-3 col-md-4 px-2">
+        <div class="mt-5 mb-3 col-md-4 col-12 px-2">
             <div class="container">
                 <div class="card mx-auto border-0 shadow mb-3">
                     <div class="card-body">
@@ -53,7 +53,7 @@
             </div>
         </div>
     
-        <div class="mt-5 mb-3 col-md-8 px-2">
+        <div class="mt-5 mb-3 col-md-8 col-12 px-2">
             <div class="container">
                 <div class="card mx-auto border-0 shadow">
                     <div class="card-header">

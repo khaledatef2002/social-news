@@ -2,15 +2,20 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class TvArticle extends Model
 {
+    use Translatable;
+    
+    public $translatedAttributes = ['title'];
+
     protected $guarded = ['id'];
 
     public function category()
     {
-        return $this->belongsTo(TvArticleCategories::class);
+        return $this->belongsTo(TvArticleCategory::class);
     }
 
     public function getEmbedSourceAttribute()

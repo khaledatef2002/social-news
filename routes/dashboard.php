@@ -1,15 +1,33 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ArticlesCategoriesController;
+use App\Http\Controllers\Dashboard\ArticlesController;
 use App\Http\Controllers\dashboard\HomeController;
+use App\Http\Controllers\dashboard\RolesController;
+use App\Http\Controllers\Dashboard\TvArticlesCategoriesController;
+use App\Http\Controllers\Dashboard\TvArticlesController;
+use App\Http\Controllers\dashboard\UsersController;
+use App\Http\Controllers\dashboard\WebsiteSettingsController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::prefix(LaravelLocalization::setLocale())
-    ->middleware([ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ])
+    ->middleware([ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth' ])
     ->group(function() {
-        Route::name('dashboard.')->prefix('dashboard')->group(function () {
-            Route::get('/', [HomeController::class, 'index'])->name('index');
-        });
+
+    Route::name('dashboard.')->prefix('dashboard')->group(function () {
+        Route::get('/', [HomeController::class, 'index'])->name('index');
+        Route::resource('users', UsersController::class);
+        Route::resource('roles', RolesController::class);
+        Route::get('website_setting', [WebsiteSettingsController::class, 'index'])->name('website_setting.index');
+        Route::put('website_setting', [WebsiteSettingsController::class, 'update'])->name('website_setting.update');
+        Route::put('website_setting/logo', [WebsiteSettingsController::class, 'change_logo'])->name('website_setting.logo.update');
+        Route::put('website_setting/banner', [WebsiteSettingsController::class, 'change_banner'])->name('website_setting.banner.update');
+        Route::resource('tv-articles', TvArticlesController::class);
+        Route::resource('tv-articles-categories', TvArticlesCategoriesController::class);
+        Route::resource('articles', ArticlesController::class);
+        Route::resource('articles-categories', ArticlesCategoriesController::class);
+    });
 });
 
 

@@ -24,3 +24,35 @@ File: Custom Css File
     width: 20px;
     height: 20px;
 }
+
+div.iti:has(input.form-control)
+{
+  width: 100%;
+}
+
+.iti__search-input
+{
+  outline: none;
+  padding: 5px 10px;
+}
+
+form div:has(> input)
+{
+  position: relative;
+}
+form div:has(> input) i
+{
+  position: absolute;
+  bottom: 10px;
+}
+div:has(i.password-toggler)
+{
+  position: relative;
+}
+i.password-toggler
+{
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  transform: translateY(-50%);
+}

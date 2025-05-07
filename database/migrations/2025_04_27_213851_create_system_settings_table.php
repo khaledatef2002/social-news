@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('system_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('logo')->nullable();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->string('logo');
+            $table->string('title');
+            $table->string('keywords');
+            $table->string('description');
+            $table->string('banner');
+            $table->timestamps();
         });
     }
 

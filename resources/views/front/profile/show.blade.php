@@ -10,7 +10,7 @@
                     </div>
                     <div>
                         <h3 class="fw-bold mb-0">{{ $user->full_name }}</h3>
-                        <Span>{{ $user->type }}</Span>
+                        <Span>{{ __('front.' . $user->type) }}</Span>
                     </div>
                 </div>
                 @if (Auth::check() && Auth::id() == $user->id)

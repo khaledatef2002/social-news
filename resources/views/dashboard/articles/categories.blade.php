@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="row g-2">
                 <div class="col-sm-auto ms-auto">
-                    <a data-bs-toggle="modal" data-bs-target="#addArticleCategoryModal"><button class="btn btn-success"><i class="ri-add-fill me-1 align-bottom"></i> @lang('dashboard.books.categories.add')</button></a>
+                    <a data-bs-toggle="modal" data-bs-target="#addArticleCategoryModal"><button class="btn btn-success"><i class="ri-add-fill me-1 align-bottom"></i> @lang('dashboard.categories.add')</button></a>
                 </div>
                 <!--end col-->
             </div>
@@ -23,7 +23,7 @@
             <thead>
                 <tr class="table-dark">
                     <th>@lang('dashboard.id')</th>
-                    <th>@lang('dashboard.name')</th>
+                    <th>@lang('dashboard.title')</th>
                     <th>@lang('dashboard.action')</th>
                 </tr>
             </thead>
@@ -41,10 +41,10 @@
         <form id="add-article-category-form">
             @csrf
             <div class="modal-body">
-                @foreach (LaravelLocalization::getSupportedLocales() as $locale)
+                @foreach (LaravelLocalization::getSupportedLocales() as $locale => $values)
                     <div class="mb-3">
-                        <label class="form-label" for="{{ $locale['locale'] }}.name">@lang('dashboard.'. $locale['locale'] .'.name')</label>
-                        <input type="text" class="form-control" id="{{ $locale['locale'] }}.name" name="name[{{ $locale['locale'] }}]" placeholder="@lang('dashboard.enter') @lang('dashboard.name')">
+                        <label class="form-label" for="{{ $locale }}.title">@lang('dashboard.'. $locale .'.title')</label>
+                        <input type="text" class="form-control" id="{{ $locale }}.title" name="{{ $locale }}[title]" placeholder="@lang('dashboard.enter') @lang('dashboard.title')">
                     </div>
                 @endforeach
             </div>
@@ -68,10 +68,10 @@
             @csrf
             @method('PUT')
             <div class="modal-body">
-                @foreach (LaravelLocalization::getSupportedLocales() as $locale)
+                @foreach (LaravelLocalization::getSupportedLocales() as $locale => $values)
                     <div class="mb-3">
-                        <label class="form-label" for="{{ $locale['locale'] }}.name">@lang('dashboard.'. $locale['locale'] .'.name')</label>
-                        <input type="text" class="form-control" id="{{ $locale['locale'] }}.name" name="name[{{ $locale['locale'] }}]" placeholder="@lang('dashboard.enter') @lang('dashboard.name')">
+                        <label class="form-label" for="{{ $locale }}.title">@lang('dashboard.'. $locale .'.title')</label>
+                        <input type="text" class="form-control" id="{{ $locale }}.title" name="{{ $locale }}[title]" placeholder="@lang('dashboard.enter') @lang('dashboard.title')">
                     </div>
                 @endforeach
             </div>
@@ -86,17 +86,17 @@
 @endsection
 
 @section('custom-js')
-    <script src="{{ asset('back/js/articles-categories.js') }}"></script>
+    <script src="{{ asset('back/js/articles-categories-module.js') }}" type="module"></script>
     <script>
         var table
         $(document).ready( function () {
             table = $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('dashboard.articles-category.index') }}",
+                ajax: "{{ route('dashboard.articles-categories.index') }}",
                 columns: [
                             { data: 'id', name: 'id' },
-                            { data: 'name', name: 'name' },
+                            { data: 'title', name: 'title' },
                             { data: 'action', name: 'action'}
                         ]
             });

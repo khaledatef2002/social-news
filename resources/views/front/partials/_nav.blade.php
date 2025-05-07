@@ -2,7 +2,7 @@
     <div class="container-fluid d-flex align-items-center justify-content-between position-relative">
         <div class="z-1">
             <a class="navbar-brand" href="{{ route('front.home') }}">
-                <img src="{{ asset('front/images/logo.png') }}">
+                <img src="{{ $website_settings->logo }}" alt="Logo" class="logo">
             </a>
         </div>
         @if (Auth::check())
@@ -91,7 +91,7 @@
                         @if (Auth::user()->admin)
                             <li><a class="dropdown-item" href="{{ route('dashboard.index') }}"><i class="fas fa-tachometer-alt"></i> @lang('front.dashboard')</a></li>
                         @endif
-                        <li><a class="dropdown-item py-2 px-2" href="#"><i class="fas fa-user-alt"></i> @lang('front.profile')</a></li>
+                        <li><a class="dropdown-item py-2 px-2" href="{{ route('front.profile.show', Auth::user()) }}"><i class="fas fa-user-alt"></i> @lang('front.profile')</a></li>
                         <li><a class="dropdown-item py-2 px-2" href="{{ route('front.saved-articles.index') }}"><i class="fas fa-bookmark"></i> @lang('front.saved-news')</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">

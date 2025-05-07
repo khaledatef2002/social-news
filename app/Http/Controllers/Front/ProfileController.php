@@ -113,7 +113,7 @@ class ProfileController extends Controller implements HasMiddleware
 
             'education_public' => ['required', 'boolean'],
             'education' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
-                if ($request->education_public == 'on') {
+                if ($request->education_public == '1') {
                     if (!$value) {
                         $fail(__('You must choose your education before making it visible.'));
                     } elseif (!in_array($value, EducationType::values())) {
@@ -124,7 +124,7 @@ class ProfileController extends Controller implements HasMiddleware
 
             'position_public' => ['required', 'boolean'],
             'position' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
-                if ($request->position_public == 'on') {
+                if ($request->position_public == '1') {
                     if (!$value) {
                         $fail(__('You must enter your position before maing it visible.'));
                     }
@@ -134,7 +134,7 @@ class ProfileController extends Controller implements HasMiddleware
             
             'x_link_public' => ['required', 'boolean'],
             'x_link' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
-                if ($request->x_link_public == 'on') {
+                if ($request->x_link_public == '1') {
                     if (!$value) {
                         $fail(__('You must enter your x link before maing it visible.'));
                     }
@@ -143,7 +143,7 @@ class ProfileController extends Controller implements HasMiddleware
             
             'facebook_link_public' => ['required', 'boolean'],
             'facebook_link' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
-                if ($request->facebook_link_public == 'on') {
+                if ($request->facebook_link_public == '1') {
                     if (!$value) {
                         $fail(__('You must enter your facebook link before maing it visible.'));
                     }
@@ -152,7 +152,7 @@ class ProfileController extends Controller implements HasMiddleware
             
             'instagram_link_public' => ['required', 'boolean'],
             'instagram_link' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
-                if ($request->instagram_link_public == 'on') {
+                if ($request->instagram_link_public == '1') {
                     if (!$value) {
                         $fail(__('You must enter your instagram link before maing it visible.'));
                     }
@@ -161,7 +161,7 @@ class ProfileController extends Controller implements HasMiddleware
             
             'linkedin_link_public' => ['required', 'boolean'],
             'linkedin_link' => ['sometimes', function ($attribute, $value, $fail) use ($request) {
-                if ($request->linkedin_link_public == 'on') {
+                if ($request->linkedin_link_public == '1') {
                     if (!$value) {
                         $fail(__('You must enter your linkedin link before maing it visible.'));
                     }

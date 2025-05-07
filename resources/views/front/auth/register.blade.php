@@ -37,7 +37,7 @@
                         <span class="loader"></span>
                     </button>
                     <p class="my-2">
-                        <span>@lang('front.already-have-account')؟</span>
+                        <span>@lang('front.already-have-account')</span>
                         <a href="{{ route('login') }}" class="text-dark">@lang('front.login')</a>
                     </p>
                 </form>

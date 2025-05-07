@@ -1,6 +1,6 @@
 @extends('front.layouts.main')
 
-@section('title', $article->title . ' - ' . config('app.name'))
+@section('title', $article->title . ' - ' . $website_settings->title)
 
 @section('head-additional')
 

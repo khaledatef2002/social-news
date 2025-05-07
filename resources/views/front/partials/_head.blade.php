@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('front/images/logo.png') }}">
+    <link rel="icon" href="{{ asset($website_settings->logo) }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('front/libs/bootstrap-5.3.3-dist/css/bootstrap'. (LaravelLocalization::getCurrentLocaleDirection() == 'rtl' ? '.rtl' : '') . '.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.7.2-web/css/all.min.css') }}">

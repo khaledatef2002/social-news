@@ -26,7 +26,8 @@
                     <th>@lang('dashboard.user')</th>
                     <th>@lang('dashboard.email')</th>
                     <th>@lang('dashboard.phone')</th>
-                    <th>@lang('dashboard.is_admin')</th>
+                    <th>@lang('dashboard.type')</th>
+                    <th>@lang('dashboard.admin')</th>
                     <th>@lang('dashboard.role')</th>
                     <th>@lang('dashboard.action')</th>
                 </tr>
@@ -38,7 +39,7 @@
 @endsection
 
 @section('custom-js')
-    <script src="{{ asset('back/js/users.js') }}"></script>
+    <script src="{{ asset('back/js/users-module.js') }}" type="module"></script>
     <script>
         var table
         $(document).ready( function () {
@@ -51,7 +52,8 @@
                             { data: 'user', name: 'user' },
                             { data: 'email', name: 'email' },
                             { data: 'phone', name: 'phone' },
-                            { data: 'is_admin', name: 'is_admin' },
+                            { data: 'type', name: 'type' },
+                            { data: 'admin', name: 'admin' },
                             { data: 'role', name: 'role' },
                             { data: 'action', name: 'action'}
                         ]

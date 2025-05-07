@@ -3,7 +3,7 @@
         <div class="container-fluid px-2">
             <div class="d-flex flex-wrap flex-md-row flex-column gap-md-0 gap-4">
                 <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('front/images/logo.png') }}" />
+                    <img src="{{ $website_settings->logo }}" />
                 </div>
                 <div class="col-md-4 d-flex justify-content-evenly align-items-center">
                     <ul class="list-unstyled d-flex flex-column gap-2">

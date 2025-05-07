@@ -23,43 +23,142 @@
                 <div class="card-body">
                     <div class="d-flex gap-2">
                         <div class="mb-3 flex-fill">
-                            <label class="form-label" for="first_name">@lang('custom.first-name')</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="@lang('custom.enter-first-name')">
+                            <label for="first_name">@lang('front.first-name')</label>
+                            <input id="first_name" type="text" class="form-control ps-4" name="first_name">
                         </div>
                         <div class="mb-3 flex-fill">
-                            <label class="form-label" for="last_name">@lang('custom.last-name')</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="@lang('custom.enter-last-name')">
+                            <label for="last_name">@lang('front.last-name')</label>
+                            <input id="last_name" type="text" class="form-control ps-4" name="last_name">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="email">@lang('custom.email')</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="@lang('custom.email')">
+                        <label for="email">@lang('front.email')</label>
+                        <input id="email" type="email" class="form-control ps-4" name="email">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="password">@lang('custom.password')</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="@lang('custom.password')">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="email">@lang('custom.phone')</label>
-                        <div id="country-code-input" class="input-group mb-3" data-input-flag="">
-                            <button class="btn btn-light border d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="country-flag country-flagimg rounded" height="20"></div>
-                                <span class="ms-2 country-codeno">+971</span>
-                            </button>
-                            <input type="hidden" name="country_code" value="971">
-                            <input type="text" name="phone" class="form-control rounded-end flag-input" value="" placeholder="Enter number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                            <div class="dropdown-menu w-100">
-                                <div class="p-2 px-3 pt-1 searchlist-input">
-                                    <input type="text" class="form-control form-control-sm border search-countryList" placeholder="Search country name or country code...">
-                                </div>
-                                <ul class="list-unstyled dropdown-menu-list mb-0">
-                                </ul>
-                            </div>
+                        <label for="password" class="mb-1">@lang('front.password')</label>
+                        <div>
+                            <input class="form-control" type="password" name="password">
+                            <i class="fas fa-eye password-toggler pb-3" role="button"></i>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="nid">@lang('front.nid') <span class="text-muted">(@lang('front.optional'))</span></label>
+                        <input id="nid" type="text" class="form-control ps-4" name="nid">
+                    </div>
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="phone" class="mb-1">@lang('front.phone')</label>
+                            <input class="form-control country-selector" type="tel" name="phone" placeholder="@lang('front.phone')">
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="phone_public">@lang('front.show')</label>
+                            <input name="phone_public" value="0" type="hidden">
+                            <input name="phone_public" value="1" class="form-check-input m-0" value="1" type="checkbox" role="switch" id="phone_public">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="education">@lang('front.education')</label>
+                            <select class="form-select" id="education" name="education">
+                                @foreach (App\Enum\EducationType::cases() as $education)
+                                    <option value="{{ $education->value }}">{{ $education->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="education_public">@lang('front.show')</label>
+                            <input class="form-check-input m-0" value="0" name="education_public" type="hidden">
+                            <input class="form-check-input m-0" value="1" type="checkbox" role="switch" id="education_public" name="education_public">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="position">@lang('front.position')</label>
+                            <input id="position" name="position" class="form-control ps-4">
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="position_public">@lang('front.show')</label>
+                            <input name="position_public" value="0" type="hidden">
+                            <input name="position_public" value="1" class="form-check-input m-0" type="checkbox" role="switch" id="position_public">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="x_link">{{ __('front.platform-profile-link', ['platform' => __('front.x')]) }}:</label>
+                            <input id="x_link" class="form-control ps-4" name="x_link">
+                            <i class="fa-brands fa-x-twitter ms-1"></i>
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="x_link_public">@lang('front.show')</label>
+                            <input name="x_link_public" value="0" type="hidden">
+                            <input name="x_link_public" value="1" class="form-check-input m-0" type="checkbox" role="switch" id="x_link_public">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="facebook_link">{{ __('front.platform-profile-link', ['platform' => __('front.facebook')]) }}:</label>
+                            <input id="facebook_link" class="form-control ps-4" name="facebook_link">
+                            <i class="fab fa-facebook ms-1"></i>
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="facebook_link_public">@lang('front.show')</label>
+                            <input name="facebook_link_public" value="0" type="hidden">
+                            <input name="facebook_link_public" value="1" class="form-check-input m-0" type="checkbox" role="switch" id="facebook_link_public">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="instagram_link">{{ __('front.platform-profile-link', ['platform' => __('front.instagram')]) }}:</label>
+                            <input id="instagram_link" class="form-control ps-4" name="instagram_link">
+                            <i class="fab fa-instagram ms-1"></i>
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="instagram_link_public">@lang('front.show')</label>
+                            <input name="instagram_link_public" value="0" type="hidden">
+                            <input name="instagram_link_public" value="1" class="form-check-input m-0" type="checkbox" role="switch" id="instagram_link_public">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end gap-2 w-100 mb-3">
+                        <div class="flex-fill">
+                            <label for="linkedin_link">{{ __('front.platform-profile-link', ['platform' => __('front.linkedin')]) }}:</label>
+                            <input id="linkedin_link" class="form-control ps-4" name="linkedin_link">
+                            <i class="fab fa-linkedin ms-1"></i>
+                        </div>
+                        <div class="form-check form-switch d-flex flex-column justify-content-center px-2">
+                            <label class="form-check-label mb-1" for="linkedin_link_public">@lang('front.show')</label>
+                            <input name="linkedin_link_public" value="0" type="hidden">
+                            <input name="linkedin_link_public" value="1" class="form-check-input m-0" type="checkbox" role="switch" id="linkedin_link_public">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="type">@lang('front.user-type')</label>
+                        <select class="form-select" id="type" name="type">
+                            @foreach (App\Enum\UserType::cases() as $type)
+                                <option value="{{ $type->value }}">{{ __('front.' . strtolower($type->name)) }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-check form-switch form-switch-md mb-3" dir="ltr">
-                        <input type="checkbox" class="form-check-input" id="is_admin" name="is_admin">
-                        <label class="form-check-label" for="is_admin">Is Admin</label>
+                        <input type="hidden" name="admin" value="0">
+                        <input type="checkbox" class="form-check-input" id="admin" name="admin" value="1">
+                        <label class="form-check-label" for="admin">Is Admin</label>
                     </div>
                     <div class="mb-3" style="display: none">
                         <label class="form-label" for="role">Role:</label>
@@ -118,64 +217,10 @@
 @endsection
 
 @section('additional-js-libs')
-    <script src="{{ asset('front/libs/countries-data.js') }}"></script>
-    <script src="{{ asset('front/libs/countries-flag.js') }}"></script>
+    
+
 @endsection
 
 @section('custom-js')
-    <script src="{{ asset('back/js/users.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('select[name="author_id"]').select2({
-                placeholder: "@lang('dashboard.select.choose-option')",
-                ajax: {
-                    url: '{{ route("dashboard.select2.authors") }}', // Route to fetch users
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term // Search term
-                        };
-                    },
-                    processResults: function (data) {
-                        return {
-                            results: data.map(function(author) {
-                                return {
-                                    id: author.id,
-                                    text: author.name
-                                };
-                            })
-                        };
-                    },
-                    cache: true
-                },
-                minimumInputLength: 1 // Require at least 1 character to start searching
-            });
-            $('select[name="category_id"]').select2({
-                placeholder: "@lang('dashboard.select.choose-option')",
-                ajax: {
-                    url: '{{ route("dashboard.select2.book_category") }}', // Route to fetch users
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term // Search term
-                        };
-                    },
-                    processResults: function (data) {
-                        return {
-                            results: data.map(function(category) {
-                                return {
-                                    id: category.id,
-                                    text: category.name
-                                };
-                            })
-                        };
-                    },
-                    cache: true
-                },
-                minimumInputLength: 1 // Require at least 1 character to start searching
-            });
-        });
-        </script>
+    <script src="{{ asset('back/js/users-module.js') }}" type="module"></script>
 @endsection

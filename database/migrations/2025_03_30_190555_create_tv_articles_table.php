@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tv_articles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->string('source')->nullable();
             $table->string('keywords')->nullable();
             $table->foreignId('category_id')->constrained('tv_article_categories')->onDelete('cascade')->onUpdate('cascade');
