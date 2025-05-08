@@ -8,11 +8,11 @@
             allowfullscreen>
         </iframe>
         <div class="py-2 px-2 text-start flex-fill">
-            <div class="meta-content d-flex flex-column mb-2 fw-bold">
+            <div class="meta-content d-flex flex-column mb-2 fw-bold flex-fill h-100">
                 <div class="d-flex justify-content-between align-items-center flex-fill">
-                    <span class="d-flex align-items-center gap-2 w-100 flex-fill">
+                    <span class="d-flex align-items-center gap-2 w-100 flex-fill h-100">
                         <div class="meta-data d-flex flex-column w-100 h-100">
-                            <div class="d-flex justify-content-between align-items-center w-100">
+                            <div class="d-flex justify-content-between align-items-center w-100 flex-fill">
                                 <h3 class="fs-4 fw-bold"><a href="{{ route('front.tv-articles.show', $tvArticle) }}" class="text-decoration-none text-dark">{{ $tvArticle->title }}</a></h3>
                             </div>
                             <div class="meta-date-category d-flex justify-content-between align-items-center gap-3">
