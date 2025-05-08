@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Enum\UserType;
 use App\Enum\WriterRequestStatus;
 use App\Http\Controllers\Controller;
 use App\Models\WriterRequest;
@@ -89,6 +90,10 @@ class WriterRequestController extends Controller implements HasMiddleware
 
         $writer_request->status = WriterRequestStatus::APPROVED->value;
         $writer_request->save();
+
+        $writer_request->user->type = UserType::WRITER->value;
+        $writer_request->user->save();
+
         return response()->json([
             'message' => __('dashboard.writer-request-approved')
         ]);
@@ -107,6 +112,10 @@ class WriterRequestController extends Controller implements HasMiddleware
 
         $writer_request->status = WriterRequestStatus::REJECTED->value;
         $writer_request->save();
+
+        $writer_request->user->type = UserType::WRITER->value;
+        $writer_request->user->save();
+        
         return response()->json([
             'message' => __('dashboard.writer-request-rejected')
         ]);
