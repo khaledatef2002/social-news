@@ -201,8 +201,8 @@ return [
     ],
     'apply-for-writer' => 'تقديم لتكون كاتباً',
     'cancel-writer-request' => 'الغاء طلب الكاتب',
-    'front.writer-request-sent' => 'تم تقديم طلبك',
-    'front.writer-request-canceled' => 'تم الغاء طلبك',
-    'front.already-writer' => 'انت بالفعل كاتباً',
-    'front.empty-nid' => 'يرجى ادخال رقمك القومي'
+    'writer-request-sent' => 'تم تقديم طلبك',
+    'writer-request-canceled' => 'تم الغاء طلبك',
+    'already-writer' => 'انت بالفعل كاتباً',
+    'empty-nid' => 'يرجى ادخال رقمك القومي'
 ];

@@ -199,8 +199,8 @@ return [
     ],
     'apply-for-writer' => 'Apply to be a writer',
     'cancel-writer-request' => 'Cancel writer request', 
-    'front.writer-request-sent' => 'Your request has been submitted',
-    'front.writer-request-canceled' => 'Your request has been canceled',
-    'front.already-writer' => 'You are already a writer',
-    'front.empty-nid' => 'Please enter your national ID'
+    'writer-request-sent' => 'Your request has been submitted',
+    'writer-request-canceled' => 'Your request has been canceled',
+    'already-writer' => 'You are already a writer',
+    'empty-nid' => 'Please enter your national ID'
 ];
