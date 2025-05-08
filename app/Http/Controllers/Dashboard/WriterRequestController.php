@@ -115,7 +115,7 @@ class WriterRequestController extends Controller implements HasMiddleware
 
         $writer_request->user->type = UserType::WRITER->value;
         $writer_request->user->save();
-        
+
         return response()->json([
             'message' => __('dashboard.writer-request-rejected')
         ]);
@@ -127,5 +127,9 @@ class WriterRequestController extends Controller implements HasMiddleware
     public function destroy(WriterRequest $writer_request)
     {
         $writer_request->delete();
+
+        return response()->json([
+            'message' => __('dashboard.writer-request-deleted')
+        ]);
     }
 }
