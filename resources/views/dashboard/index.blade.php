@@ -4,6 +4,6 @@
 
 @section('content')
 
-    <h1>This is {{ $website_settings->name }}</h1>
+    <h1>This is {{ $website_settings->title }}</h1>
 
 @endsection
