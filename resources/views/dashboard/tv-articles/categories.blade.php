@@ -35,8 +35,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">@lang('dashboard.articles.categories.add')</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title">@lang('dashboard.tv_articles.categories.add')</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@lang('dashboard.close')"></button>
         </div>
         <form id="add-article-category-form">
             @csrf
@@ -49,7 +49,7 @@
                 @endforeach
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('custom.close')</button>
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('dashboard.close')</button>
               <button type="submit" class="btn btn-primary">@lang('dashboard.add')</button>
             </div>
         </form>
@@ -61,8 +61,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">@lang('dashboard.articles.categories.edit')</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title">@lang('dashboard.tv_articles.categories.edit')</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@lang('dashboard.close')"></button>
         </div>
         <form id="edit-article-category-form">
             @csrf
@@ -76,7 +76,7 @@
                 @endforeach
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('custom.close')</button>
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('dashboard.close')</button>
               <button type="submit" class="btn btn-primary">@lang('dashboard.edit')</button>
             </div>
         </form>

@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('dashboard.tv-article.edit'))
+@section('title', __('dashboard.tv_articles.edit'))
 
 @section('content')
 
@@ -17,13 +17,14 @@
 </div>
 <form id="edit-tv-article-form" data-id="{{ $tv_article->id }}">
     @csrf
+    @method('PUT')
     <div class="row">
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-body">
                     @foreach (LaravelLocalization::getSupportedLocales() as $locale => $value)
                         <div class="mb-3">
-                            <label class="form-label" for="{{ $locale }}.title">@lang('dashboard.'. $locale .'.article.title')</label>
+                            <label class="form-label" for="{{ $locale }}.title">@lang('dashboard.'.$locale.'.article.title')</label>
                             <input type="text" class="form-control" id="{{ $locale }}.title" value="{{ $tv_article->translate($locale)->title }}" name="{{ $locale }}[title]" placeholder="@lang('dashboard.enter') @lang('dashboard.title')">
                         </div>
                     @endforeach
@@ -39,7 +40,7 @@
         <div class="col-lg-3">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Select Category</h5>
+                    <h5 class="card-title mb-0">@lang('dashboard.select_category')</h5>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
@@ -53,7 +54,7 @@
             <!-- end card -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Enter Keywords</h5>
+                    <h5 class="card-title mb-0">@lang('dashboard.enter_keywords')</h5>
                 </div>
                 <div class="card-body">
                     <div class="col-lg-12">
@@ -81,14 +82,14 @@
     <script>
         $(document).ready(function() {
             $('select[name="category_id"]').select2({
-                placeholder: "@lang('dashboard.select.choose-option')",
+                placeholder: "@lang('dashboard.select.choose_option')",
                 ajax: {
-                    url: '{{ route("select2.tv_article_category") }}', // Route to fetch users
+                    url: '{{ route("select2.tv_article_category") }}',
                     dataType: 'json',
                     delay: 250,
                     data: function (params) {
                         return {
-                            q: params.term // Search term
+                            q: params.term
                         };
                     },
                     processResults: function (data) {
@@ -103,8 +104,8 @@
                     },
                     cache: true
                 },
-                minimumInputLength: 0 // Require at least 1 character to start searching
+                minimumInputLength: 0
             });
         });
-        </script>
+    </script>
 @endsection

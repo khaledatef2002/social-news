@@ -33,14 +33,14 @@
                 serverSide: true,
                 ajax: "{{ route('dashboard.articles.index') }}",
                 columns: [
-                            { data: 'id', name: 'id' },
-                            { data: 'cover', name: 'cover' },
-                            { data: 'title', name: 'title' },
-                            { data: 'category', name: 'category' },
-                            { data: 'reacts', name: 'reacts' },
-                            { data: 'user', name: 'user' },
-                            { data: 'action', name: 'action'}
-                        ]
+                    { data: 'id', name: 'id' },
+                    { data: 'cover', name: 'cover' },
+                    { data: 'title', name: 'title' },
+                    { data: 'category', name: 'category' },
+                    { data: 'reacts', name: 'reacts' },
+                    { data: 'user', name: 'user' },
+                    { data: 'action', name: 'action'}
+                ]
             });
         });
     </script>

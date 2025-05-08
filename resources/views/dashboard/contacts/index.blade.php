@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('dashboard.conacts'))
+@section('title', __('dashboard.contacts'))
 
 @section('content')
 
@@ -26,7 +26,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">@lang('dashboard.contacts.message')</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@lang('dashboard.close')"></button>
         </div>
         <div class="modal-body">
             <div class="d-flex flex-column align-items-center gap-1">
@@ -36,7 +36,7 @@
             <p class="message"></p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('custom.close')</button>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('dashboard.close')</button>
         </div>
       </div>
     </div>
@@ -53,13 +53,13 @@
                 serverSide: true,
                 ajax: "{{ route('dashboard.contacts.index') }}",
                 columns: [
-                            { data: 'id', name: 'id' },
-                            { data: 'user', name: 'user' },
-                            { data: 'email', name: 'email' },
-                            { data: 'phone', name: 'phone' },
-                            { data: 'message', name: 'message' },
-                            { data: 'action', name: 'action'}
-                        ]
+                    { data: 'id', name: 'id' },
+                    { data: 'user', name: 'user' },
+                    { data: 'email', name: 'email' },
+                    { data: 'phone', name: 'phone' },
+                    { data: 'message', name: 'message' },
+                    { data: 'action', name: 'action'}
+                ]
             });
         });
     </script>

@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app')
 
-@section('title', __('dashboard.tv-articles'))
+@section('title', __('dashboard.tv_articles.title'))
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="row g-2">
                 <div class="col-sm-auto ms-auto">
-                    <a href="{{ route('dashboard.tv-articles.create') }}"><button class="btn btn-success"><i class="ri-add-fill me-1 align-bottom"></i> @lang('dashboard.tv-articles.add')</button></a>
+                    <a href="{{ route('dashboard.tv-articles.create') }}"><button class="btn btn-success"><i class="ri-add-fill me-1 align-bottom"></i> @lang('dashboard.tv_articles.add')</button></a>
                 </div>
                 <!--end col-->
             </div>
@@ -25,7 +25,7 @@
                     <th>@lang('dashboard.id')</th>
                     <th>@lang('dashboard.title')</th>
                     <th>@lang('dashboard.source')</th>
-                    <th>@lang('dashboard.action')</th>
+                    <th>@lang('dashboard.actions')</th>
                 </tr>
             </thead>
         </table>
