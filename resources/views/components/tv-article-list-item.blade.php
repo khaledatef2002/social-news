@@ -1,5 +1,5 @@
 <article class="px-2 col-xl-3 col-md-6 col-12 mb-3">
-    <div class="card rounded border-0 shadow-sm">
+    <div class="card rounded border-0 shadow-sm h-100">
         <iframe
             src="{{ $tvArticle->embed_source }}" 
             title="YouTube video player" 
@@ -7,11 +7,11 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
         </iframe>
-        <div class="py-2 px-2 text-start">
+        <div class="py-2 px-2 text-start flex-fill">
             <div class="meta-content d-flex flex-column mb-2 fw-bold">
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="d-flex align-items-center gap-2 w-100">
-                        <div class="meta-data d-flex flex-column w-100">
+                <div class="d-flex justify-content-between align-items-center flex-fill">
+                    <span class="d-flex align-items-center gap-2 w-100 flex-fill">
+                        <div class="meta-data d-flex flex-column w-100 h-100">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <h3 class="fs-4 fw-bold"><a href="{{ route('front.tv-articles.show', $tvArticle) }}" class="text-decoration-none text-dark">{{ $tvArticle->title }}</a></h3>
                             </div>
