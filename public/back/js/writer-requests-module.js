@@ -64,7 +64,7 @@ class WriterRequestsyManager {
 
     async remove(id)
     {
-        const response = await request(`/dashboard/articles-categories/${id}`, 'DELETE')
+        const response = await request(`/dashboard/writer-request/${id}`, 'DELETE')
         if(response.success) {
             this.show_success(response.data.message)
             table.ajax.reload(null, false)
