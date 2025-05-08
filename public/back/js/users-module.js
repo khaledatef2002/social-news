@@ -113,6 +113,7 @@ class UsersManager {
 
 
     setup_iti(){
+        if(!document.querySelector("input.country-selector")) return null
         return window.intlTelInput(document.querySelector("input.country-selector"), {
             i18n: lang,
             initialCountry: "auto",
