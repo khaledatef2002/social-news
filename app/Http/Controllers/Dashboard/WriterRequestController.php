@@ -113,9 +113,6 @@ class WriterRequestController extends Controller implements HasMiddleware
         $writer_request->status = WriterRequestStatus::REJECTED->value;
         $writer_request->save();
 
-        $writer_request->user->type = UserType::WRITER->value;
-        $writer_request->user->save();
-
         return response()->json([
             'message' => __('dashboard.writer-request-rejected')
         ]);

@@ -25,13 +25,11 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                    @if (Auth::id() == $article->user->id)
-                                        <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
-                                    @endif
+                                <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
+                                @if (Auth::id() == $article->user->id)
                                     <a href="{{ route('front.articles.edit', $article) }}" class="text-decoration-none"><li class="dropdown-item d-flex gap-2 align-items-center" role="button"><i class="fas fa-pen"></i> تعديل الخبر</li></a>
-                                    @if (Auth::id() == $article->user->id)
-                                        <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة الخبر</li>
-                                    @endif
+                                    <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة الخبر</li>
+                                @endif
                             </ul>
                         </div>
                     @endauth
@@ -47,7 +45,16 @@
         <div class="reacts-container">
             <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-1">
-                    <i class="fas fa-heart text-danger"></i>
+                    @auth
+                        <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
+                            <p>
+                                <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
+                            </p>
+                            <span class="loader"></span>
+                        </button>
+                    @else
+                        <i class="fas fa-heart text-danger"></i>
+                    @endauth
                     <span class="count fw-bold">{{ $article->reacts()->count() }}</span>
                 </div>
                 <ul class="p-0 m-0 d-flex gap-3 pe-1">
@@ -81,14 +88,6 @@
                     </a>
                 </ul>
             </div>
-            @auth
-                <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
-                    <p>
-                        <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
-                    </p>
-                    <span class="loader"></span>
-                </button>
-            @endauth
         </div>
     </div>
 </article>

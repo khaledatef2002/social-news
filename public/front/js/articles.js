@@ -158,14 +158,20 @@ class ArticlesManager {
             if(result.data.reacted)
             {
                 button.innerHTML = `
-                    <i class="fas fa-heart"></i>
+                    <p>
+                        <i class="fas fa-heart"></i>
+                    </p>
+                    <span class="loader"></span>
                 `
                 button.classList.add("reacted")
             }
             else
             {
                 button.innerHTML = `
-                    <i class="far fa-heart"></i>
+                    <p>
+                        <i class="far fa-heart"></i>
+                    </p>
+                    <span class="loader"></span>
                 `
                 button.classList.remove("reacted")
             }
