@@ -4,8 +4,8 @@
 return [
     // General terms
     'news' => 'أخبار',
-    'news-tv' => 'أخبار تلفزيونية',
-    'news-summary' => 'ملخص الأخبار',
+    'news-tv' => 'مرئيات همم مكتبة الاخبار',
+    'news-summary' => 'ملخصات',
     'saved-news' => 'الأخبار المحفوظة',
     'welcome' => 'مرحباً',
     'login' => 'تسجيل الدخول',

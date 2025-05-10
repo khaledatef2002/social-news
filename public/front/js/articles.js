@@ -159,7 +159,6 @@ class ArticlesManager {
             {
                 button.innerHTML = `
                     <i class="fas fa-heart"></i>
-                    أحببته
                 `
                 button.classList.add("reacted")
             }
@@ -167,7 +166,6 @@ class ArticlesManager {
             {
                 button.innerHTML = `
                     <i class="far fa-heart"></i>
-                    أحببته
                 `
                 button.classList.remove("reacted")
             }

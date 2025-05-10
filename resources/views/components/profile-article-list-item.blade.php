@@ -19,18 +19,22 @@
                             </div>
                         </div>
                     </span>
-                    @if (Auth::id() == $article->user->id)
+                    @auth
                         <div class="dropdown article_action_list">
                             <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
+                                    @if (Auth::id() == $article->user->id)
+                                        <li class="user_save_article_action dropdown-item d-flex gap-2 align-items-center {{ Auth::user()?->saved_article($article->id) ? 'saved' : '' }}" role="button"><i class="{{ Auth::user()?->saved_article($article->id) ? 'fas' : 'far' }} fa-bookmark"></i> {{ Auth::user()?->saved_article($article->id) ? 'إزالة من المفضلات' : 'حفظ في المفضلات' }}</li>
+                                    @endif
                                     <a href="{{ route('front.articles.edit', $article) }}" class="text-decoration-none"><li class="dropdown-item d-flex gap-2 align-items-center" role="button"><i class="fas fa-pen"></i> تعديل الخبر</li></a>
-                                <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة الخبر</li>
+                                    @if (Auth::id() == $article->user->id)
+                                        <li class="dropdown-item d-flex gap-2 align-items-center remove_article" role="button"><i class="fas fa-trash-alt"></i> إزالة الخبر</li>
+                                    @endif
                             </ul>
                         </div>
-                    @endif
+                    @endauth
                 </div>
             </div>
             <h3 class="fs-5 fw-bold pt-2 flex-fill d-flex align-items-center"><a href="{{ route('front.articles.show', $article) }}" class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
@@ -81,7 +85,6 @@
                 <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
                     <p>
                         <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
-                        أحببته
                     </p>
                     <span class="loader"></span>
                 </button>
