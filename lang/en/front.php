@@ -3,8 +3,8 @@
 return [
     // General terms
     'news' => 'News',
-    'news-tv' => 'TV News',
-    'news-summary' => 'News Summary',
+    'news-tv' => 'Hemam Media',
+    'news-summary' => 'Summaries',
     'saved-news' => 'Saved News',
     'welcome' => 'Welcome',
     'login' => 'Login',
@@ -53,7 +53,7 @@ return [
     
     // Article related
     'news-title' => 'Article Title',
-    'news-summary' => 'Article Summary',
+    'news-summary' => 'Summaries',
     'news-cover' => 'Article Cover',
     'news-content' => 'Article Content',
     'scale-ratio' => 'Scale ratio',

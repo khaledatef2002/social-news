@@ -54,7 +54,7 @@ return [
     
     // Article related
     'news-title' => 'عنوان الخبر',
-    'news-summary' => 'ملخص الخبر',
+    'news-summary' => 'ملخصات',
     'news-cover' => 'صورة الغلاف',
     'news-content' => 'محتوى الخبر',
     'scale-ratio' => 'نسبة القياس',
