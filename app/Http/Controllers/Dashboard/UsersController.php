@@ -342,9 +342,12 @@ class UsersController extends Controller implements HasMiddleware
 
         $user->update($data);
 
-        $role=ModelsRole::find($request->role);
-
-        $user->syncRoles([$role->name]);
+        if($request->role)
+        {
+            $role=ModelsRole::find($request->role);
+    
+            $user->syncRoles([$role->name]);
+        }
 
         return response()->json([
             'message' => __('response.profile-updated'),
