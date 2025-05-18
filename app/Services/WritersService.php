@@ -11,8 +11,8 @@ class WritersService
     {
         $writers = User::selectRaw('users.*, (select count(*) from articles where articles.user_id = users.id) as articles_count')
             ->where('type', UserType::WRITER->value)
-            ->orderByDesc('id')
             ->orderByDesc('articles_count')
+            ->orderByDesc('id')
             ->when($search, function($query) use ($search) {
                 return $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ["%{$search}%"]);
             })
