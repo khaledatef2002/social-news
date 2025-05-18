@@ -204,5 +204,21 @@ return [
     'writer-request-sent' => 'تم تقديم طلبك',
     'writer-request-canceled' => 'تم الغاء طلبك',
     'already-writer' => 'انت بالفعل كاتباً',
-    'empty-nid' => 'يرجى ادخال رقمك القومي'
+    'empty-nid' => 'يرجى ادخال رقمك القومي',
+
+    'contact' => [
+        'title' => 'تواصل معنا',
+        'whatsapp' => 'واتساب',
+        'email' => 'البريد الالكتروني',
+        'location' => 'العنوان',
+        'address' => 'مقر جمعية الصحفيين الإماراتية - محيصنة 2, دبي',
+        'contact_form' => 'راسلنا',
+        'form' => [
+            'first_name' => 'الاسم الاول',
+            'last_name' => 'الاسم الاخير',
+            'email' => 'البريد الالكتروني',
+            'message' => 'رسالتك',
+            'submit' => 'إرسال',
+        ],
+    ],
 ];

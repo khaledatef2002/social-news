@@ -25,4 +25,6 @@ return [
         'bookmark-failed' => 'Failed to bookmark article.',
         'react-failed' => 'Failed to update reaction.',
     ],
+
+    'send-contact-us-success' => 'We have received your message',
 ];

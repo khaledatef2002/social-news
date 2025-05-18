@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\ArticlesCategoriesController;
 use App\Http\Controllers\Dashboard\ArticlesController;
+use App\Http\Controllers\Dashboard\ContactUsController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\TvArticlesCategoriesController;
@@ -31,6 +32,7 @@ Route::prefix(LaravelLocalization::setLocale())
         Route::resource('writer-request', WriterRequestController::class);
         Route::put('writer-request/{writer_request}/approve', [WriterRequestController::class, 'approve']);
         Route::put('writer-request/{writer_request}/reject', [WriterRequestController::class, 'reject']);
+        Route::resource('contact-us', ContactUsController::class);
     });
 });
 

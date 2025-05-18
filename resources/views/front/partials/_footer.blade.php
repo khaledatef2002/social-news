@@ -8,7 +8,7 @@
                 <div class="col-md-4 d-flex justify-content-evenly align-items-center">
                     <ul class="list-unstyled d-flex flex-column gap-2">
                         <li><a target="_blank" href="{{ route('front.terms') }}" class="text-white text-decoration-none">الشروط والاحكام</a></li>
-                        <li><a target="_blank" href="#" class="text-white text-decoration-none">تواصل معنا</a></li>
+                        <li><a target="_blank" href="{{ route('front.contact-us.index',) }}" class="text-white text-decoration-none">تواصل معنا</a></li>
                         <li><a target="_blank" href="{{ route('front.about') }}" class="text-white text-decoration-none">من نحن</a></li>
                     </ul>
                 </div>

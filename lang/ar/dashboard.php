@@ -117,4 +117,10 @@ return [
     'welcome_user' => 'مرحباً :name',
     'profile' => 'الملف الشخصي',
     'logout' => 'تسجيل الخروج',
+
+    'contact_us' => 'رسائل التواصل',
+    'contacts.message' => 'الرسالة',
+    'first_name' => 'الاسم الاول',
+    'last_name' => 'الاسم الاخير',
+    'message' => 'الرسالة',
 ];

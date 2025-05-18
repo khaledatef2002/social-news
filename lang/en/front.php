@@ -202,5 +202,21 @@ return [
     'writer-request-sent' => 'Your request has been submitted',
     'writer-request-canceled' => 'Your request has been canceled',
     'already-writer' => 'You are already a writer',
-    'empty-nid' => 'Please enter your national ID'
+    'empty-nid' => 'Please enter your national ID',
+
+    'contact' => [
+        'title' => 'Contact Us',
+        'whatsapp' => 'WhatsApp',
+        'email' => 'Email',
+        'location' => 'Location',
+        'address' => 'Emirates Journalists Association - Muhaisnah 2, Dubai',
+        'contact_form' => 'Contact Form',
+        'form' => [
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'email' => 'Email Address',
+            'message' => 'Your Message',
+            'submit' => 'Send Message',
+        ],
+    ],
 ];

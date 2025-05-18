@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticlesImageController;
 use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\ArticlesReactsController;
 use App\Http\Controllers\Front\ArticlesSummaryController;
+use App\Http\Controllers\Front\ContactUsController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Front\SavedArticlesController;
@@ -35,6 +36,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
     
         Route::view('/terms&conditions', 'front.terms-and-condition')->name('terms');
         Route::view('/about-us', 'front.about-us')->name('about');
+        Route::resource('contact-us', ContactUsController::class);
 
         Route::middleware('auth')->post('request-writer', [WriterRequestsController::class, 'request'])->name('request.writer');
     });

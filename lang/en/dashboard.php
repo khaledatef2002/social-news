@@ -118,4 +118,10 @@ return [
     'welcome_user' => 'Welcome, :name',
     'profile' => 'Profile',
     'logout' => 'Logout',
+
+    'contact_us' => 'Contact Us',
+    'contacts.message' => 'Message',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'message' => 'Message',
 ];

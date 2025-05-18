@@ -87,6 +87,14 @@
                     </li>
                 @endif
                 
+                @if (Auth::user()->hasPermissionTo('contact_us_show'))
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Route::currentRouteName() == 'dashboard.contact-us.index' ? 'active' : ''}}" href="{{ route('dashboard.contact-us.index') }}" role="button">
+                            <i class="ri-pencil-line"></i> <span>@lang('dashboard.contact_us')</span>
+                        </a>
+                    </li>
+                @endif
+                
                 @if (Auth::user()->hasPermissionTo('users_show'))
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::currentRouteName() == 'dashboard.users.index' ? 'active' : ''}}" href="{{ route('dashboard.users.index') }}" role="button">

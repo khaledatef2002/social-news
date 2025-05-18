@@ -46,4 +46,8 @@ enum PermissionsType: string
     case roles_edit = 'roles_edit';
     case roles_delete = 'roles_delete';
     case roles_create = 'roles_create';
+
+    // Contact us
+    case contact_us_show = 'contact_us_show';
+    case contact_us_delete = 'contact_us_delete';
 }

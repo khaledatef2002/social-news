@@ -27,4 +27,5 @@ return [
         'bookmark-failed' => 'فشل في حفظ المقال.',
         'react-failed' => 'فشل في تحديث رد فعلك.',
     ],
+    'send-contact-us-success' => 'لقد استلمنا رسالتك',
 ];

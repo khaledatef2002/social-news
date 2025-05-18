@@ -167,6 +167,23 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>@lang('dashboard.modules.contact_us')</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::contact_us_show->value }}" value="{{ \App\Enum\PermissionsType::contact_us_show->value }}">
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::contact_us_show->value }}">
+                                            @lang('dashboard.permissions.show')
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::contact_us_delete->value }}" value="{{ \App\Enum\PermissionsType::contact_us_delete->value }}">
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::contact_us_delete->value }}">
+                                            @lang('dashboard.permissions.delete')
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>@lang('dashboard.modules.users')</td>
                                 <td>
                                     <div class="form-check">

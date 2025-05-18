@@ -10,10 +10,9 @@
             <thead>
                 <tr class="table-dark">
                     <th>@lang('dashboard.id')</th>
-                    <th>@lang('dashboard.user')</th>
+                    <th>@lang('dashboard.first_name')</th>
+                    <th>@lang('dashboard.last_name')</th>
                     <th>@lang('dashboard.email')</th>
-                    <th>@lang('dashboard.phone')</th>
-                    <th>@lang('dashboard.message')</th>
                     <th>@lang('dashboard.action')</th>
                 </tr>
             </thead>
@@ -29,11 +28,24 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@lang('dashboard.close')"></button>
         </div>
         <div class="modal-body">
-            <div class="d-flex flex-column align-items-center gap-1">
-                <img src="" width="40" height="40" class="rounded-5">
-                <span></span>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <div class="flex-fill">
+                    <p>@lang('dashboard.first_name')</p>
+                    <p class="first_name"></p>
+                </div>
+                <div class="flex-fill">
+                    <p>@lang('dashboard.last_name')</p>
+                    <p class="last_name"></p>
+                </div>
             </div>
-            <p class="message"></p>
+            <div class="mb-3">
+                <p>@lang('dashboard.email')</p>
+                <p class="email"></p>
+            </div>
+            <div class="mb-3">
+                <p>@lang('dashboard.message')</p>
+                <p class="message"></p>
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light" data-bs-dismiss="modal">@lang('dashboard.close')</button>
@@ -44,20 +56,19 @@
 @endsection
 
 @section('custom-js')
-    <script src="{{ asset('back/js/contacts.js') }}"></script>
+    <script src="{{ asset('back/js/contact-us-module.js') }}" type="module"></script>
     <script>
         var table
         $(document).ready( function () {
             table = $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('dashboard.contacts.index') }}",
+                ajax: "{{ route('dashboard.contact-us.index') }}",
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user', name: 'user' },
+                    { data: 'first_name', name: 'first_name' },
+                    { data: 'last_name', name: 'last_name' },
                     { data: 'email', name: 'email' },
-                    { data: 'phone', name: 'phone' },
-                    { data: 'message', name: 'message' },
                     { data: 'action', name: 'action'}
                 ]
             });
