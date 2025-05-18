@@ -1,4 +1,4 @@
-<a href="{{ route('front.profile.show', $writer) }}" class="col-xl-3 col-md-6 col-12 px-3 mb-3 text-decoration-none">
+<a href="{{ route('front.profile.show', $writer) }}" class="col-xl-4 col-md-6 col-12 px-3 mb-3 text-decoration-none">
     <article data-writer-id="{{ $writer->id }}">
         <div class="card h-100 rounded border-0 shadow-sm">
             <div class="card-body py-2">
