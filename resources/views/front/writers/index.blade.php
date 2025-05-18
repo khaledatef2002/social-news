@@ -8,7 +8,7 @@
             </div>
             <div class="px-0 col-xl-4 col-md-5 col-12 position-relative">
                 <input type="text" name="search" placeholder="@lang('front.search')" class="form-control">
-                <i class="fas fa-search position-absolute" style="left: 10px;top: 12px;"></i>
+                <i class="fas fa-search position-absolute end-0 me-2" style="top: 12px;"></i>
             </div>
             <div class="row w-100">
                 <x-writers-list :writers="$first_writers" />
