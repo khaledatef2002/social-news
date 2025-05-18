@@ -219,4 +219,8 @@ return [
             'submit' => 'Send Message',
         ],
     ],
+
+    
+    'writers' => 'Writers',
+    'search' => 'Search',
 ];

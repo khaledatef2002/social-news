@@ -434,7 +434,7 @@ article .article_action_list button
   font-weight: bold;
 }
 
-.getingArticlesLoader, .getingTvArticlesLoader
+.getingArticlesLoader, .getingTvArticlesLoader, .gettingWritersLoader
 {
   display: none;
 }

@@ -6,6 +6,7 @@ import ArticlesController from './articles.js'
 import TvArticlesController from './tv_articles.js'
 import ProfileController from './profile.js'
 import ContactUsController from './contact-us.js'
+import WriterController from './writers.js'
 
 
 const password_toggler = function()

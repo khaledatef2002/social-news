@@ -54,6 +54,14 @@
                     <i class="fas fa-tv fs-2"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link px-2 d-block {{ Route::is('front.writers.index') ? 'active' : '' }}" aria-current="page" 
+                    href="{{ route('front.writers.index') }}"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-title="@lang('front.writers')">
+                    <i class="fas fa-pen-fancy fs-2"></i>
+                </a>
+            </li>
         </ul>
         <div class="collapse navbar-collapse flex-grow-0 z-1" >
             {{-- <form class="d-flex align-items-center gap-2" role="search">

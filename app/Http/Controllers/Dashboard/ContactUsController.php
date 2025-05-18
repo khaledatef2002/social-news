@@ -5,11 +5,20 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
-class ContactUsController extends Controller
+class ContactUsController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [
+            new Middleware('can:contact_us_show', only: ['index', 'show']),
+            new Middleware('can:contact_us_delete', only: ['destroy']),
+        ];
+    }
     /**
      * Display a listing of the resource.
      */

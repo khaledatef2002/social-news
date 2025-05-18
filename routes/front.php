@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Front\SavedArticlesController;
 use App\Http\Controllers\Front\TvArticlesController;
 use App\Http\Controllers\Front\WriterRequestsController;
+use App\Http\Controllers\Front\WritersController;
 use App\Http\Controllers\select2;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -37,6 +38,10 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::view('/terms&conditions', 'front.terms-and-condition')->name('terms');
         Route::view('/about-us', 'front.about-us')->name('about');
         Route::resource('contact-us', ContactUsController::class);
+
+        Route::get('/writers', [WritersController::class, 'index'])->name('writers.index');
+        Route::get('/writers/search', [WritersController::class, 'search'])->name('writers.search');
+        Route::get('writers/{last_writer_id}/{limit}', [WritersController::class, 'getMoreWriters'])->name('writers.get');
 
         Route::middleware('auth')->post('request-writer', [WriterRequestsController::class, 'request'])->name('request.writer');
     });
