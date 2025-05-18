@@ -221,6 +221,6 @@ return [
     ],
 
     
-    'writers' => 'Writers',
+    'writers' => 'Writer Members',
     'search' => 'Search',
 ];
