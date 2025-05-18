@@ -14,7 +14,7 @@ class WritersManager {
             this.display_writers()
         }
 
-        this.search_box.addEventListener('input', async () => {
+        this.search_box?.addEventListener('input', async () => {
             if(this.timer) clearTimeout(this.timer)
             this.timer = setTimeout(async () => {
                 await this.search()
