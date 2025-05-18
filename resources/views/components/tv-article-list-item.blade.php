@@ -1,4 +1,4 @@
-<article class="px-2 col-xl-3 col-md-6 col-12 mb-3">
+<article class="px-2 col-xl-3 col-md-6 col-12 mb-3 align-self-center">
     <div class="card rounded border-0 shadow-sm h-100">
         <iframe
             src="{{ $tvArticle->embed_source }}" 

@@ -31,7 +31,7 @@
                             <img src="{{ $article->user->display_image }}">
                         </div>
                         <div class="meta-data d-flex flex-column">
-                            <span class="user fs-4">{{ $article->user->first_name }}</span>
+                            <a href="{{ route('front.profile.show', $article->user) }}"><span class="user fs-4">{{ $article->user->full_name }}</span></a>
                             <div class="meta-date-category d-flex align-items-center gap-3">
                                 <span class="date fs-7 fw-normal"><i class="far fa-clock fs-"></i> {{ $article->created_at->locale(app()->getLocale())->diffForHumans() }}</span>
                                 <span class="category fs-7 fw-normal"><i class="fas fa-list-ul"></i> {{ $article->category->title }}</span>
@@ -69,10 +69,17 @@
         @endif
         <div class="reacts-container">
             <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center gap-1">
+                @auth
+                    <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
+                        <p>
+                            <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
+                        </p>
+                        <span class="loader"></span>
+                    </button>
+                @else
                     <i class="fas fa-heart text-danger"></i>
-                    <span class="count fw-bold">{{ $article->reacts()->count() }}</span>
-                </div>
+                @endauth
+                <span class="count fw-bold">{{ $article->reacts()->count() }}</span>
                 <ul class="p-0 m-0 d-flex gap-3 pe-1">
                     <a  href="https://www.facebook.com/sharer/sharer.php?u={{ route('front.articles.show', $article) }}" 
                         target="_blank"
@@ -104,15 +111,6 @@
                     </a>
                 </ul>
             </div>
-            @auth
-                <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
-                    <p>
-                        <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
-                        @lang('front.reacted')
-                    </p>
-                    <span class="loader"></span>
-                </button>
-            @endauth
         </div>
     </article>
 </main>
