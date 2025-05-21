@@ -52,7 +52,7 @@ class WritersManager {
         }
         else
         {
-            document.querySelector('main.writers > .row').innerHTML = `<p class="fw-bold mb-0 fs-5 text-center mt-4">لا يوجد نتائج اخرى</p>`
+            document.querySelector('main.writers > .row').innerHTML = `<p class="fw-bold mb-0 fs-5 text-center mt-4 w-100">لا يوجد نتائج اخرى</p>`
             this.gettingWritersLoader.classList.add('d-none')
         }
     }
@@ -81,7 +81,7 @@ class WritersManager {
         else
         {
             this.gettingWritersLoader.classList.add('d-none')
-            this.gettingWritersLoader.insertAdjacentHTML('beforebegin',`<p class="fw-bold mb-0 fs-5 text-center mt-4">لا يوجد نتائج اخرى</p>`)
+            this.gettingWritersLoader.insertAdjacentHTML('beforebegin',`<p class="fw-bold mb-0 fs-5 text-center mt-4 w-100">لا يوجد نتائج اخرى</p>`)
         }
     }
     
