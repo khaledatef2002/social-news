@@ -74,7 +74,7 @@ class WritersManager {
         if(result.success)
         {
             OFFSET += result.data.length
-            this.gettingWritersLoader.insertAdjacentHTML('beforebegin', result.data.content)
+            document.querySelector('main.writers > .row').insertAdjacentHTML('beforeend', result.data.content)
             this.gettingWritersLoader.style.display = "none"
             this.getting_writers_working = false
         }
