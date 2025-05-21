@@ -31,7 +31,7 @@
                             <img src="{{ $article->user->display_image }}">
                         </div>
                         <div class="meta-data d-flex flex-column">
-                            <a href="{{ route('front.profile.show', $article->user) }}" class="text-dark text-decoration-noe"><span class="user fs-4">{{ $article->user->full_name }}</span></a>
+                            <a href="{{ route('front.profile.show', $article->user) }}" class="text-dark text-decoration-none"><span class="user fs-4">{{ $article->user->full_name }}</span></a>
                             <div class="meta-date-category d-flex align-items-center gap-3">
                                 <span class="date fs-7 fw-normal"><i class="far fa-clock fs-"></i> {{ $article->created_at->locale(app()->getLocale())->diffForHumans() }}</span>
                                 <span class="category fs-7 fw-normal"><i class="fas fa-list-ul"></i> {{ $article->category->title }}</span>
