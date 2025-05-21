@@ -55,7 +55,7 @@
             <h3 class="fs-5 fw-bold pt-2"><a class="text-decoration-none text-dark">{{ $article->title }}</a></h3>
         </div>
         <a>
-            <div class="image-holder">
+            <div class="image-holder image-holder-auto-height">
                 <img src="{{ $article->cover }}" />
             </div>
         </a>
@@ -69,17 +69,19 @@
         @endif
         <div class="reacts-container">
             <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">
-                @auth
-                    <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
-                        <p>
-                            <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
-                        </p>
-                        <span class="loader"></span>
-                    </button>
-                @else
-                    <i class="fas fa-heart text-danger"></i>
-                @endauth
-                <span class="count fw-bold">{{ $article->reacts()->count() }}</span>
+                <div class="d-flex align-items-center">
+                    @auth
+                        <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex justify-content-center align-items-center">
+                            <p>
+                                <i class="{{ $article->isAuthReacted() ? 'fas' : 'far' }} fa-heart"></i>
+                            </p>
+                            <span class="loader"></span>
+                        </button>
+                    @else
+                        <i class="fas fa-heart text-danger"></i>
+                    @endauth
+                    <span class="count fw-bold">{{ $article->reacts()->count() > 0 ? $article->reacts()->count() : '' }}</span>
+                </div>
                 <ul class="p-0 m-0 d-flex gap-3 pe-1">
                     <a  href="https://www.facebook.com/sharer/sharer.php?u={{ route('front.articles.show', $article) }}" 
                         target="_blank"
@@ -102,7 +104,7 @@
                         data-bs-title="@lang('front.share') @lang('front.linkedin')">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a  href="https://api.whatsapp.com/send?text=Check%20this%20out:%20{{ route('front.articles.show', $article) }}" 
+                    <a  href="https://api.whatsapp.com/send?text={{ route('front.articles.show', $article) }}" 
                         target="_blank"
                         class="text-decoration-none text-success"
                         data-bs-toggle="tooltip" data-bs-placement="top"

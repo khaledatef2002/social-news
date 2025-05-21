@@ -41,7 +41,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
 
         Route::get('/writers', [WritersController::class, 'index'])->name('writers.index');
         Route::get('/writers/search', [WritersController::class, 'search'])->name('writers.search');
-        Route::get('writers/{last_writer_id}/{limit}', [WritersController::class, 'getMoreWriters'])->name('writers.get');
+        Route::get('writers/{offset}/{limit}', [WritersController::class, 'getMoreWriters'])->name('writers.get');
 
         Route::middleware('auth')->post('request-writer', [WriterRequestsController::class, 'request'])->name('request.writer');
     });

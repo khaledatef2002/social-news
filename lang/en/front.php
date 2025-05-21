@@ -223,4 +223,8 @@ return [
     
     'writers' => 'Writer Members',
     'search' => 'Search',
+
+    'footer.terms' => 'Terms and Conditions',
+    'footer.contact-us' => 'Contact Us',
+    'footer.about' => 'About Us',
 ];

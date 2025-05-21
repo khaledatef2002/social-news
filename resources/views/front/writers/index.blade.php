@@ -23,6 +23,6 @@
 @section('js-after')
     <script>
         const lang = document.querySelector('html').getAttribute('lang')
-        let LastWriterId = {{ $first_writers->last()?->id | null }}
+        let OFFSET = 0
     </script>
 @endsection

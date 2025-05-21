@@ -224,4 +224,9 @@ return [
 
     'writers' => 'الاعضاء الكتاب',
     'search' => 'بحث',
+
+
+    'footer.terms' => 'الشروط والأحكام',
+    'footer.contact-us' => 'تواصل معنا',
+    'footer.about' => 'من نحن',
 ];

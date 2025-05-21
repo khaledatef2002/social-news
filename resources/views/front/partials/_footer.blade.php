@@ -7,9 +7,9 @@
                 </div>
                 <div class="col-md-4 d-flex justify-content-evenly align-items-center">
                     <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a target="_blank" href="{{ route('front.terms') }}" class="text-white text-decoration-none">الشروط والاحكام</a></li>
-                        <li><a target="_blank" href="{{ route('front.contact-us.index',) }}" class="text-white text-decoration-none">تواصل معنا</a></li>
-                        <li><a target="_blank" href="{{ route('front.about') }}" class="text-white text-decoration-none">من نحن</a></li>
+                        <li><a target="_blank" href="{{ route('front.terms') }}" class="text-white text-decoration-none">@lang('front.footer.terms')</a></li>
+                        <li><a target="_blank" href="{{ route('front.contact-us.index',) }}" class="text-white text-decoration-none">@lang('front.footer.contact-us')</a></li>
+                        <li><a target="_blank" href="{{ route('front.about') }}" class="text-white text-decoration-none">@lang('front.footer.about')</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center align-items-center gap-md-4 gap-5">
@@ -23,7 +23,4 @@
     <div id="terms-condition" class="text-center py-2">
         <p class="mb-0 text-white">@lang('front.copyright')</p>
     </div>
-</div>
-<div class="whatsapp-contact x-0 ms-2">
-    <a href="https://wa.me/+971562322266" target="_blank"><img src="https://salembookshop.ae/front/imgs/whatsapp.png" alt="Whatsapp"></a>
 </div>

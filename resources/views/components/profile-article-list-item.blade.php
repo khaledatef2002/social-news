@@ -44,7 +44,7 @@
         </a>
         <div class="reacts-container">
             <div class="reacts_count px-2 py-1 d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center gap-1">
+                <div class="d-flex align-items-center">
                     @auth
                         <button class="heart_action_button bg-white loader-btn {{ $article->isAuthReacted() ? 'reacted' : '' }} fw-bold fs-6 d-flex gap-2 justify-content-center align-items-center">
                             <p>
@@ -55,7 +55,7 @@
                     @else
                         <i class="fas fa-heart text-danger"></i>
                     @endauth
-                    <span class="count fw-bold">{{ $article->reacts()->count() }}</span>
+                    <span class="count fw-bold">{{ $article->reacts()->count() > 0 ? $article->reacts()->count() : '' }}</span>
                 </div>
                 <ul class="p-0 m-0 d-flex gap-3 pe-1">
                     <a  href="https://www.facebook.com/sharer/sharer.php?u={{ route('front.articles.show', $article) }}" 

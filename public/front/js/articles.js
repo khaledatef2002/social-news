@@ -175,7 +175,7 @@ class ArticlesManager {
                 `
                 button.classList.remove("reacted")
             }
-            button.parentElement.querySelector('.count').textContent = result.data.count
+            button.parentElement.querySelector('.count').textContent = result.data.count > 0 ? result.data.count : ''
         }
         else
         {

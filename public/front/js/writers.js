@@ -45,7 +45,7 @@ class WritersManager {
 
         if(result.success)
         {
-            LastWriterId = result.data.last_writer_id
+            OFFSET = result.data.length
             document.querySelector('main.writers > .row').innerHTML = result.data.content
             this.gettingWritersLoader.style.display = "none"
             this.getting_writers_working = false
@@ -61,7 +61,7 @@ class WritersManager {
     {
         this.getting_writers_working = true
         this.gettingWritersLoader.style.display = "flex"
-        let url = `/writers/${LastWriterId}/${this.Limit}`
+        let url = `/writers/${OFFSET}/${this.Limit}`
 
         const search = this.search_box.value
         if(search)
@@ -73,7 +73,7 @@ class WritersManager {
 
         if(result.success)
         {
-            LastWriterId = result.data.last_writer_id
+            OFFSET += result.data.length
             this.gettingWritersLoader.insertAdjacentHTML('beforebegin', result.data.content)
             this.gettingWritersLoader.style.display = "none"
             this.getting_writers_working = false

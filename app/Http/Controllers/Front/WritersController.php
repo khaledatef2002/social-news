@@ -15,9 +15,9 @@ class WritersController extends Controller
         return view('front.writers.index', compact('first_writers'));
     }
 
-    public function getMoreWriters(Int $last_writer_id, Int $limit, WritersService $writer_service, Request $request)
+    public function getMoreWriters(Int $offset, Int $limit, WritersService $writer_service, Request $request)
     {
-        $writers = $writer_service->get_writers($last_writer_id, $limit, $request->search ?? null);
+        $writers = $writer_service->get_writers($offset, $limit, $request->search ?? null);
 
         if($writers->count() > 0)
         {

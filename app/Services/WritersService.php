@@ -7,18 +7,16 @@ use App\Models\User;
 
 class WritersService
 {
-    public function get_writers($last_writer_id = null, $limit = 20, $search = null)
+    public function get_writers($offset = 0, $limit = 20, $search = null)
     {
-        $writers = User::selectRaw('users.*, (select count(*) from articles where articles.user_id = users.id) as articles_count')
+        $writers = User::withCount('articles')
             ->where('type', UserType::WRITER->value)
             ->orderByDesc('articles_count')
             ->orderByDesc('id')
             ->when($search, function($query) use ($search) {
                 return $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ["%{$search}%"]);
             })
-            ->when($last_writer_id, function($query) use ($last_writer_id) {
-                return $query->where('id', '<', $last_writer_id);
-            })->limit($limit)->get();
+            ->limit($limit)->offset($offset)->get();
 
         return $writers;
     }
