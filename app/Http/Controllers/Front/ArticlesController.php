@@ -223,7 +223,8 @@ class ArticlesController extends Controller implements HasMiddleware
             return response()->json([
                 'message' => __('response.get-more-articles-success'),
                 'content' => view('components.article-list', compact('articles'))->render(),
-                'length' => $articles->count() >= $limit ? $limit : $articles->count()
+                'length' => $articles->count() >= $limit ? $limit : $articles->count(),
+                'last_article_id' => $articles->last()?->id
             ]);
         }
         else
@@ -242,7 +243,8 @@ class ArticlesController extends Controller implements HasMiddleware
             return response()->json([
                 'message' => __('response.get-more-articles-success'),
                 'content' => view('components.article-summary-list', compact('articles'))->render(),
-                'length' => $articles->count() >= $limit ? $limit : $articles->count()
+                'length' => $articles->count() >= $limit ? $limit : $articles->count(),
+                'last_article_id' => $articles->last()?->id
             ]);
         }
         else
