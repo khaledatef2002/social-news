@@ -116,16 +116,16 @@ class ArticlesManager {
         let url = ``
         if(Type == "article")
         {
-            url = `articles/${LastArticleId}/${this.Limit}`
+            url = `/articles/${LastArticleId}/${this.Limit}`
         }
         else if(Type == "saved")
         {
-            url = `saved-articles/${LastArticleId}/${this.Limit}`
+            url = `/saved-articles/${LastArticleId}/${this.Limit}`
 
         }
         else if (Type == "summary")
         {
-            url = `articles_summary/${LastArticleId}/${this.Limit}`
+            url = `/articles_summary/${LastArticleId}/${this.Limit}`
         }
         else
         {
