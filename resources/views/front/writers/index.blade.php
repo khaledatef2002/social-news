@@ -23,6 +23,6 @@
 @section('js-after')
     <script>
         const lang = document.querySelector('html').getAttribute('lang')
-        let OFFSET = 0
+        let OFFSET = {{ $first_writers->count() }}
     </script>
 @endsection
