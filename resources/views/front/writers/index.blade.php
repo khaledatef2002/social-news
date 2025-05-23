@@ -6,6 +6,13 @@
             <div class="w-100 d-flex justify-content-center mb-3">
                 <h3 class="align-self-start mx-auto d-block"><i class="fas fa-cut fs-4"></i> @lang('front.writers')</h3>
             </div>
+            @if (isset($ad))
+                <div class="ad mb-3 mx-auto">
+                    <a href="{{ $ad->redirect_link }}" target="_blank">
+                        <img src="{{ asset($ad->cover) }}" title="{{  $ad->title }}" alt="{{  $ad->title }}">
+                    </a>
+                </div>
+            @endif
             <div class="px-0 col-xl-4 col-md-5 col-12 position-relative">
                 <input type="text" name="search" placeholder="@lang('front.search')" class="form-control">
                 <i class="fas fa-search position-absolute end-0 me-2" style="top: 12px;"></i>

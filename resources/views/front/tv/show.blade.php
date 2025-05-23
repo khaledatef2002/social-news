@@ -21,6 +21,13 @@
 @endsection
 
 @section('content')
+    @if (isset($ad))
+        <div class="ad mb-3 mx-auto">
+            <a href="{{ $ad->redirect_link }}" target="_blank">
+                <img src="{{ asset($ad->cover) }}" title="{{  $ad->title }}" alt="{{  $ad->title }}">
+            </a>
+        </div>
+    @endif
     <main class="tv_articles py-3 flex-fill d-flex justify-content-center">
         <x-tv-article-list-item :tvArticle="$article" />
     </main>

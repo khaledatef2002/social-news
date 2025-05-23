@@ -75,7 +75,7 @@ class ArticlesController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        //
+        
     }
 
     /**

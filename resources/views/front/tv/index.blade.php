@@ -6,6 +6,13 @@
             <div class="w-100 d-flex justify-content-center mb-3">
                 <h3 class="align-self-start mx-auto d-block"><i class="fas fa-tv fs-4"></i> @lang('front.news-tv')</h3>
             </div>
+            @if (isset($ad))
+                <div class="ad mb-3 mx-auto">
+                    <a href="{{ $ad->redirect_link }}" target="_blank">
+                        <img src="{{ asset($ad->cover) }}" title="{{  $ad->title }}" alt="{{  $ad->title }}">
+                    </a>
+                </div>
+            @endif
             <x-tv-article-list :tvArticles="$first_tv_articles" />
             <div class="getingTvArticlesLoader justify-content-center w-100">
                 <span class="loader"></span>

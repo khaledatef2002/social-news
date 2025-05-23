@@ -123,4 +123,24 @@ return [
     'first_name' => 'الاسم الاول',
     'last_name' => 'الاسم الاخير',
     'message' => 'الرسالة',
+
+    'modules.contact_us' => 'رسائل التواصل',
+
+    'ads' => 'الإعلانات',
+    'modules.ads' => 'الإعلانات',
+    'ads.show' => 'عرض',
+    'ads.edit' => 'تعديل',
+    'ads.delete' => 'حذف',
+    'ads.create' => 'إضافة',
+    'redirect_link' => 'رابط إعادة التوجية',
+    'weight' => 'الوزن',
+    'ads.add' => 'إضافة إعلان',
+    'pages' => 'الصفحات',
+    'articles_categories' => 'تصنيفات المقالات',
+    'media_categories' => 'تصنيفات المرئيات ',
+
+    'about' => 'من نحن',
+    'contact' => 'تواصل معنا',
+    'writers' => 'الكتاب',
+    'summaries' => 'المختصر',
 ];

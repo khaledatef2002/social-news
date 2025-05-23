@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Enum\AdPages;
 use App\Http\Controllers\Controller;
+use App\Services\AdService;
 use App\Services\WritersService;
 use Illuminate\Http\Request;
-use NunoMaduro\Collision\Writer;
 
 class WritersController extends Controller
 {
-    public function index(WritersService $writers_service)
+    public function index(WritersService $writers_service, AdService $ad_service)
     {
         $first_writers = $writers_service->get_writers();
-        return view('front.writers.index', compact('first_writers'));
+        $ad = $ad_service->getByPage(AdPages::Writers->value);
+        return view('front.writers.index', compact('first_writers', 'ad'));
     }
 
     public function getMoreWriters(Int $offset, Int $limit, WritersService $writer_service, Request $request)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AdsController;
 use App\Http\Controllers\Dashboard\ArticlesCategoriesController;
 use App\Http\Controllers\Dashboard\ArticlesController;
 use App\Http\Controllers\Dashboard\ContactUsController;
@@ -33,6 +34,7 @@ Route::prefix(LaravelLocalization::setLocale())
         Route::put('writer-request/{writer_request}/approve', [WriterRequestController::class, 'approve']);
         Route::put('writer-request/{writer_request}/reject', [WriterRequestController::class, 'reject']);
         Route::resource('contact-us', ContactUsController::class);
+        Route::resource('ads', AdsController::class);
     });
 });
 

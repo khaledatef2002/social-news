@@ -2,11 +2,17 @@
 
 @section('content')
     <div class="home-wraper flex-fill d-flex justify-content-between py-4">
-        <aside></aside>
         <main class="articles col-12 d-flex flex-wrap justify-content-center">
             <div class="w-100 d-flex justify-content-center mb-3">
                 <h3 class="align-self-start mx-auto d-block"><i class="far fa-newspaper fs-4"></i> @lang('front.news')</h3>
             </div>
+            @if (isset($ad))
+                <div class="ad mb-3 mx-auto">
+                    <a href="{{ $ad->redirect_link }}" target="_blank">
+                        <img src="{{ asset($ad->cover) }}" title="{{  $ad->title }}" alt="{{  $ad->title }}">
+                    </a>
+                </div>
+            @endif
             <div class="row w-100">
                 <x-article-list :articles="$first_articles" />
                 <div class="getingArticlesLoader justify-content-center w-100">
@@ -14,7 +20,6 @@
                 </div>
             </div>
         </main>
-        <aside></aside>
     </div>
 @endsection
 

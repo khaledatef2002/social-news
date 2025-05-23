@@ -2,6 +2,13 @@
 
 @section('content')
 <main class="py-3 col-12 d-flex flex-column">
+    @if (isset($ad))
+        <div class="ad mb-3 mx-auto">
+            <a href="{{ $ad->redirect_link }}" target="_blank">
+                <img src="{{ asset($ad->cover) }}" title="{{  $ad->title }}" alt="{{  $ad->title }}">
+            </a>
+        </div>
+    @endif
     <div class="w-100 d-flex justify-content-center mb-3">
         <h3 class="align-self-start mx-auto d-block">@lang('front.contact.title')</h3>
     </div>

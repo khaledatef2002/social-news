@@ -168,6 +168,35 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>@lang('dashboard.modules.ads')</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::ads_show->value }}" value="{{ \App\Enum\PermissionsType::ads_show->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::ads_show->value) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::ads_show->value }}">
+                                            @lang('dashboard.ads.show')
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::ads_edit->value }}" value="{{ \App\Enum\PermissionsType::ads_edit->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::ads_edit->value) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::ads_edit->value }}">
+                                            @lang('dashboard.ads.edit')
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::ads_delete->value }}" value="{{ \App\Enum\PermissionsType::ads_delete->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::ads_delete->value) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::ads_delete->value }}">
+                                            @lang('dashboard.ads.delete')
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input name="permission[]" class="form-check-input" type="checkbox" id="{{ \App\Enum\PermissionsType::ads_create->value }}" value="{{ \App\Enum\PermissionsType::ads_create->value }}" {{ $role->hasPermissionTo(\App\Enum\PermissionsType::ads_create->value) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="{{ \App\Enum\PermissionsType::ads_create->value }}">
+                                            @lang('dashboard.ads.create')
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>@lang('dashboard.modules.contact_us')</td>
                                 <td>
                                     <div class="form-check">

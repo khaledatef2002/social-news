@@ -35,6 +35,12 @@ enum PermissionsType: string
     case writer_requests_delete = 'writer_requests_delete';
     case writer_requests_edit = 'writer_requests_edit';
 
+    // ads
+    case ads_show = 'ads_show';
+    case ads_edit = 'ads_edit';
+    case ads_delete = 'ads_delete';
+    case ads_create = 'ads_create';
+
     // users
     case users_show = 'users_show';
     case users_edit = 'users_edit';

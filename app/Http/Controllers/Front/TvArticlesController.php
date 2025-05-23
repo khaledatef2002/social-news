@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Enum\AdPages;
 use App\Http\Controllers\Controller;
 use App\Models\TvArticle;
+use App\Services\AdService;
 use App\Services\TvArticlesService;
 use Illuminate\Http\Request;
 
@@ -12,10 +14,11 @@ class TvArticlesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(TvArticlesService $article_service)
+    public function index(TvArticlesService $article_service, AdService $ad_service)
     {
         $first_tv_articles = $article_service->get_tv_articles();
-        return view('front.tv.index', compact('first_tv_articles'));
+        $ad = $ad_service->getByPage(AdPages::Media->value);
+        return view('front.tv.index', compact('first_tv_articles', 'ad'));
     }
 
     public function getMoreTvArticles(Int $last_tv_article_id, Int $limit, TvArticlesService $article_service)
@@ -57,9 +60,10 @@ class TvArticlesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TvArticle $article)
+    public function show(TvArticle $article, AdService $ad_service)
     {
-        return view('front.tv.show', compact('article'));
+        $ad = $ad_service->getByTvCategory($article->category_id);
+        return view('front.tv.show', compact('article', 'ad'));
     }
 
     /**

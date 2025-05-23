@@ -124,4 +124,22 @@ return [
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
     'message' => 'Message',
+
+    'ads' => 'Ads',
+    'modules.ads' => 'Ads',
+    'ads.show' => 'Show',
+    'ads.edit' => 'Edit',
+    'ads.delete' => 'Delete',
+    'ads.create' => 'Create',
+    'redirect_link' => 'Redirect Url',
+    'weight' => 'Weight',
+    'ads.add' => 'Add Ad',
+    'pages' => 'Pages',
+    'articles_categories' => 'Articles Categories',
+    'media_categories' => 'Media Categories ',
+
+    'about' => 'About Us',
+    'contact' => 'Contact Us',
+    'writers' => 'Writers',
+    'summaries' => 'Summaries',
 ];

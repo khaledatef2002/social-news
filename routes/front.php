@@ -1,5 +1,6 @@
 <?php
 
+use App\Enum\AdPages;
 use App\Http\Controllers\ArticlesImageController;
 use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\ArticlesReactsController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Front\TvArticlesController;
 use App\Http\Controllers\Front\WriterRequestsController;
 use App\Http\Controllers\Front\WritersController;
 use App\Http\Controllers\select2;
+use App\Services\AdService;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -36,7 +38,12 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([ 'localeSessionRedi
         Route::get('profile/{user}/{last_article_id}/{limit}', [ProfileController::class, 'getMoreArticles'])->name('profile.get');
     
         Route::view('/terms&conditions', 'front.terms-and-condition')->name('terms');
-        Route::view('/about-us', 'front.about-us')->name('about');
+
+        Route::get('about-us', function(AdService $ad_service){
+            $ad = $ad_service->getByPage(AdPages::About->value);
+            return view('front.about-us', compact('ad'));
+        })->name('about');
+
         Route::resource('contact-us', ContactUsController::class);
 
         Route::get('/writers', [WritersController::class, 'index'])->name('writers.index');

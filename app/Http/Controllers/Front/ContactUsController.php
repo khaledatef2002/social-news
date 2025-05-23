@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Enum\AdPages;
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
+use App\Services\AdService;
 use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
@@ -11,9 +13,10 @@ class ContactUsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(AdService $ad_service)
     {
-        return view('front.contact-us');
+        $ad = $ad_service->getByPage(AdPages::Contact->value);
+        return view('front.contact-us', compact('ad'));
     }
 
     /**

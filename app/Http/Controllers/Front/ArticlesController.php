@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\ArticleHashtags;
 use App\Models\ArticleImage;
 use App\Models\UserSavedArticle;
+use App\Services\AdService;
 use App\Services\ArticleService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
@@ -112,9 +113,10 @@ class ArticlesController extends Controller implements HasMiddleware
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show(Article $article, AdService $ad_service)
     {
-        return view('front.articles.show', compact('article'));
+        $ad = $ad_service->getByCategory($article->category_id);
+        return view('front.articles.show', compact('article', 'ad'));
     }
 
     /**

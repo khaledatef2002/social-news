@@ -492,3 +492,13 @@ form#edit-profile .user-image-holder
 {
   border: 5px solid #575757;
 }
+
+.ad a
+{
+  display: inline-block;
+}
+.ad a img
+{
+  max-height: 270px;
+  max-width: 100%;
+}
