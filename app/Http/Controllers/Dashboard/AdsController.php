@@ -117,28 +117,37 @@ class AdsController extends Controller
             ]);
         }
 
-        foreach($data['pages'] as $page)
+        if($data['pages'])
         {
-            AdPage::create([
-                'ad_id' => $ads->id,
-                'page' => $page,
-            ]);
+            foreach($data['pages'] as $page)
+            {
+                AdPage::create([
+                    'ad_id' => $ads->id,
+                    'page' => $page,
+                ]);
+            }
         }
 
-        foreach($data['articles_categories'] as $category)
+        if($data['articles_categories'])
         {
-            AdCategory::create([
-                'ad_id' => $ads->id,
-                'category_id' => $category,
-            ]);
+            foreach($data['articles_categories'] as $category)
+            {
+                AdCategory::create([
+                    'ad_id' => $ads->id,
+                    'category_id' => $category,
+                ]);
+            }
         }
 
-        foreach($data['media_categories'] as $category)
+        if($data['media_categories'])
         {
-            AdMediaCategory::create([
-                'ad_id' => $ads->id,
-                'category_id' => $category,
-            ]);
+            foreach($data['media_categories'] as $category)
+            {
+                AdMediaCategory::create([
+                    'ad_id' => $ads->id,
+                    'category_id' => $category,
+                ]);
+            }
         }
 
         return response()->json([
@@ -217,30 +226,39 @@ class AdsController extends Controller
         }
 
         $ad->pages()->delete();
-        foreach($data['pages'] as $page)
+        if($data['pages']) 
         {
-            AdPage::create([
-                'ad_id' => $ad->id,
-                'page' => $page,
-            ]);
+            foreach($data['pages'] as $page)
+            {
+                AdPage::create([
+                    'ad_id' => $ad->id,
+                    'page' => $page,
+                ]);
+            }
         }
 
         $ad->categories()->delete();
-        foreach($data['articles_categories'] as $category)
+        if($data['articles_categories'])
         {
-            AdCategory::create([
-                'ad_id' => $ad->id,
-                'category_id' => $category,
-            ]);
+            foreach($data['articles_categories'] as $category)
+            {
+                AdCategory::create([
+                    'ad_id' => $ad->id,
+                    'category_id' => $category,
+                ]);
+            }
         }
 
         $ad->mediaCategories()->delete();
-        foreach($data['media_categories'] as $category)
+        if($data['media_categories'])
         {
-            AdMediaCategory::create([
-                'ad_id' => $ad->id,
-                'category_id' => $category,
-            ]);
+            foreach($data['media_categories'] as $category)
+            {
+                AdMediaCategory::create([
+                    'ad_id' => $ad->id,
+                    'category_id' => $category,
+                ]);
+            }
         }
 
         return response()->json([

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('image');
+            $table->text('cover');
             $table->string('redirect_link');
             $table->timestamps();
         });
