@@ -117,7 +117,7 @@ class AdsController extends Controller
             ]);
         }
 
-        if($data['pages'])
+        if(isset($data['pages']))
         {
             foreach($data['pages'] as $page)
             {
@@ -128,7 +128,7 @@ class AdsController extends Controller
             }
         }
 
-        if($data['articles_categories'])
+        if(isset($data['articles_categories']))
         {
             foreach($data['articles_categories'] as $category)
             {
@@ -139,7 +139,7 @@ class AdsController extends Controller
             }
         }
 
-        if($data['media_categories'])
+        if(isset($data['media_categories']))
         {
             foreach($data['media_categories'] as $category)
             {
@@ -226,7 +226,7 @@ class AdsController extends Controller
         }
 
         $ad->pages()->delete();
-        if($data['pages']) 
+        if(isset($data['pages'])) 
         {
             foreach($data['pages'] as $page)
             {
@@ -238,7 +238,7 @@ class AdsController extends Controller
         }
 
         $ad->categories()->delete();
-        if($data['articles_categories'])
+        if(isset($data['articles_categories']))
         {
             foreach($data['articles_categories'] as $category)
             {
@@ -250,7 +250,7 @@ class AdsController extends Controller
         }
 
         $ad->mediaCategories()->delete();
-        if($data['media_categories'])
+        if(isset($data['media_categories']))
         {
             foreach($data['media_categories'] as $category)
             {

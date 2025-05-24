@@ -37,7 +37,7 @@
 @endsection
 
 @section('custom-js')
-    <script src="{{ asset('back/js/ads-module.js') }}" type="module"></script>
+    <script src="{{ asset('back/js/ad-module.js') }}" type="module"></script>
     <script>
         var table
         $(document).ready( function () {
