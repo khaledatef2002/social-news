@@ -276,6 +276,6 @@ class AdsController extends Controller
             Storage::disk('public')->delete($ads->image ?? '');
         }
 
-        $ads->delete();
+        $ad->delete();
     }
 }
