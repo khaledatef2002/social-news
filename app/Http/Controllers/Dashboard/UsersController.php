@@ -364,5 +364,9 @@ class UsersController extends Controller implements HasMiddleware
             Storage::disk('public')->delete($user->image ?? '');
         }
         $user->delete();
+
+        return response()->json([
+            'message' => __('response.user-deleted'),
+        ]);
     }
 }

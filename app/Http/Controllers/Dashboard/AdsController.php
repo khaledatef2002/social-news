@@ -277,5 +277,9 @@ class AdsController extends Controller
         }
 
         $ad->delete();
+
+        return response()->json([
+            'message' => __('response.add-deleted'),
+        ]);
     }
 }
