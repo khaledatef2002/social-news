@@ -94,6 +94,10 @@ class AdsController extends Controller
             'articles_categories.*' => ['required', 'exists:article_categories,id'],
             'media_categories' => 'nullable|array',
             'media_categories.*' => ['required', 'exists:tv_article_categories,id'],
+            'is_start_date' => ['required', 'boolean'],
+            'start_date' => $request->is_start_date ? ['required', 'date'] : ['nullable'],
+            'is_end_date' => ['required', 'boolean'],
+            'end_date' => $request->is_end_date ? ['required', 'date'] : ['nullable'],
         ]);
 
         $image = $request->file('cover');
@@ -113,6 +117,10 @@ class AdsController extends Controller
             'title' => $data['title'],
             'cover' => $data['cover'],
             'redirect_link' => $data['redirect_link'],
+            'is_counted' => $data['is_counted'],
+            'max_views' => $data['max_views'],
+            'start_date' => $data['is_start_date'] ? $data['start_date'] : null,
+            'end_date' => $data['is_end_date'] ? $data['end_date'] : null,
         ]);
 
         for($i = 0; $i < $data['weight']; $i++)
@@ -194,7 +202,12 @@ class AdsController extends Controller
             'articles_categories.*' => ['required', 'exists:article_categories,id'],
             'media_categories' => 'nullable|array',
             'media_categories.*' => ['required', 'exists:tv_article_categories,id'],
+            'is_start_date' => ['required', 'boolean'],
+            'start_date' => $request->is_start_date ? ['required', 'date'] : ['nullable'],
+            'is_end_date' => ['required', 'boolean'],
+            'end_date' => $request->is_end_date ? ['required', 'date'] : ['nullable'],
         ]);
+
 
         if($request->file('cover'))
         {
@@ -223,6 +236,8 @@ class AdsController extends Controller
         $ad->redirect_link = $data['redirect_link'];
         $ad->is_counted = $data['is_counted'];
         $ad->max_views = $data['max_views'] ?? 0;
+        $ad->start_date =  $request->is_start_date ? $data['start_date'] : null;
+        $ad->end_date =  $request->is_end_date ? $data['end_date'] : null;
 
         $ad->save();
 

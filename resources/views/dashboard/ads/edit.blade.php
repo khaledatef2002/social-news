@@ -74,6 +74,29 @@
                         <label for="max_views">@lang('dashboard.max_views')</label>
                         <input id="max_views" type="text" class="form-control" name="max_views" value="{{ $ad->max_views }}">
                     </div>
+                    <hr>
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input type="hidden" name="is_start_date" value="0">
+                            <input class="form-check-input" type="checkbox" {{ $ad->start_date ? 'checked' : '' }} value="1" role="switch" id="is_start_date" name="is_start_date">
+                            <label class="form-check-label" for="is_start_date">@lang('dashboard.ads.is_start_date')</label>
+                        </div>
+                    </div>
+                    <div class="mb-3 {{ $ad->start_date ? '' : 'd-none' }}">
+                        <label for="start_date">@lang('dashboard.ads.start_date')</label>
+                        <input type="text" class="form-control flatpickr-input" data-provider="flatpickr" data-date-format="Y-m-d" id="start_date" name="start_date" value="{{ $ad->start_date ? $ad->start_date->format('Y-m-d H:i:s') : '' }}" data-enable-time="" readonly="readonly">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input type="hidden" name="is_end_date" value="0">
+                            <input class="form-check-input" type="checkbox" {{ $ad->end_date ? 'checked' : '' }} value="1" role="switch" id="is_end_date" name="is_end_date">
+                            <label class="form-check-label" for="is_end_date">@lang('dashboard.ads.is_end_date')</label>
+                        </div>
+                    </div>
+                    <div class="mb-3 {{ $ad->end_date ? '' : 'd-none' }}">
+                        <label for="end_date">@lang('dashboard.ads.end_date')</label>
+                        <input type="text" class="form-control flatpickr-input" data-provider="flatpickr" data-date-format="Y-m-d" id="end_date" name="end_date" value="{{ $ad->end_date ? $ad->end_date->format('Y-m-d H:i:s') : '' }}" data-enable-time="" readonly="readonly">
+                    </div>
                 </div>
             </div>
         </div>

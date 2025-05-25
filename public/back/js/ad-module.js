@@ -10,6 +10,12 @@ class AdManager {
 
         document.querySelectorAll("form input[name='is_counted']")
                 .forEach(input => input.addEventListener("change", this.is_counted_switcher.bind(this)))
+
+        document.querySelectorAll("form input[name='is_start_date']")
+                .forEach(input => input.addEventListener("change", this.is_start_date_switcher.bind(this)))
+
+        document.querySelectorAll("form input[name='is_end_date']")
+                .forEach(input => input.addEventListener("change", this.is_end_date_switcher.bind(this)))
     }
 
     async remove(id)
@@ -44,7 +50,27 @@ class AdManager {
         document.querySelector("button[type='submit").removeAttribute("disabled")
     }
 
-    async is_counted_switcher(e) {
+    is_end_date_switcher(e) {
+        const is_end_date = e.target.checked
+        if(is_end_date) {
+            document.querySelector("div:has( > input[name='end_date'])").classList.remove("d-none")
+        } else {
+            document.querySelector("div:has( > input[name='end_date'])").classList.add("d-none")
+            document.querySelector("div:has( > input[name='end_date'])").querySelector("input").value = ""
+        }
+    }
+
+    is_start_date_switcher(e) {
+        const is_start_date = e.target.checked
+        if(is_start_date) {
+            document.querySelector("div:has( > input[name='start_date'])").classList.remove("d-none")
+        } else {
+            document.querySelector("div:has( > input[name='start_date'])").classList.add("d-none")
+            document.querySelector("div:has( > input[name='start_date'])").querySelector("input").value = ""
+        }
+    }
+
+    is_counted_switcher(e) {
         const is_counted = e.target.checked
         if(is_counted) {
             document.querySelector("div:has( > input[name='max_views'])").classList.remove("d-none")

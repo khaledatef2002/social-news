@@ -15,6 +15,11 @@ class AdService
             ->where(function($q){
                 return $q->where('is_counted', false)
                     ->orWhere('max_views', '>', '0');
+            })
+            ->where(function($t_q){
+                $currentDateTime = now()->format('Y-m-d H:i:s');
+                return $t_q->where('start_date', null)->orWhere('start_date', '<=', $currentDateTime)
+                    ->where('end_date', null)->orWhere('end_date', '>=', $currentDateTime);
             });
         })
         ->inRandomOrder()
@@ -43,6 +48,11 @@ class AdService
             ->where(function($q){
                 return $q->where('is_counted', false)
                     ->orWhere('max_views', '>', '0');
+            })
+            ->where(function($t_q){
+                $currentDateTime = now()->format('Y-m-d H:i:s');
+                return $t_q->where('start_date', null)->orWhere('start_date', '<=', $currentDateTime)
+                    ->where('end_date', null)->orWhere('end_date', '>=', $currentDateTime);
             });
         })
         ->inRandomOrder()
@@ -71,6 +81,11 @@ class AdService
             ->where(function($q){
                 return $q->where('is_counted', false)
                     ->orWhere('max_views', '>', '0');
+            })
+            ->where(function($t_q){
+                $currentDateTime = now()->format('Y-m-d H:i:s');
+                return $t_q->where('start_date', null)->orWhere('start_date', '<=', $currentDateTime)
+                    ->where('end_date', null)->orWhere('end_date', '>=', $currentDateTime);
             });
         })
         ->inRandomOrder()
