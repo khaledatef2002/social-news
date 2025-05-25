@@ -27,6 +27,8 @@
                     <th>@lang('dashboard.cover')</th>
                     <th>@lang('dashboard.redirect_link')</th>
                     <th>@lang('dashboard.weight')</th>
+                    <th>@lang('dashboard.max_views')</th>
+                    <th>@lang('dashboard.current_views')</th>
                     <th>@lang('dashboard.action')</th>
                 </tr>
             </thead>
@@ -51,6 +53,8 @@
                             { data: 'cover', name: 'cover' },
                             { data: 'redirect_link', name: 'redirect_link' },
                             { data: 'weight', name: 'weight' },
+                            { data: 'max_views', name: 'max_views' },
+                            { data: 'current_views', name: 'current_views' },
                             { data: 'action', name: 'action'}
                         ]
             });

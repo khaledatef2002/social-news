@@ -59,6 +59,9 @@ class AdsController extends Controller
             ->editColumn('weight', function(Ad $ad){
                 return $ad->weight();
             })
+            ->editColumn('max_views', function(Ad $ad){
+                return $ad->is_counted ? $ad->max_views : __('dashboard.ads.unlimited');
+            })
             ->rawColumns(['cover', 'redirect_link', 'action'])
             ->make(true);
         }
@@ -83,6 +86,8 @@ class AdsController extends Controller
             'title' => 'required',
             'redirect_link' => 'required|url',
             'weight' => 'required|numeric|in:1,2,3,4,5',
+            'is_counted' => 'required|boolean',
+            'max_views' => 'required_if:is_counted,true|numeric',
             'pages' => 'nullable|array',
             'pages.*' => ['required', Rule::in(AdPages::list())],
             'articles_categories' => 'nullable|array',
@@ -181,6 +186,8 @@ class AdsController extends Controller
             'title' => 'required',
             'redirect_link' => 'required|url',
             'weight' => 'required|numeric|in:1,2,3,4,5',
+            'is_counted' => 'required|boolean',
+            'max_views' => 'required_if:is_counted,true|numeric',
             'pages' => 'nullable|array',
             'pages.*' => ['required', Rule::in(AdPages::list())],
             'articles_categories' => 'nullable|array',
@@ -214,6 +221,8 @@ class AdsController extends Controller
 
         $ad->title = $data['title'];
         $ad->redirect_link = $data['redirect_link'];
+        $ad->is_counted = $data['is_counted'];
+        $ad->max_views = $data['max_views'] ?? 0;
 
         $ad->save();
 
@@ -262,7 +271,7 @@ class AdsController extends Controller
         }
 
         return response()->json([
-            'message' => __('response.add-created'),
+            'message' => __('response.add-updated'),
         ]);
     }
 

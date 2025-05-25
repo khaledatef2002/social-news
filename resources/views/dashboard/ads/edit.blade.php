@@ -6,11 +6,11 @@
 
 <div class="card">
     <div class="card-body">
-        <div class="row g-2">
-            <div class="col-sm-auto ms-auto">
+        <div class="d-flex justify-content-between align-items-center g-2">
+            <p class="mb-0">@lang('dashboard.viewd'): {{ $ad->current_views }}</p>
+            <div>
                 <a href="{{ route('dashboard.ads.index') }}"><button class="btn btn-light"><i class="ri-arrow-go-forward-fill me-1 align-bottom"></i> @lang('dashboard.return')</button></a>
             </div>
-            <!--end col-->
         </div>
         <!--end row-->
     </div>
@@ -62,6 +62,17 @@
                             <option value="4" {{ $ad->weight() == 4 ? 'selected':'' }}>4</option>
                             <option value="5" {{ $ad->weight() == 5 ? 'selected':'' }}>5</option>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input type="hidden" name="is_counted" value="0">
+                            <input class="form-check-input" type="checkbox" {{ $ad->is_counted ? 'checked' : '' }} value="1" role="switch" id="is_counted" name="is_counted">
+                            <label class="form-check-label" for="is_counted">@lang('dashboard.ads.is_counted')</label>
+                        </div>
+                    </div>
+                    <div class="mb-3 {{ $ad->is_counted ? '' : 'd-none' }}">
+                        <label for="max_views">@lang('dashboard.max_views')</label>
+                        <input id="max_views" type="text" class="form-control" name="max_views" value="{{ $ad->max_views }}">
                     </div>
                 </div>
             </div>

@@ -7,6 +7,9 @@ class AdManager {
         document.querySelector("form#edit-ad-form")?.addEventListener("submit", this.edit.bind(this))
         
         RemoveManager.addListener(this.remove.bind(this))
+
+        document.querySelectorAll("form input[name='is_counted']")
+                .forEach(input => input.addEventListener("change", this.is_counted_switcher.bind(this)))
     }
 
     async remove(id)
@@ -39,6 +42,15 @@ class AdManager {
             this.show_error(response.message)
         }
         document.querySelector("button[type='submit").removeAttribute("disabled")
+    }
+
+    async is_counted_switcher(e) {
+        const is_counted = e.target.checked
+        if(is_counted) {
+            document.querySelector("div:has( > input[name='max_views'])").classList.remove("d-none")
+        } else {
+            document.querySelector("div:has( > input[name='max_views'])").classList.add("d-none")
+        }
     }
 
     async edit(e) {
