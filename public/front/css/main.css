@@ -502,3 +502,8 @@ form#edit-profile .user-image-holder
   max-height: 170px;
   max-width: 100%;
 }
+
+.article-content img
+{
+  max-width:100%;
+}
